@@ -7,6 +7,7 @@ public class MaleCustomization : MonoBehaviour {
     public int skin;
     public int materialID;
     public Material[] materials;
+    bool on;
     Renderer rend;
 
 	// Use this for initialization
@@ -21,6 +22,9 @@ public class MaleCustomization : MonoBehaviour {
 
     //Change the hair color
    public void ChangeHair (int i) {
+        if (!on) {
+            return;
+        }
         switch (i) {
             case 0:
                 if(hair == 0) {
@@ -44,6 +48,9 @@ public class MaleCustomization : MonoBehaviour {
 
     //Change the skin color
    public void ChangeSkin (int i) {
+        if (!on) {
+            return;
+        }
         switch (i) {
             case 0:
                 if(skin == 0) {
@@ -183,5 +190,12 @@ public class MaleCustomization : MonoBehaviour {
     void SetMaterial () {
         rend = transform.GetComponent<Renderer>();
         rend.material = materials[materialID];
+    }
+
+    public void SetOn () {
+        on = true;
+    }
+    public void SetOff () {
+        on = false;
     }
 }

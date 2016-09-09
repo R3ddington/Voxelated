@@ -7,6 +7,13 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     public List<string> textList = new List<string>();
     public GameObject textField;
     public GameObject chatBar;
+    public GameObject mainCharCustomizer;
+    public GameObject male;
+    public GameObject female;
+    public GameObject maleS;
+    public GameObject femaleS;
+    public GameObject characterLights;
+    public GameObject oldman;
     int chatInt;
     bool spaceAble;
     // Use this for initialization
@@ -40,6 +47,30 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
                 chatInt++;
                 spaceAble = true;
                 break;
+            case "WaitForCustom":
+                oldman.SetActive(false);
+                male.SetActive(true);
+                maleS.GetComponent<MaleCustomization>().SetOn();
+                mainCharCustomizer.SetActive(true);
+                characterLights.SetActive(true);
+                break;
+        }
+    }
+
+   public void ChangeGender (int i) {
+        switch (i) {
+            case 0:
+                female.SetActive(false);
+                male.SetActive(true);
+                maleS.GetComponent<MaleCustomization>().SetOn();
+                femaleS.GetComponent<MaleCustomization>().SetOff();
+                break;
+            case 1:
+                maleS.GetComponent<MaleCustomization>().SetOff();
+                femaleS.GetComponent<MaleCustomization>().SetOn();
+                male.SetActive(false);
+                female.SetActive(true);
+                break;
         }
     }
 
@@ -48,14 +79,26 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
         StartCoroutine(StartWaitTimer(2, "WaitForText"));
     }
 
+    void LightsOff () {
+        spotlights.SetTrigger("Off");
+    }
+
+    public void SpaceToTrue () {
+        chatInt++;
+        spaceAble = true;
+    }
+
     void ChatBarButton (int i) {
         switch (i) {
             case 1:
                 textField.GetComponent<TextTyper>().RecieveText(textList[chatInt], "0" + chatInt.ToString());
-                spaceAble = false;
+                //   spaceAble = false;
+                chatInt++;
                 break;
             case 2:
-
+                chatBar.SetActive(false);
+                LightsOff();
+                StartCoroutine(StartWaitTimer(2, "WaitForCustom"));
                 break;
         }
     }
