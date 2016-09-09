@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class OpeningCutSceneOldMan : MonoBehaviour {
     public Animator spotlights;
-	// Use this for initialization
-	void Start () {
+    public List<string> textList = new List<string>();
+    public GameObject textField;
+    public GameObject chatBar;
+    // Use this for initialization
+    void Start () {
         StartCoroutine(StartWaitTimer(3, "WaitOnStart"));
     }
 	
@@ -21,7 +25,8 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
                 print("Turned Lights On");
                 break;
             case "WaitForText":
-
+                chatBar.SetActive(true);
+                textField.GetComponent<TextTyper>().RecieveText(textList[0], "00");
                 break;
         }
     }
