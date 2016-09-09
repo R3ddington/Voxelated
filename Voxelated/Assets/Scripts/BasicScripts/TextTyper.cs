@@ -7,6 +7,7 @@ public class TextTyper : MonoBehaviour {
     //public List<string> textList = new List<string>();
     string handleString;
     public Text textField;
+    public GameObject arrow;
     bool busy;
     /*
 	// Use this for initialization
@@ -22,8 +23,11 @@ public class TextTyper : MonoBehaviour {
 
     public void RecieveText (string s, string id) {
         if (!busy) {
+            textField.text = "";
+            handleString = "";
             ShowText(s);
             busy = true;
+            arrow.SetActive(false);
         }
         else {
             print("ERROR, received a string while being busy, string id = " + id);
@@ -35,14 +39,20 @@ public class TextTyper : MonoBehaviour {
         textField.text = handleString;
         s = s.Remove(0, 1);
         if (s.Length != 0) {
-            StartCoroutine(ChatDelay(s));
+            if (!(s == " ")) {
+                StartCoroutine(ChatDelay(s));
+            }
+            else {
+                ShowText(s);
+            }
         }
         else {
+            arrow.SetActive(true);
             busy = false;
         }
     }
     IEnumerator ChatDelay (string s) {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.04f);
         ShowText(s);
     }
 }

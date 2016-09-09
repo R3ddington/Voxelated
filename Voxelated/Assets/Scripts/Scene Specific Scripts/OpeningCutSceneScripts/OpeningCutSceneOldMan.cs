@@ -7,6 +7,8 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     public List<string> textList = new List<string>();
     public GameObject textField;
     public GameObject chatBar;
+    int chatInt;
+    bool spaceAble;
     // Use this for initialization
     void Start () {
         StartCoroutine(StartWaitTimer(3, "WaitOnStart"));
@@ -14,8 +16,16 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        ButtonInput();
 	}
+
+    void ButtonInput () {
+        if (Input.GetButtonDown("Jump")) {
+            if (spaceAble) {
+                ChatBarButton(chatInt);
+            }
+        }
+    }
 
     IEnumerator StartWaitTimer (int i, string s) {
         yield return new WaitForSeconds(i);
@@ -27,6 +37,8 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
             case "WaitForText":
                 chatBar.SetActive(true);
                 textField.GetComponent<TextTyper>().RecieveText(textList[0], "00");
+                chatInt++;
+                spaceAble = true;
                 break;
         }
     }
@@ -38,8 +50,12 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
 
     void ChatBarButton (int i) {
         switch (i) {
-            case 0:
-                textField.GetComponent<TextTyper>().RecieveText(textList[1], "01");
+            case 1:
+                textField.GetComponent<TextTyper>().RecieveText(textList[chatInt], "0" + chatInt.ToString());
+                spaceAble = false;
+                break;
+            case 2:
+
                 break;
         }
     }
