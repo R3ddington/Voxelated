@@ -35,4 +35,12 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
         spotlights.SetTrigger("On");
         StartCoroutine(StartWaitTimer(2, "WaitForText"));
     }
+
+    void ChatBarButton (int i) {
+        switch (i) {
+            case 0:
+                textField.GetComponent<TextTyper>().RecieveText(textList[1], "01");
+                break;
+        }
+    }
 }
