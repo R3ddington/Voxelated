@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class OpeningCutSceneOldMan : MonoBehaviour {
     public Animator spotlights;
@@ -8,6 +9,7 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     public GameObject textField;
     public GameObject chatBar;
     public GameObject mainCharCustomizer;
+    public GameObject friendCustomizer;
     public GameObject male;
     public GameObject female;
     public GameObject maleS;
@@ -16,6 +18,21 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     public GameObject oldman;
     int chatInt;
     bool spaceAble;
+    string playerName;
+    string friendName;
+    bool isFemale;
+    public Text pN;
+    public Text fN;
+    public GameObject[] namePages; //0 = pNamePage, 1 = fNamePage
+    public GameObject confirmPage;
+    public Text confirmMessage;
+    public Text friendTell;
+    public GameObject friendTellPage;
+    bool fNamed;
+    bool lock001;
+    string himOrHer;
+
+
     // Use this for initialization
     void Start () {
         StartCoroutine(StartWaitTimer(3, "WaitOnStart"));
@@ -48,11 +65,16 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
                 spaceAble = true;
                 break;
             case "WaitForCustom":
-                oldman.SetActive(false);
-                male.SetActive(true);
-                maleS.GetComponent<MaleCustomization>().SetOn();
-                mainCharCustomizer.SetActive(true);
-                characterLights.SetActive(true);
+                if (!lock001) {
+                    oldman.SetActive(false);
+                    male.SetActive(true);
+                    isFemale = false;
+                    maleS.GetComponent<MaleCustomization>().SetOn();
+                    mainCharCustomizer.SetActive(true);
+                    characterLights.SetActive(true);
+                    print("actived player customizer");
+                    lock001 = true;
+                }
                 break;
         }
     }
@@ -64,12 +86,14 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
                 male.SetActive(true);
                 maleS.GetComponent<MaleCustomization>().SetOn();
                 femaleS.GetComponent<MaleCustomization>().SetOff();
+                isFemale = false;
                 break;
             case 1:
                 maleS.GetComponent<MaleCustomization>().SetOff();
                 femaleS.GetComponent<MaleCustomization>().SetOn();
                 male.SetActive(false);
                 female.SetActive(true);
+                isFemale = true;
                 break;
         }
     }
@@ -88,6 +112,64 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
         spaceAble = true;
     }
 
+    public void FinishPlayer () {
+        mainCharCustomizer.SetActive(false);
+        namePages[0].SetActive(true);
+    }
+
+    public void FinishFriend () {
+        friendCustomizer.SetActive(false);
+        namePages[1].SetActive(true);
+        fNamed = true;
+    }
+
+    public void PlayerName () {
+        playerName = pN.text.ToString();
+        if(!(playerName == "" || playerName == " ")) {
+            namePages[0].SetActive(false);
+            confirmPage.SetActive(true);
+            confirmMessage.text = "So your name is " + playerName + "?";
+        }
+    }
+
+    public void FriendName () {
+        friendName = fN.text.ToString();
+        if (!(playerName == "" || playerName == " ")) {
+            namePages[1].SetActive(false);
+            confirmPage.SetActive(true);
+            confirmMessage.text = "Your friends name is " + friendName + "?";
+        }
+    }
+
+    public void ConfirmNames (int i) {
+        confirmPage.SetActive(false);
+        if (fNamed) {
+            i += 2;
+        }
+        switch (i) {
+            case 0:
+                namePages[0].SetActive(true);
+                break;
+            case 1:
+                friendTellPage.SetActive(true);
+                if (isFemale) {
+                    himOrHer = "him";
+                }
+                else {
+                    himOrHer = "her";
+                }
+                friendTell.text = "I heard you have a friend, Please tell me about " + himOrHer;
+                spaceAble = true;
+                break;
+            case 2:
+                namePages[1].SetActive(true);
+                break;
+            case 3:
+                //Finish
+                break;
+        }
+    }
+
     void ChatBarButton (int i) {
         switch (i) {
             case 1:
@@ -99,6 +181,25 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
                 chatBar.SetActive(false);
                 LightsOff();
                 StartCoroutine(StartWaitTimer(2, "WaitForCustom"));
+                spaceAble = false;
+                chatInt++;
+                break;
+            case 3:
+                friendCustomizer.SetActive(true);
+                friendTellPage.SetActive(false);
+                if (isFemale) {
+                    male.SetActive(true);
+                    female.SetActive(false);
+                    maleS.GetComponent<MaleCustomization>().SetOn();
+                    femaleS.GetComponent<MaleCustomization>().SetOff();
+                }
+                else {
+                    female.SetActive(true);
+                    male.SetActive(false);
+                    maleS.GetComponent<MaleCustomization>().SetOff();
+                    femaleS.GetComponent<MaleCustomization>().SetOn();
+                }
+                spaceAble = false;
                 break;
         }
     }
