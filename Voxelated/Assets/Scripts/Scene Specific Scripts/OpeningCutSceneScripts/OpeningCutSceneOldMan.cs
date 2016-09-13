@@ -30,7 +30,11 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     public GameObject friendTellPage;
     bool fNamed;
     bool lock001;
+    bool lock002;
     string himOrHer;
+    public GameObject playerInfo;
+    public string playerMaterial;
+    public string friendMaterial;
 
 
     // Use this for initialization
@@ -113,11 +117,23 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     }
 
     public void FinishPlayer () {
+        if (isFemale) {
+            femaleS.GetComponent<MaleCustomization>().SendID();
+        }
+        else {
+            maleS.GetComponent<MaleCustomization>().SendID();
+        }
         mainCharCustomizer.SetActive(false);
         namePages[0].SetActive(true);
     }
 
     public void FinishFriend () {
+        if (isFemale) {
+            maleS.GetComponent<MaleCustomization>().SendID();
+        }
+        else {
+            femaleS.GetComponent<MaleCustomization>().SendID();
+        }
         friendCustomizer.SetActive(false);
         namePages[1].SetActive(true);
         fNamed = true;
@@ -165,7 +181,7 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
                 namePages[1].SetActive(true);
                 break;
             case 3:
-                //Finish
+                PrepareInfo();
                 break;
         }
     }
@@ -202,5 +218,34 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
                 spaceAble = false;
                 break;
         }
+    }
+
+    public void RetrieveID (string s) {
+        if (!lock002) {
+            playerMaterial = s;
+            lock002 = true;
+        }
+        else {
+            friendMaterial = s;
+        }
+    }
+
+    void PrepareInfo () {
+        print("Sending Player info");
+        SendPlayerInfo(0, playerName);
+        if (isFemale) {
+            SendPlayerInfo(1, "Yes");
+        }
+        else {
+            SendPlayerInfo(1, "No");
+        }
+        SendPlayerInfo(2, friendName);
+        SendPlayerInfo(3, playerMaterial);
+        SendPlayerInfo(4, friendMaterial);
+    }
+
+    void SendPlayerInfo (int i, string s) {
+        print(i.ToString() + " " + s);
+        playerInfo.GetComponent<PlayerInfo>().SetUp(i, s);
     }
 }

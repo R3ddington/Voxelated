@@ -8,8 +8,10 @@ public class MaleCustomization : MonoBehaviour {
     public int materialID;
     public Material[] materials;
     bool on;
+    public GameObject cutScene;
     Renderer rend;
 
+    /*
 	// Use this for initialization
 	void Start () {
 	
@@ -19,6 +21,7 @@ public class MaleCustomization : MonoBehaviour {
 	void Update () {
 	
 	}
+    */
 
     //Change the hair color
    public void ChangeHair (int i) {
@@ -197,5 +200,9 @@ public class MaleCustomization : MonoBehaviour {
     }
     public void SetOff () {
         on = false;
+    }
+
+    public void SendID () {  
+        cutScene.GetComponent<OpeningCutSceneOldMan>().RetrieveID(materialID.ToString());
     }
 }
