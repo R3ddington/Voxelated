@@ -7,6 +7,7 @@
 		_EmissionTex("EmissionTexture", 2D) = "white" {}
 		_Emission("Emission", Color) = (1,0,0,1)
 		_EmissionIntensity("EmissionIntensity", Range(0,1)) = 0.0
+		_NormalMap("Normal", 2D) = "bump" {}
 	}
 	SubShader {
 		Tags { "RenderType"="Opaque" }
@@ -21,10 +22,12 @@
 
 		sampler2D _MainTex;
 		sampler2D _EmissionTex;
+		sampler2D _NormalMap;
 
 		struct Input {
 			float2 uv_MainTex;
 			float2 uv_EmissionTex;
+			float2 uv_NormalMap;
 		};
 
 		half _Glossiness;
@@ -44,6 +47,9 @@
 			fixed4 e = tex2D (_EmissionTex, IN.uv_EmissionTex) * _Emission;
 			o.Emission = e.rgb * _EmissionIntensity;
 			o.Alpha = c.a;
+
+			fixed3 n = UnpackNormal(tex2D(_NormalMap, IN.uv_NormalMap));
+			o.Normal = n;
 		}
 		ENDCG
 	}
