@@ -8,6 +8,9 @@
 		_Emission("Emission", Color) = (1,0,0,1)
 		_EmissionIntensity("EmissionIntensity", Range(0,1)) = 0.0
 		_NormalMap("Normal", 2D) = "bump" {}
+		_NormalMap2("Normal2", 2D) = "bump" {}
+		_NormalIntensity("NormalIntensity", Range(0,1)) = 0.0
+		_Normal2Intensity("Normal2Intensity", Range(0,1)) = 0.0
 	}
 	SubShader {
 		Tags { "RenderType"="Opaque" }
@@ -23,11 +26,13 @@
 		sampler2D _MainTex;
 		sampler2D _EmissionTex;
 		sampler2D _NormalMap;
+		sampler2D _NormalMap2;
 
 		struct Input {
 			float2 uv_MainTex;
 			float2 uv_EmissionTex;
 			float2 uv_NormalMap;
+			float2 uv_NormalMap2;
 		};
 
 		half _Glossiness;
@@ -35,6 +40,8 @@
 		fixed4 _Color;
 		fixed4 _Emission;
 		half _EmissionIntensity;
+		half _NormalIntensity;
+		half _Normal2Intensity;
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
@@ -48,8 +55,9 @@
 			o.Emission = e.rgb * _EmissionIntensity;
 			o.Alpha = c.a;
 
-			fixed3 n = UnpackNormal(tex2D(_NormalMap, IN.uv_NormalMap));
-			o.Normal = n;
+			fixed3 n = UnpackNormal(tex2D(_NormalMap, IN.uv_NormalMap)) * _NormalIntensity;
+			fixed3 n2 = UnpackNormal(tex2D(_NormalMap2, IN.uv_NormalMap2)) * _Normal2Intensity;
+			o.Normal = n + n2;
 		}
 		ENDCG
 	}
