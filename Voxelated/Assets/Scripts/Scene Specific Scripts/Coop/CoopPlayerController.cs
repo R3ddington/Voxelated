@@ -6,7 +6,7 @@ public class CoopPlayerController : MonoBehaviour {
     public GameObject player;
     public Animator anim;
     public int health;
-    public float speed;
+    public int[] speed; //0 = using speed, 1 = normal speed, 2 = sprint speed
     public bool isPlayer1;
     string direction;
     public Vector3 upRot;
@@ -33,6 +33,17 @@ public class CoopPlayerController : MonoBehaviour {
             {
                 MoveOff();
             }
+            if (Input.GetButtonDown("LShift"))
+            {
+                //do sprint speed
+                speed[0] = speed[2];
+                anim.SetBool("Run",true);
+            }
+            if (Input.GetButtonUp("LShift"))
+            {
+                speed[0] = speed[1];
+                anim.SetBool("Run", false);
+            }
         }
         else
         {
@@ -43,6 +54,16 @@ public class CoopPlayerController : MonoBehaviour {
             else
             {
                 MoveOff();
+            }
+            if (Input.GetButtonDown("RShift"))
+            {
+                speed[0] = speed[2];
+                anim.SetBool("Run", true);
+            }
+            if (Input.GetButtonUp("RShift"))
+            {
+                speed[0] = speed[1];
+                anim.SetBool("Run", false);
             }
         }
     }
@@ -56,7 +77,7 @@ public class CoopPlayerController : MonoBehaviour {
     }
 
     void Movement () {
-        transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed * Time.deltaTime);
+        transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed[0] * Time.deltaTime);
         DirectionCheck();
         if (anim.GetBool("Walk") == false)
         {
@@ -65,7 +86,7 @@ public class CoopPlayerController : MonoBehaviour {
     }
     void Movement2 ()
     {
-        transform.Translate(new Vector3(Input.GetAxis("Horizontal2"), 0, Input.GetAxis("Vertical2")) * speed * Time.deltaTime);
+        transform.Translate(new Vector3(Input.GetAxis("Horizontal2"), 0, Input.GetAxis("Vertical2")) * speed[0] * Time.deltaTime);
         DirectionCheck2();
         if (anim.GetBool("Walk") == false)
         {
