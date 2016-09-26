@@ -44,6 +44,10 @@ public class CoopPlayerController : MonoBehaviour {
                 speed[0] = speed[1];
                 anim.SetBool("Run", false);
             }
+            if (Input.GetButtonDown("Q"))
+            {
+                anim.SetTrigger("Slash");
+            }
         }
         else
         {
@@ -64,6 +68,10 @@ public class CoopPlayerController : MonoBehaviour {
             {
                 speed[0] = speed[1];
                 anim.SetBool("Run", false);
+            }
+            if (Input.GetButtonDown("Fire1"))
+            {
+                anim.SetTrigger("Slash");
             }
         }
     }
