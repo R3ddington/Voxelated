@@ -11,6 +11,7 @@ public class Strypu : MonoBehaviour {
     public bool[] active;
     float distance;
     bool cooling;
+    public GameObject[] handHitBox;
 	// Use this for initialization
 	void Start () {
         Targeting();
@@ -45,11 +46,30 @@ public class Strypu : MonoBehaviour {
 
     void Targeting()
     {
+        /*
         if (!active[0])
         {
             target = turrets[0].transform.position;
             target.y = transform.position.y;
         }
+        */
+        if (!(turrets[0] == null))
+        {
+            TargetTurret(0);
+        }
+        else
+        {
+            if (!(turrets[1] == null))
+            {
+                TargetTurret(1);
+            }
+        }
+    }
+
+    void TargetTurret(int i)
+    {
+        target = turrets[i].transform.position;
+        target.y = transform.position.y;
     }
 
     void Moving()
@@ -60,7 +80,13 @@ public class Strypu : MonoBehaviour {
 
     IEnumerator Cooldown()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(1);
+        handHitBox[0].SetActive(true);
+        handHitBox[1].SetActive(true);
+        yield return new WaitForSeconds(3);
         cooling = false;
+        handHitBox[0].SetActive(false);
+        handHitBox[1].SetActive(false);
+        Targeting();
     }
 }
