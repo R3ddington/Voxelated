@@ -12,6 +12,8 @@ public class Strypu : MonoBehaviour {
     float distance;
     bool cooling;
     public GameObject[] handHitBox;
+    public int health;
+    bool dead;
 	// Use this for initialization
 	void Start () {
         Targeting();
@@ -19,27 +21,30 @@ public class Strypu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        distance = Vector3.Distance(target, transform.position);
-        if(distance > 5)
+        if (!dead)
         {
-            Moving();
-            if(anim.GetBool("Walk") == false)
+            distance = Vector3.Distance(target, transform.position);
+            if (distance > 5)
             {
-                anim.SetBool("Walk", true);
+                Moving();
+                if (anim.GetBool("Walk") == false)
+                {
+                    anim.SetBool("Walk", true);
+                }
             }
-        }
-        else
-        {
-            if (anim.GetBool("Walk"))
+            else
             {
-                anim.SetBool("Walk", false);
-            }
-            if (!cooling)
-            {
-                //Do damage
-                anim.SetTrigger("Attack");
-                cooling = true;
-                StartCoroutine(Cooldown());
+                if (anim.GetBool("Walk"))
+                {
+                    anim.SetBool("Walk", false);
+                }
+                if (!cooling)
+                {
+                    //Do damage
+                    anim.SetTrigger("Attack");
+                    cooling = true;
+                    StartCoroutine(Cooldown());
+                }
             }
         }
 	}
@@ -88,5 +93,17 @@ public class Strypu : MonoBehaviour {
         handHitBox[0].SetActive(false);
         handHitBox[1].SetActive(false);
         Targeting();
+    }
+
+    public void Damage (int i)
+    {
+        health -= i;
+        if(health <= 0)
+        {
+            dead = true;
+            anim.SetTrigger("Dead");
+            //Give player Qubits
+            Destroy(gameObject, 5f);
+        }
     }
 }
