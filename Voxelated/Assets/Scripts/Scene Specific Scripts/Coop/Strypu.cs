@@ -14,40 +14,70 @@ public class Strypu : MonoBehaviour {
     public GameObject[] handHitBox;
     public int health;
     bool dead;
+    public GameObject databank;
+    public int lane;
+    bool prepared;
 	// Use this for initialization
 	void Start () {
-        Targeting();
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (!dead)
+        if (prepared)
         {
-            distance = Vector3.Distance(target, transform.position);
-            if (distance > 5)
+            if (!dead)
             {
-                Moving();
-                if (anim.GetBool("Walk") == false)
+                distance = Vector3.Distance(target, transform.position);
+                if (distance > 7)
                 {
-                    anim.SetBool("Walk", true);
+                    Moving();
+                    if (anim.GetBool("Walk") == false)
+                    {
+                        anim.SetBool("Walk", true);
+                    }
                 }
-            }
-            else
-            {
-                if (anim.GetBool("Walk"))
+                else
                 {
-                    anim.SetBool("Walk", false);
-                }
-                if (!cooling)
-                {
-                    //Do damage
-                    anim.SetTrigger("Attack");
-                    cooling = true;
-                    StartCoroutine(Cooldown());
+                    if (anim.GetBool("Walk"))
+                    {
+                        anim.SetBool("Walk", false);
+                    }
+                    if (!cooling)
+                    {
+                        //Do damage
+                        anim.SetTrigger("Attack");
+                        cooling = true;
+                        StartCoroutine(Cooldown());
+                    }
                 }
             }
         }
 	}
+
+    public void SetLane(int i)
+    {
+        lane = i;
+        if(databank == null)
+        {
+            databank = GameObject.FindGameObjectWithTag("Databank");
+        }
+        databank.GetComponent<CoopDataHolder>().GetRequest(lane, gameObject);
+    }
+
+    public void CustomStart()
+    {
+        Targeting();
+    }
+
+    public void GainInfo (GameObject turret1, GameObject turret2, GameObject nexus)
+    {
+        turrets[0] = turret1;
+        turrets[1] = turret2;
+        turrets[2] = nexus;
+        CustomStart();
+        prepared = true;
+    }
 
     void Targeting()
     {
