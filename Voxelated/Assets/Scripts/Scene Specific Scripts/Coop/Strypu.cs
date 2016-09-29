@@ -98,6 +98,10 @@ public class Strypu : MonoBehaviour {
             {
                 TargetTurret(1);
             }
+            else
+            {
+                TargetTurret(2);
+            }
         }
     }
 

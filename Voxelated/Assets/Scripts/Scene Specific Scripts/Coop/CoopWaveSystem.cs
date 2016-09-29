@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class CoopWaveSystem : MonoBehaviour {
     int wave;
     public GameObject[] spawnPoints;
     public GameObject[] enemies; //0 = Strypu 
+    public Text waveCount;
 	// Use this for initialization
 	void Start () {
         Waves(0);
@@ -34,11 +36,11 @@ public class CoopWaveSystem : MonoBehaviour {
                 StartCoroutine(WaveTimer(15));
                 break;
             case 3:
-                PrepareStrypu(4, 1);
+                PrepareStrypu(3, 1);
                 StartCoroutine(WaveTimer(20));
                 break;
             case 4:
-                PrepareStrypu(6, 1);
+                PrepareStrypu(4, 1);
                 StartCoroutine(WaveTimer(40));
                 break;
         }
@@ -85,6 +87,7 @@ public class CoopWaveSystem : MonoBehaviour {
     {
         yield return new WaitForSeconds(i);
         wave++;
+        waveCount.text = wave.ToString();
         Waves(wave);
     }
 }
