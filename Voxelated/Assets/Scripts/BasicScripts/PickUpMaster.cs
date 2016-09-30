@@ -9,17 +9,7 @@ public class PickUpMaster : MonoBehaviour {
     public List<Transform> healthSpawns = new List<Transform>();
     public GameObject healthPrefab;
 
-	// Use this for initialization
-	void Start () {
-        Health();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-    void Health () {
+    public void Health () {
         for(int i = 0; i < healthSpawns.Count; i++) {
             // HealthPickUp health = new HealthPickUp(healthValue, healthSpawns[i]);
             GameObject newHealth = Instantiate(healthPrefab, healthSpawns[i].position, Quaternion.identity) as GameObject;

@@ -9,6 +9,7 @@ public class CoopWaveSystem : MonoBehaviour {
     public Text waveCount;
     int qubits;
     public Text qubitCount;
+    public GameObject pickup;
     // Use this for initialization
     void Start() {
         Waves(0);
@@ -39,6 +40,7 @@ public class CoopWaveSystem : MonoBehaviour {
                 break;
             case 3:
                 PrepareStrypu(3, 1);
+                pickup.GetComponent<PickUpMaster>().Health();
                 StartCoroutine(WaveTimer(20));
                 break;
             case 4:

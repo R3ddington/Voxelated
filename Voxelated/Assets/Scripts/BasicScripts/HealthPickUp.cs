@@ -18,6 +18,7 @@ public class HealthPickUp : MonoBehaviour {
         if(c.transform.tag == "Player")
         {
             c.transform.gameObject.GetComponent<CoopPlayerController>().AddHealth(health);
+            Destroy(gameObject);
         }
     }
 }
