@@ -11,6 +11,7 @@ public class CoopPlayerController : MonoBehaviour {
     string direction;
     public Vector3 upRot;
     public GameObject katana;
+    public int shield;
 	// Use this for initialization
 	void Start () {
 	
@@ -50,6 +51,11 @@ public class CoopPlayerController : MonoBehaviour {
                 katana.GetComponent<KatanaScript>().SetOn();
                 StartCoroutine(KatanaCooldown());
             }
+            if (Input.GetButtonDown("E")){
+                anim.SetTrigger("Spin");
+                katana.GetComponent<KatanaScript>().SetOn();
+                StartCoroutine(KatanaCooldown());
+            }
         }
         else
         {
@@ -77,6 +83,12 @@ public class CoopPlayerController : MonoBehaviour {
                 katana.GetComponent<KatanaScript>().SetOn();
                 StartCoroutine(KatanaCooldown());
             }
+            if (Input.GetButtonDown("Fire2"))
+            {
+                anim.SetTrigger("Spin");
+                katana.GetComponent<KatanaScript>().SetOn();
+                StartCoroutine(KatanaCooldown());
+            }
         }
     }
 
@@ -91,6 +103,11 @@ public class CoopPlayerController : MonoBehaviour {
     public void AddHealth (int i)
     {
         health += i;
+    }
+
+    public void AddShield (int i)
+    {
+        shield += i;
     }
 
     void Movement () {

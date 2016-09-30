@@ -2,14 +2,14 @@
 using System.Collections;
 
 public class ShieldPickUp : MonoBehaviour {
+    public int shield;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void OnTriggerEnter(Collider c)
+    {
+        if (c.transform.tag == "Player")
+        {
+            c.transform.gameObject.GetComponent<CoopPlayerController>().AddShield(shield);
+            Destroy(gameObject);
+        }
+    }
 }

@@ -41,6 +41,7 @@ public class CoopWaveSystem : MonoBehaviour {
             case 3:
                 PrepareStrypu(3, 1);
                 pickup.GetComponent<PickUpMaster>().Health();
+                pickup.GetComponent<PickUpMaster>().Shield();
                 StartCoroutine(WaveTimer(20));
                 break;
             case 4:

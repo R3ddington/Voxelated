@@ -17,6 +17,7 @@ public class Strypu : MonoBehaviour {
     public GameObject databank;
     public int lane;
     bool prepared;
+    bool done;
 	// Use this for initialization
 	void Start () {
 
@@ -24,35 +25,39 @@ public class Strypu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (prepared)
+        if (!done)
         {
-            if (!dead)
+            if (prepared)
             {
-                distance = Vector3.Distance(target, transform.position);
-                if (distance > 7)
+                if (!dead)
                 {
-                    Moving();
-                    if (anim.GetBool("Walk") == false)
+                    distance = Vector3.Distance(target, transform.position);
+                    if (distance > 7)
                     {
-                        anim.SetBool("Walk", true);
+                        Moving();
+                        if (anim.GetBool("Walk") == false)
+                        {
+                            anim.SetBool("Walk", true);
+                        }
                     }
-                }
-                else
-                {
-                    if (anim.GetBool("Walk"))
+                    else
                     {
-                        anim.SetBool("Walk", false);
-                    }
-                    if (!cooling)
-                    {
-                        //Do damage
-                        anim.SetTrigger("Attack");
-                        cooling = true;
-                        StartCoroutine(Cooldown());
+                        if (anim.GetBool("Walk"))
+                        {
+                            anim.SetBool("Walk", false);
+                        }
+                        if (!cooling)
+                        {
+                            //Do damage
+                            anim.SetTrigger("Attack");
+                            cooling = true;
+                            StartCoroutine(Cooldown());
+                        }
                     }
                 }
             }
         }
+        
 	}
 
     public void SetLane(int i)
@@ -102,13 +107,20 @@ public class Strypu : MonoBehaviour {
             {
                 TargetTurret(2);
             }
+            if(turrets[2] == null)
+            {
+                done = true;
+            }
         }
     }
 
     void TargetTurret(int i)
     {
-        target = turrets[i].transform.position;
-        target.y = transform.position.y;
+        if(!(turrets[i] == null))
+        {
+            target = turrets[i].transform.position;
+            target.y = transform.position.y;
+        }
     }
 
     void Moving()
