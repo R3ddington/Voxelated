@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CoopDataHolder : MonoBehaviour {
     public GameObject[] turrets;
+    public GameObject waveSystem;
 
     public void GetRequest(int id, GameObject g)
     {
@@ -21,5 +22,10 @@ public class CoopDataHolder : MonoBehaviour {
                 g.GetComponent<Strypu>().GainInfo(turrets[7], turrets[8], turrets[0]);
                 break;
         }
+    }
+
+    public void SendQubits(int i)
+    {
+        waveSystem.GetComponent<CoopWaveSystem>().AddQubits(i);
     }
 }

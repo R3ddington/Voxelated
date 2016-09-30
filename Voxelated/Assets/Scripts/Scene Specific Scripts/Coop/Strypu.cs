@@ -137,6 +137,7 @@ public class Strypu : MonoBehaviour {
             dead = true;
             anim.SetTrigger("Dead");
             //Give player Qubits
+            databank.GetComponent<CoopDataHolder>().SendQubits(5);
             Destroy(gameObject, 5f);
         }
     }

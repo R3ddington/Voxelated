@@ -7,11 +7,13 @@ public class CoopWaveSystem : MonoBehaviour {
     public GameObject[] spawnPoints;
     public GameObject[] enemies; //0 = Strypu 
     public Text waveCount;
-	// Use this for initialization
-	void Start () {
+    int qubits;
+    public Text qubitCount;
+    // Use this for initialization
+    void Start() {
         Waves(0);
-	}
-	
+    }
+
     /*
 	// Update is called once per frame
 	void Update () {
@@ -19,7 +21,7 @@ public class CoopWaveSystem : MonoBehaviour {
 	}
     */
 
-    void Waves (int i)
+    void Waves(int i)
     {
         switch (i)
         {
@@ -58,14 +60,14 @@ public class CoopWaveSystem : MonoBehaviour {
                 SummonStrypu(2);
                 SummonStrypu(3);
                 amount--;
-                if(amount > 0)
+                if (amount > 0)
                 {
                     StartCoroutine(SpawnDelay(0, amount, id));
                 }
                 break;
         }
     }
-   
+
     void SummonStrypu(int loc)
     {
         GameObject strypu = Instantiate(enemies[0], spawnPoints[loc].transform.position, Quaternion.identity) as GameObject;
@@ -89,5 +91,11 @@ public class CoopWaveSystem : MonoBehaviour {
         wave++;
         waveCount.text = wave.ToString();
         Waves(wave);
+    }
+
+    public void AddQubits(int i)
+    {
+        qubits += i;
+        qubitCount.text = qubits.ToString();
     }
 }

@@ -12,4 +12,12 @@ public class HealthPickUp : MonoBehaviour {
         location = pos;
         //Do instantiate at pos
     }
+
+    void OnTriggerEnter(Collider c)
+    {
+        if(c.transform.tag == "Player")
+        {
+            c.transform.gameObject.GetComponent<CoopPlayerController>().AddHealth(health);
+        }
+    }
 }

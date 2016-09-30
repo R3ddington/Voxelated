@@ -88,6 +88,11 @@ public class CoopPlayerController : MonoBehaviour {
         }
     }
 
+    public void AddHealth (int i)
+    {
+        health += i;
+    }
+
     void Movement () {
         transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed[0] * Time.deltaTime);
         DirectionCheck();
