@@ -12,6 +12,7 @@ public class CoopPlayerController : MonoBehaviour {
     public Vector3 upRot;
     public GameObject katana;
     public int shield;
+    public bool kataCool;
 	// Use this for initialization
 	void Start () {
 	
@@ -47,14 +48,22 @@ public class CoopPlayerController : MonoBehaviour {
             }
             if (Input.GetButtonDown("Q"))
             {
-                anim.SetTrigger("Slash");
-                katana.GetComponent<KatanaScript>().SetOn();
-                StartCoroutine(KatanaCooldown());
+                if (!kataCool)
+                {
+                    kataCool = true;
+                    anim.SetTrigger("Slash");
+                    katana.GetComponent<KatanaScript>().SetOn();
+                    StartCoroutine(KatanaCooldown());
+                }
             }
             if (Input.GetButtonDown("E")){
-                anim.SetTrigger("Spin");
-                katana.GetComponent<KatanaScript>().SetOn();
-                StartCoroutine(KatanaCooldown());
+                if (!kataCool)
+                {
+                    kataCool = true;
+                    anim.SetTrigger("Spin");
+                    katana.GetComponent<KatanaScript>().SetOn();
+                    StartCoroutine(KatanaCooldown());
+                }
             }
         }
         else
@@ -79,15 +88,23 @@ public class CoopPlayerController : MonoBehaviour {
             }
             if (Input.GetButtonDown("Fire1"))
             {
-                anim.SetTrigger("Slash");
-                katana.GetComponent<KatanaScript>().SetOn();
-                StartCoroutine(KatanaCooldown());
+                if (!kataCool)
+                {
+                    kataCool = true;
+                    anim.SetTrigger("Slash");
+                    katana.GetComponent<KatanaScript>().SetOn();
+                    StartCoroutine(KatanaCooldown());
+                }
             }
             if (Input.GetButtonDown("Fire2"))
             {
-                anim.SetTrigger("Spin");
-                katana.GetComponent<KatanaScript>().SetOn();
-                StartCoroutine(KatanaCooldown());
+                if (!kataCool)
+                {
+                    kataCool = true;
+                    anim.SetTrigger("Spin");
+                    katana.GetComponent<KatanaScript>().SetOn();
+                    StartCoroutine(KatanaCooldown());
+                }   
             }
         }
     }
@@ -187,5 +204,6 @@ public class CoopPlayerController : MonoBehaviour {
     {
         yield return new WaitForSeconds(1);
         katana.GetComponent<KatanaScript>().SetOff();
+        kataCool = false;
     }
 }

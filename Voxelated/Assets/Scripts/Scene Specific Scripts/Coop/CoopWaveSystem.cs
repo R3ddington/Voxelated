@@ -31,7 +31,7 @@ public class CoopWaveSystem : MonoBehaviour {
                 break;
             case 1:
                 //Start wave 1
-                PrepareStrypu(2, 0);
+                PrepareStrypu(1, 0);
                 StartCoroutine(WaveTimer(15));
                 break;
             case 2:
@@ -39,13 +39,20 @@ public class CoopWaveSystem : MonoBehaviour {
                 StartCoroutine(WaveTimer(15));
                 break;
             case 3:
-                PrepareStrypu(3, 1);
+                PrepareStrypu(2, 1);
                 pickup.GetComponent<PickUpMaster>().Health();
                 pickup.GetComponent<PickUpMaster>().Shield();
                 StartCoroutine(WaveTimer(20));
                 break;
             case 4:
-                PrepareStrypu(4, 1);
+                PrepareStrypu(3, 0);
+                StartCoroutine(WaveTimer(40));
+                break;
+            case 5:
+                pickup.GetComponent<PickUpMaster>().Health();
+                pickup.GetComponent<PickUpMaster>().Shield();
+                pickup.GetComponent<PickUpMaster>().Qubit();
+                PrepareStrypu(2, 0);
                 StartCoroutine(WaveTimer(40));
                 break;
         }
@@ -58,6 +65,11 @@ public class CoopWaveSystem : MonoBehaviour {
             case 0:
                 SummonStrypu(0);
                 SummonStrypu(1);
+                amount--;
+                if (amount > 0)
+                {
+                    StartCoroutine(SpawnDelay(0, amount, id));
+                }
                 break;
             case 1:
                 SummonStrypu(2);
@@ -67,6 +79,9 @@ public class CoopWaveSystem : MonoBehaviour {
                 {
                     StartCoroutine(SpawnDelay(0, amount, id));
                 }
+                break;
+            case 2:
+
                 break;
         }
     }

@@ -18,9 +18,10 @@ public class Strypu : MonoBehaviour {
     public int lane;
     bool prepared;
     bool done;
-	// Use this for initialization
-	void Start () {
-
+    // Use this for initialization
+    NavMeshAgent nav;
+    void Start () {
+        nav = GetComponent<NavMeshAgent>();
     }
 	
 	// Update is called once per frame
@@ -119,14 +120,21 @@ public class Strypu : MonoBehaviour {
         if(!(turrets[i] == null))
         {
             target = turrets[i].transform.position;
-            target.y = transform.position.y;
+            //target.y = transform.position.y;
+            if(nav == null)
+            {
+                nav = GetComponent<NavMeshAgent>();
+            }
+            nav.SetDestination(target);
         }
     }
 
     void Moving()
     {
+        /*
         transform.LookAt(target);
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        */
     }
 
     IEnumerator Cooldown()
@@ -152,7 +160,7 @@ public class Strypu : MonoBehaviour {
                 anim.SetTrigger("Dead");
                 //Give player Qubits
                 databank.GetComponent<CoopDataHolder>().SendQubits(5);
-                Destroy(gameObject, 5f);
+                Destroy(gameObject, 3f);
             }
         }
     }
