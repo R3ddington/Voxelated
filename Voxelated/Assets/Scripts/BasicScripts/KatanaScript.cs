@@ -8,6 +8,7 @@ public class KatanaScript : MonoBehaviour {
     public int combo;
     public bool active;
     public GameObject blood;
+    public GameObject owner;
     /*
 	// Use this for initialization
 	void Start () {
@@ -51,6 +52,11 @@ public class KatanaScript : MonoBehaviour {
                 break;
             case "Player":
                 Bleed(c.transform.gameObject);
+                break;
+            case "Guardian":
+                c.GetComponent<Guardian>().Damage(dealDamage, owner);
+                Bleed(c.transform.gameObject);
+                combo++;
                 break;
         }
     }

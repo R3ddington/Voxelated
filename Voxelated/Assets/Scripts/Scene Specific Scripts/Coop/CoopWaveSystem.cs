@@ -36,16 +36,17 @@ public class CoopWaveSystem : MonoBehaviour {
                 break;
             case 2:
                 PrepareStrypu(2, 1);
+                PrepareGuardian(1, 0);
                 StartCoroutine(WaveTimer(15));
                 break;
             case 3:
                 PrepareStrypu(2, 1);
-                pickup.GetComponent<PickUpMaster>().Health();
-                pickup.GetComponent<PickUpMaster>().Shield();
+                PrepareGuardian(1, 1);
                 StartCoroutine(WaveTimer(20));
                 break;
             case 4:
                 PrepareStrypu(3, 0);
+                PrepareGuardian(2, 2);
                 StartCoroutine(WaveTimer(40));
                 break;
             case 5:
@@ -86,10 +87,53 @@ public class CoopWaveSystem : MonoBehaviour {
         }
     }
 
+    void PrepareGuardian(int amount, int id)
+    {
+        switch (id)
+        {
+            case 0:
+                SummonGuardian(4);
+                SummonGuardian(5);
+                amount--;
+                if (amount > 0)
+                {
+                    StartCoroutine(SpawnDelay(1, amount, id));
+                }
+                break;
+            case 1:
+                SummonGuardian(6);
+                SummonGuardian(7);
+                amount--;
+                if (amount > 0)
+                {
+                    StartCoroutine(SpawnDelay(1, amount, id));
+                }
+                break;
+            case 2:
+                SummonGuardian(4);
+                SummonGuardian(5);
+                SummonGuardian(6);
+                SummonGuardian(7);
+                amount--;
+                if (amount > 0)
+                {
+                    StartCoroutine(SpawnDelay(1, amount, id));
+                }
+                break;
+        }
+    }
+
     void SummonStrypu(int loc)
     {
         GameObject strypu = Instantiate(enemies[0], spawnPoints[loc].transform.position, Quaternion.identity) as GameObject;
         strypu.GetComponent<Strypu>().SetLane(loc);
+    }
+
+    void SummonGuardian(int loc)
+    {
+        int spawnLoc = loc - 4;
+        GameObject guardian = Instantiate(enemies[1], spawnPoints[spawnLoc].transform.position, Quaternion.identity) as GameObject;
+        guardian.GetComponent<Guardian>().SetLane(loc);
     }
 
     IEnumerator SpawnDelay(int i, int amount, int id)
@@ -99,6 +143,9 @@ public class CoopWaveSystem : MonoBehaviour {
         {
             case 0:
                 PrepareStrypu(amount, id);
+                break;
+            case 1:
+                PrepareGuardian(amount, id);
                 break;
         }
     }
