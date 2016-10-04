@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class MainMenuButtons : MonoBehaviour {
-    public GameObject[] screens; //0 = mainscreen, 1 = options screen
+    public GameObject[] screens; //0 = mainscreen, 1 = options screen, 2 = Coop menu
     public Animator fadeAnim;
     /*
 	// Use this for initialization
@@ -28,17 +28,41 @@ public class MainMenuButtons : MonoBehaviour {
                 break;
             case 2:
                 fadeAnim.SetTrigger("Black");
-                StartCoroutine(StartWaitTimer(1));
+                StartCoroutine(StartWaitTimer(3, 0, 0));
+                break;
+            case 3:
+                screens[0].SetActive(false);
+                screens[2].SetActive(true);
+                break;
+            case 4:
+                screens[0].SetActive(true);
+                screens[2].SetActive(false);
+                break;
+            case 5:
+                fadeAnim.SetTrigger("Black");
+                StartCoroutine(StartWaitTimer(3, 1, 2));
                 break;
         }
     }
 
-    IEnumerator StartWaitTimer(int i) {
+    IEnumerator StartWaitTimer(int i, int id, int map) {
         yield return new WaitForSeconds(i);
-        StartNewGame();
+        switch (id)
+        {
+            case 0:
+                StartNewGame();
+                break;
+            case 1:
+                StartCoop(map);
+                break;
+        }
     }
 
     void StartNewGame () {
         SceneManager.LoadScene(1);
+    }
+    void StartCoop (int map)
+    {
+        SceneManager.LoadScene(map);
     }
 }

@@ -10,17 +10,43 @@ public class CoopWaveSystem : MonoBehaviour {
     int qubits;
     public Text qubitCount;
     public GameObject pickup;
+    bool paused;
+    public GameObject pauseScreen;
     // Use this for initialization
     void Start() {
+        Time.timeScale = 1.0f;
         Waves(0);
     }
 
-    /*
+
 	// Update is called once per frame
 	void Update () {
-	
+        Button();
 	}
-    */
+
+    void Button ()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            Pause();
+        }
+    }
+
+    public void Pause ()
+    {
+        if (paused)
+        {
+            Time.timeScale = 1.0f;
+            paused = false;
+            pauseScreen.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 0f;
+            paused = true;
+            pauseScreen.SetActive(true);
+        }
+    }
 
     void Waves(int i)
     {
