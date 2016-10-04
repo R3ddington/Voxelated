@@ -12,37 +12,78 @@ public class Strypu : MonoBehaviour {
     float distance;
     bool cooling;
     public GameObject[] handHitBox;
-	// Use this for initialization
-	void Start () {
-        Targeting();
-	}
+    public int health;
+    bool dead;
+    public GameObject databank;
+    public int lane;
+    bool prepared;
+    bool done;
+    // Use this for initialization
+    NavMeshAgent nav;
+    void Start () {
+        nav = GetComponent<NavMeshAgent>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        distance = Vector3.Distance(target, transform.position);
-        if(distance > 5)
+        if (!done)
         {
-            Moving();
-            if(anim.GetBool("Walk") == false)
+            if (prepared)
             {
-                anim.SetBool("Walk", true);
+                if (!dead)
+                {
+                    distance = Vector3.Distance(target, transform.position);
+                    if (distance > 7)
+                    {
+                        Moving();
+                        if (anim.GetBool("Walk") == false)
+                        {
+                            anim.SetBool("Walk", true);
+                        }
+                    }
+                    else
+                    {
+                        if (anim.GetBool("Walk"))
+                        {
+                            anim.SetBool("Walk", false);
+                        }
+                        if (!cooling)
+                        {
+                            //Do damage
+                            anim.SetTrigger("Attack");
+                            cooling = true;
+                            StartCoroutine(Cooldown());
+                        }
+                    }
+                }
             }
         }
-        else
-        {
-            if (anim.GetBool("Walk"))
-            {
-                anim.SetBool("Walk", false);
-            }
-            if (!cooling)
-            {
-                //Do damage
-                anim.SetTrigger("Attack");
-                cooling = true;
-                StartCoroutine(Cooldown());
-            }
-        }
+        
 	}
+
+    public void SetLane(int i)
+    {
+        lane = i;
+        if(databank == null)
+        {
+            databank = GameObject.FindGameObjectWithTag("Databank");
+        }
+        databank.GetComponent<CoopDataHolder>().GetRequest(lane, gameObject);
+    }
+
+    public void CustomStart()
+    {
+        Targeting();
+    }
+
+    public void GainInfo (GameObject turret1, GameObject turret2, GameObject nexus)
+    {
+        turrets[0] = turret1;
+        turrets[1] = turret2;
+        turrets[2] = nexus;
+        CustomStart();
+        prepared = true;
+    }
 
     void Targeting()
     {
@@ -63,19 +104,37 @@ public class Strypu : MonoBehaviour {
             {
                 TargetTurret(1);
             }
+            else
+            {
+                TargetTurret(2);
+            }
+            if(turrets[2] == null)
+            {
+                done = true;
+            }
         }
     }
 
     void TargetTurret(int i)
     {
-        target = turrets[i].transform.position;
-        target.y = transform.position.y;
+        if(!(turrets[i] == null))
+        {
+            target = turrets[i].transform.position;
+            //target.y = transform.position.y;
+            if(nav == null)
+            {
+                nav = GetComponent<NavMeshAgent>();
+            }
+            nav.SetDestination(target);
+        }
     }
 
     void Moving()
     {
+        /*
         transform.LookAt(target);
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        */
     }
 
     IEnumerator Cooldown()
@@ -88,5 +147,21 @@ public class Strypu : MonoBehaviour {
         handHitBox[0].SetActive(false);
         handHitBox[1].SetActive(false);
         Targeting();
+    }
+
+    public void Damage (int i)
+    {
+        health -= i;
+        if(health <= 0)
+        {
+            if (!dead)
+            {
+                dead = true;
+                anim.SetTrigger("Dead");
+                //Give player Qubits
+                databank.GetComponent<CoopDataHolder>().SendQubits(5);
+                Destroy(gameObject, 3f);
+            }
+        }
     }
 }

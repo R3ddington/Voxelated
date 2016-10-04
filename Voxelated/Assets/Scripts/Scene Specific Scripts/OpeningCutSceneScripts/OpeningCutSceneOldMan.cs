@@ -35,6 +35,8 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     public GameObject playerInfo;
     public string playerMaterial;
     public string friendMaterial;
+    public GameObject hParticles;
+    public Transform hParticlePos;
 
 
     // Use this for initialization
@@ -145,6 +147,10 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
             namePages[0].SetActive(false);
             confirmPage.SetActive(true);
             confirmMessage.text = "So your name is " + playerName + "?";
+            if(playerName == "Harambe" || playerName == "harambe")
+            {
+                Instantiate(hParticles, hParticlePos.position, Quaternion.identity);
+            }
         }
     }
 

@@ -4,6 +4,7 @@ using System.Collections;
 public class TurretScript : MonoBehaviour {
     public int health;
     public int[] getDamage; //0 = Strypu attack
+    public bool isNexus;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +33,10 @@ public class TurretScript : MonoBehaviour {
         {
             //Do explosion here
             Destroy(gameObject, 2f);
+            if (isNexus)
+            {
+                //GameOver
+            }
         }
     }
 }
