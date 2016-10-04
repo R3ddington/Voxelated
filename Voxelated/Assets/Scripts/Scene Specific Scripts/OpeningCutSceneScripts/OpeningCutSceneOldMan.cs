@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class OpeningCutSceneOldMan : MonoBehaviour {
     public Animator spotlights;
@@ -37,6 +38,10 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     public string friendMaterial;
     public GameObject hParticles;
     public Transform hParticlePos;
+    public Material pMaterial;
+    public Material fMaterial;
+    public Material[] maleMaterial;
+    public Material[] femaleMaterial;
 
 
     // Use this for initialization
@@ -226,32 +231,65 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
         }
     }
 
-    public void RetrieveID (string s) {
+    public void RetrieveID (string s, int i) {
+        
         if (!lock002) {
+            if (isFemale)
+            {
+                pMaterial = femaleMaterial[i];
+            }
+            else
+            {
+                pMaterial = maleMaterial[i];
+            }
             playerMaterial = s;
             lock002 = true;
         }
         else {
             friendMaterial = s;
+            if (isFemale)
+            {
+                fMaterial = maleMaterial[i];
+            }
+            else
+            {
+              //  fMaterial = femaleMaterial[i];
+            }
         }
     }
 
     void PrepareInfo () {
         print("Sending Player info");
-        SendPlayerInfo(0, playerName);
+        SendPlayerInfo(0, playerName, null);
         if (isFemale) {
-            SendPlayerInfo(1, "Yes");
+            SendPlayerInfo(1, "Yes", null);
         }
         else {
-            SendPlayerInfo(1, "No");
+            SendPlayerInfo(1, "No", null);
         }
-        SendPlayerInfo(2, friendName);
-        SendPlayerInfo(3, playerMaterial);
-        SendPlayerInfo(4, friendMaterial);
+        SendPlayerInfo(2, friendName, null);
+        SendPlayerInfo(3, playerMaterial, null);
+        SendPlayerInfo(4, friendMaterial, null);
+        SendPlayerInfo(5, null, pMaterial);
+        SendPlayerInfo(6, null, fMaterial);
+        SendPlayerInfo(7, null, null);
     }
 
-    void SendPlayerInfo (int i, string s) {
-        print(i.ToString() + " " + s);
-        playerInfo.GetComponent<PlayerInfo>().SetUp(i, s);
+    void SendPlayerInfo (int i, string s, Material m) {
+        if(i != 7)
+        {
+            print(i.ToString() + " " + s);
+            playerInfo.GetComponent<PlayerInfo>().SetUp(i, s, m);
+        }
+        if(i == 7)
+        {
+            LightsOff();
+            StartCoroutine(GoToCutScene());
+        }
+    }
+    IEnumerator GoToCutScene()
+    {
+        yield return new WaitForSeconds(4);
+        SceneManager.LoadScene(3);
     }
 }

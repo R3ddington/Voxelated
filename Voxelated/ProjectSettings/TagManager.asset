@@ -10,6 +10,7 @@ TagManager:
   - Databank
   - Guardian
   - GuardianHand
+  - PlayerInfo
   layers:
   - Default
   - TransparentFX

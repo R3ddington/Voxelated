@@ -203,6 +203,6 @@ public class MaleCustomization : MonoBehaviour {
     }
 
     public void SendID () {  
-        cutScene.GetComponent<OpeningCutSceneOldMan>().RetrieveID(materialID.ToString());
+        cutScene.GetComponent<OpeningCutSceneOldMan>().RetrieveID(materialID.ToString(), materialID);
     }
 }

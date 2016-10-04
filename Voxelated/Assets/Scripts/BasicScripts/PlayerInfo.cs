@@ -8,10 +8,12 @@ public class PlayerInfo : MonoBehaviour {
     public string friendName;
     public string playerMaterialID;
     public string friendMaterialID;
+    public Material pMaterial;
+    public Material fMaterial;
 	// Use this for initialization
 	void Start () {
-
-	}
+        DontDestroyOnLoad(transform.gameObject);
+    }
 	
     /*
 	// Update is called once per frame
@@ -19,7 +21,7 @@ public class PlayerInfo : MonoBehaviour {
 	
 	}
     */
-    public void SetUp (int i, string s) {
+    public void SetUp (int i, string s, Material m) {
         switch (i) {
             case 0:
                 playerName = s;
@@ -40,6 +42,22 @@ public class PlayerInfo : MonoBehaviour {
                 break;
             case 4:
                 friendMaterialID = s;
+                break;
+            case 5:
+                pMaterial = m;
+                break;
+            case 6:
+                fMaterial = m;
+                break;
+        }
+    }
+    public void SendInfo(int id, GameObject target)
+    {
+        switch (id)
+        {
+            case 0:
+                //TutorialScript request
+                target.GetComponent<TutorialScript>().GetInfo(playerName, friendName, playerIsFemale, pMaterial);
                 break;
         }
     }
