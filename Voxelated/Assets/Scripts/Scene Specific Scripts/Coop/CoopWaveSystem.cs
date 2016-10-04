@@ -37,24 +37,47 @@ public class CoopWaveSystem : MonoBehaviour {
             case 2:
                 PrepareStrypu(2, 1);
                 PrepareGuardian(1, 0);
-                StartCoroutine(WaveTimer(15));
+                StartCoroutine(WaveTimer(20));
                 break;
             case 3:
                 PrepareStrypu(2, 1);
                 PrepareGuardian(1, 1);
-                StartCoroutine(WaveTimer(20));
+                StartCoroutine(WaveTimer(30));
                 break;
             case 4:
                 PrepareStrypu(3, 0);
-                PrepareGuardian(2, 2);
+                PrepareGuardian(2, 0);
                 StartCoroutine(WaveTimer(40));
                 break;
             case 5:
                 pickup.GetComponent<PickUpMaster>().Health();
                 pickup.GetComponent<PickUpMaster>().Shield();
-                pickup.GetComponent<PickUpMaster>().Qubit();
                 PrepareStrypu(2, 0);
                 StartCoroutine(WaveTimer(40));
+                break;
+            case 6:
+                PrepareGuardian(4, 1);
+                pickup.GetComponent<PickUpMaster>().Qubit();
+                StartCoroutine(WaveTimer(40));
+                break;
+            case 7:
+                PrepareGuardian(4, 0);
+                pickup.GetComponent<PickUpMaster>().Health();
+                pickup.GetComponent<PickUpMaster>().Shield();
+                StartCoroutine(WaveTimer(40));
+                break;
+            case 8:
+                PrepareGuardian(2, 2);
+                StartCoroutine(WaveTimer(40));
+                break;
+            case 9:
+                PrepareStrypu(4, 1);
+                StartCoroutine(WaveTimer(60));
+                break;
+            case 10:
+                PrepareStrypu(4, 2);
+                pickup.GetComponent<PickUpMaster>().Qubit();
+                StartCoroutine(WaveTimer(60));
                 break;
         }
     }

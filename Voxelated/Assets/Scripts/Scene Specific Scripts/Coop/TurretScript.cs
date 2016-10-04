@@ -3,8 +3,10 @@ using System.Collections;
 
 public class TurretScript : MonoBehaviour {
     public int health;
-    public int[] getDamage; //0 = Strypu attack
+    public int[] getDamage; //0 = Strypu attack, 1 = Guardian attack
     public bool isNexus;
+    public GameObject gameOver;
+    bool dead;
 
 	// Use this for initialization
 	void Start () {
@@ -23,20 +25,33 @@ public class TurretScript : MonoBehaviour {
             case "StrypuHand":
                 Damage(0);
                 break;
+            case "GuardianHand":
+                Damage(1);
+                break;
         }
     }
 
     void Damage (int i)
     {
         health -= getDamage[i];
-        if(health <= 0)
+        if (!dead)
         {
-            //Do explosion here
-            Destroy(gameObject, 2f);
-            if (isNexus)
+            if (health <= 0)
             {
-                //GameOver
+                //Do explosion here
+                dead = true;
+                Destroy(gameObject, 2f);
+                if (isNexus)
+                {
+                    //GameOver
+                    StartCoroutine(NexusWait());
+                }
             }
         }
+    }
+    IEnumerator NexusWait()
+    {
+        yield return new WaitForSeconds(1);
+        gameOver.SetActive(true);
     }
 }
