@@ -6,79 +6,54 @@ public class PickUpMaster : MonoBehaviour {
     //Health
     public List<Transform> healthSpawns = new List<Transform>();
     public GameObject healthPrefab;
-    public List<GameObject> activeHealth = new List<GameObject>();
+    public List<Transform> activeHealth = new List<Transform>();
     //Shield
     public List<Transform> shieldSpawns = new List<Transform>();
     public GameObject shieldPrefab;
-    public List<GameObject> activeShield = new List<GameObject>();
+    public List<Transform> activeShield = new List<Transform>();
     //Qubits
     public List<Transform> qubitSpawns = new List<Transform>();
     public GameObject qubitPrefab;
-    public List<GameObject> activeQubit = new List<GameObject>();
-
+    public List<Transform> activeQubit = new List<Transform>();
 
     public void Health ()
     {
-        for (int e = 0; e < activeHealth.Count; e++)
-        {
-            if(activeHealth[e] == null)
-            {
-                activeHealth.RemoveAt(e);
-            }
-            else
-            {
-                GameObject tempH = activeHealth[e].gameObject;
-                Destroy(tempH);
-                activeHealth.RemoveAt(e);
-            }
-        }
+        ClearList(activeHealth);
         for (int i = 0; i < healthSpawns.Count; i++) {
             GameObject newHealth = Instantiate(healthPrefab, healthSpawns[i].position, Quaternion.identity) as GameObject;
-            activeHealth.Add(newHealth);
+            activeHealth.Add(newHealth.transform);
         }
     }
 
     public void Shield ()
     {
-        for (int e = 0; e < activeShield.Count; e++)
-        {
-            if (activeShield[e] == null)
-            {
-                activeShield.RemoveAt(e);
-            }
-            else
-            {
-                GameObject tempS = activeShield[e].gameObject;
-                Destroy(tempS);
-                activeShield.RemoveAt(e);
-            }
-        }
+        ClearList(activeShield);
         for (int i = 0; i < shieldSpawns.Count; i++)
         {
             GameObject newShield = Instantiate(shieldPrefab, shieldSpawns[i].position, Quaternion.identity) as GameObject;
-            activeShield.Add(newShield);
+            activeShield.Add(newShield.transform);
         }
     }
 
     public void Qubit()
     {
-        for (int e = 0; e < activeQubit.Count; e++)
-        {
-            if (activeQubit[e] == null)
-            {
-                activeQubit.RemoveAt(e);
-            }
-            else
-            {
-                GameObject tempQ = activeQubit[e].gameObject;
-                Destroy(tempQ);
-                activeQubit.RemoveAt(e);
-            }
-        }
+        ClearList(activeQubit);
         for (int i = 0; i < qubitSpawns.Count; i++)
         {
             GameObject newQubit = Instantiate(qubitPrefab, qubitSpawns[i].position, Quaternion.identity) as GameObject;
-            activeQubit.Add(newQubit);
+            activeQubit.Add(newQubit.transform);
         }
+    }
+
+    public void ClearList (List<Transform> toClear)
+    {
+        for (int e = 0; e < toClear.Count; e++)
+        {
+            if (toClear[e] != null)
+            {
+                Destroy(toClear[e].gameObject);
+            }
+        }
+        toClear.Clear();
     }
 }
