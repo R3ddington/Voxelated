@@ -2,6 +2,7 @@
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
+		_SmoothMap ("SmoothMap", 2D) = "white" {}
 		_Metallic ("MetallicIntensity", Range(0,1)) = 0.0
 		_MetallicMap("MettalicMap", 2D) = "white" {}
 		_EmissionTex("EmissionTexture", 2D) = "white" {}
@@ -27,12 +28,14 @@
 		sampler2D _EmissionTex;
 		sampler2D _NormalMap;
 		sampler2D _NormalMap2;
+		sampler2D _SmoothMap;
 
 		struct Input {
 			float2 uv_MetallicMap;
 			float2 uv_EmissionTex;
 			float2 uv_NormalMap;
 			float2 uv_NormalMap2;
+			float2 uv_SmoothMap;
 		};
 
 		half _Glossiness;
@@ -50,7 +53,8 @@
 			// Metallic and smoothness come from slider variables
 			fixed4 m = tex2D(_MetallicMap, IN.uv_MetallicMap);
 			o.Metallic = m * _Metallic;
-			o.Smoothness = _Glossiness;
+			fixed4 s = tex2D(_SmoothMap, IN.uv_SmoothMap);
+			o.Smoothness = s * _Glossiness;
 			//Emission
 			fixed4 e = tex2D(_EmissionTex, IN.uv_EmissionTex) * _Emission;
 			o.Emission = e.rgb * _EmissionIntensity;

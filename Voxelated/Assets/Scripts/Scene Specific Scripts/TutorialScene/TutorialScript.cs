@@ -59,5 +59,12 @@ public class TutorialScript : MonoBehaviour {
         }
         rend = pM.transform.GetComponent<Renderer>();
         rend.material = pMaterial;
+        ActivateCamera();
+    }
+
+    void ActivateCamera()
+    {
+        this.GetComponent<CameraFollowScript>().SetPlayer(player);
+        this.GetComponent<CameraFollowScript>().SetActive();
     }
 }

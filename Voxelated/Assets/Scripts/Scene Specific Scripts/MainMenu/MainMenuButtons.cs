@@ -3,8 +3,9 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class MainMenuButtons : MonoBehaviour {
-    public GameObject[] screens; //0 = mainscreen, 1 = options screen, 2 = Coop menu
+    public GameObject[] screens; //0 = mainscreen, 1 = options screen, 2 = Coop menu, 3 = Credits screen
     public Animator fadeAnim;
+    public GameObject[] creditText;
     /*
 	// Use this for initialization
 	void Start () {
@@ -42,7 +43,24 @@ public class MainMenuButtons : MonoBehaviour {
                 fadeAnim.SetTrigger("Black");
                 StartCoroutine(StartWaitTimer(3, 1, 2));
                 break;
+            case 6:
+                screens[0].SetActive(false);
+                screens[3].SetActive(true);
+                break;
+            case 7:
+                screens[0].SetActive(true);
+                screens[3].SetActive(false);
+                break;
         }
+    }
+
+    public void CreditButtons (int i)
+    {
+        for (int o = 0; o < creditText.Length; o++)
+        {
+            creditText[o].SetActive(false);
+        }
+        creditText[i].SetActive(true);
     }
 
     IEnumerator StartWaitTimer(int i, int id, int map) {
