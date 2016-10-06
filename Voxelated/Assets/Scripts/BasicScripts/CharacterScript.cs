@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class CharacterScript : MonoBehaviour {
     public int health;
     public Animator anim;
     public bool freeze;
-    public int[] speed; //0 = using speed, 1 = normal speed, 2 = sprint speed
+    public int[] speed; //0 = using speed, 1 = normal speed, 2 = sprint speed, 3 = crouch speed
 
     // Use this for initialization
     void Start () {
@@ -24,6 +25,14 @@ public class CharacterScript : MonoBehaviour {
     
     //Button Input
     void OnButtonDown() {
+        if (Input.GetButtonDown("S"))
+        {
+            anim.SetBool("Crouch", true);
+        }
+        if (Input.GetButtonUp("S"))
+        {
+            anim.SetBool("Crouch", false);
+        }
         if (Input.GetAxis("Horizontal") != 0)
         {
             Moving();
@@ -70,5 +79,16 @@ public class CharacterScript : MonoBehaviour {
 
     void Jump () {
         //Do jumping
+    }
+    public void Freeze ()
+    {
+        if (!freeze)
+        {
+            freeze = true;
+        }
+        else
+        {
+            freeze = false;
+        }
     }
 }

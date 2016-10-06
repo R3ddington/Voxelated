@@ -17,11 +17,19 @@ public class TutorialScript : MonoBehaviour {
     public string pName;
     public string fName;
     public GameObject pInfo;
+    public Material standardMaterial;
     Renderer rend;
     // Use this for initialization
     void Start () {
         pInfo = GameObject.FindGameObjectWithTag("PlayerInfo");
-        PullInfo();
+        if(pInfo != null)
+        {
+            PullInfo();
+        }
+        else
+        {
+            GetInfo("FakePlayer", "FakeFriend", true, standardMaterial);
+        }
 	}
 	
 	// Update is called once per frame

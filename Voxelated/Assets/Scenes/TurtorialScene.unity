@@ -1633,6 +1633,7 @@ MonoBehaviour:
   pName: 
   fName: 
   pInfo: {fileID: 0}
+  standardMaterial: {fileID: 2100000, guid: 339c28723c310c24187e74749d3c4a3b, type: 2}
 --- !u!114 &640483248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3649,7 +3650,7 @@ GameObject:
   - 114: {fileID: 1311897192}
   m_Layer: 0
   m_Name: MalePlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3682,7 +3683,7 @@ MonoBehaviour:
   health: 100
   anim: {fileID: 1856948782}
   freeze: 0
-  speed: 140000001400000032000000
+  speed: 1400000014000000320000000a000000
 --- !u!4 &1335906413 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 83cbdf42ce7562643a8ef95ed6f0bde9, type: 3}
@@ -4898,7 +4899,7 @@ GameObject:
   - 114: {fileID: 1906820264}
   m_Layer: 0
   m_Name: FemalePlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4931,7 +4932,7 @@ MonoBehaviour:
   health: 100
   anim: {fileID: 188751670}
   freeze: 0
-  speed: 140000001400000032000000
+  speed: 1400000014000000320000000a000000
 --- !u!4 &1911587311 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 05b83ec7923950149bbe24f60cba5ab2, type: 3}
