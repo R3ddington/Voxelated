@@ -13,10 +13,13 @@ public class CoopPlayerController : MonoBehaviour {
     public GameObject katana;
     public int shield;
     public bool kataCool;
+
+    /*
 	// Use this for initialization
 	void Start () {
 	
 	}
+    */
 	
 	// Update is called once per frame
 	void Update () {
@@ -52,17 +55,14 @@ public class CoopPlayerController : MonoBehaviour {
                 {
                     kataCool = true;
                     anim.SetTrigger("Slash");
-                    katana.GetComponent<KatanaScript>().SetOn();
-                    StartCoroutine(KatanaCooldown());
                 }
             }
-            if (Input.GetButtonDown("E")){
+            if (Input.GetButtonDown("E"))
+            {
                 if (!kataCool)
                 {
                     kataCool = true;
                     anim.SetTrigger("Spin");
-                    katana.GetComponent<KatanaScript>().SetOn();
-                    StartCoroutine(KatanaCooldown());
                 }
             }
         }
@@ -92,8 +92,6 @@ public class CoopPlayerController : MonoBehaviour {
                 {
                     kataCool = true;
                     anim.SetTrigger("Slash");
-                    katana.GetComponent<KatanaScript>().SetOn();
-                    StartCoroutine(KatanaCooldown());
                 }
             }
             if (Input.GetButtonDown("Fire2"))
@@ -102,9 +100,7 @@ public class CoopPlayerController : MonoBehaviour {
                 {
                     kataCool = true;
                     anim.SetTrigger("Spin");
-                    katana.GetComponent<KatanaScript>().SetOn();
-                    StartCoroutine(KatanaCooldown());
-                }   
+                }
             }
         }
     }
@@ -200,10 +196,9 @@ public class CoopPlayerController : MonoBehaviour {
             player.transform.localEulerAngles = temp;
         }
     }
-    IEnumerator KatanaCooldown()
+
+    public void KataCool ()
     {
-        yield return new WaitForSeconds(1);
-        katana.GetComponent<KatanaScript>().SetOff();
         kataCool = false;
     }
 }

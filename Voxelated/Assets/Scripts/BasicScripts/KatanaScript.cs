@@ -63,6 +63,6 @@ public class KatanaScript : MonoBehaviour {
 
     void Bleed (GameObject c)
     {
-        GameObject newBlood = Instantiate(blood, c.transform.position, Quaternion.identity) as GameObject;
+        Instantiate(blood, c.transform.position, Quaternion.identity);
     }
 }
