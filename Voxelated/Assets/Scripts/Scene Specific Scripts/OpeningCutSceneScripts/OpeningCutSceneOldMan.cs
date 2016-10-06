@@ -283,6 +283,7 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
         }
         if(i == 7)
         {
+            characterLights.SetActive(false);
             LightsOff();
             StartCoroutine(GoToCutScene());
         }
