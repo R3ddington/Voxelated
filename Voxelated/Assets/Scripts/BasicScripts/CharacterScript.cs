@@ -7,6 +7,7 @@ public class CharacterScript : MonoBehaviour {
     public Animator anim;
     public bool freeze;
     public int[] speed; //0 = using speed, 1 = normal speed, 2 = sprint speed, 3 = crouch speed
+    public int cMode;  //0 = Katana mode
 
     // Use this for initialization
     void Start () {
@@ -25,6 +26,24 @@ public class CharacterScript : MonoBehaviour {
     
     //Button Input
     void OnButtonDown() {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            switch (cMode)
+            {
+                case 0:
+                    anim.SetTrigger("Slash");
+                    break;
+            }
+        }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            switch (cMode)
+            {
+                case 0:
+                    anim.SetTrigger("Spin");
+                    break;
+            }
+        }
         if (Input.GetButtonDown("S"))
         {
             anim.SetBool("Crouch", true);

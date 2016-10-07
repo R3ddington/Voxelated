@@ -19,6 +19,7 @@ public class TutorialScript : MonoBehaviour {
     public GameObject pInfo;
     public Material standardMaterial;
     Renderer rend;
+    public Animator fade;
     // Use this for initialization
     void Start () {
         pInfo = GameObject.FindGameObjectWithTag("PlayerInfo");
@@ -74,5 +75,6 @@ public class TutorialScript : MonoBehaviour {
     {
         this.GetComponent<CameraFollowScript>().SetPlayer(player);
         this.GetComponent<CameraFollowScript>().SetActive();
+        fade.SetTrigger("Tut");
     }
 }
