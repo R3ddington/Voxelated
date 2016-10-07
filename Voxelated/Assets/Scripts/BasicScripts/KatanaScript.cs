@@ -45,14 +45,19 @@ public class KatanaScript : MonoBehaviour {
         string tag = c.transform.tag;
         switch (tag)
         {
+            case "Dummy":
+                c.GetComponent<DummyScript>().Hit();
+                break;
             case "Strypu":
                 c.GetComponent<Strypu>().Damage(dealDamage);
                 Bleed(c.transform.gameObject);
                 combo++;
                 break;
+            /*
             case "Player":
                 Bleed(c.transform.gameObject);
                 break;
+            */
             case "Guardian":
                 c.GetComponent<Guardian>().Damage(dealDamage, owner);
                 Bleed(c.transform.gameObject);
