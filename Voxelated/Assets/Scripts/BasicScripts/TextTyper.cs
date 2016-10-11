@@ -7,7 +7,7 @@ public class TextTyper : MonoBehaviour {
     //public List<string> textList = new List<string>();
     string handleString;
     public Text textField;
-    public GameObject arrow;
+   // public GameObject arrow;
     bool busy;
     /*
 	// Use this for initialization
@@ -27,7 +27,7 @@ public class TextTyper : MonoBehaviour {
             handleString = "";
             ShowText(s);
             busy = true;
-            arrow.SetActive(false);
+            //arrow.SetActive(false);
         }
         else {
             print("ERROR, received a string while being busy, string id = " + id);
@@ -47,7 +47,7 @@ public class TextTyper : MonoBehaviour {
             }
         }
         else {
-            arrow.SetActive(true);
+           // arrow.SetActive(true);
             busy = false;
         }
     }

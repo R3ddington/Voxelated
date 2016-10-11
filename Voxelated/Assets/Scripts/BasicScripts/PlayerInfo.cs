@@ -10,8 +10,10 @@ public class PlayerInfo : MonoBehaviour {
     public string friendMaterialID;
     public Material pMaterial;
     public Material fMaterial;
-	// Use this for initialization
-	void Start () {
+    public Material pYMaterial;
+    public Material fYMaterial;
+    // Use this for initialization
+    void Start () {
         DontDestroyOnLoad(transform.gameObject);
     }
 	
@@ -49,6 +51,12 @@ public class PlayerInfo : MonoBehaviour {
             case 6:
                 fMaterial = m;
                 break;
+            case 7:
+                pYMaterial = m;
+                break;
+            case 8:
+                fYMaterial = m;
+                break;
         }
     }
     public void SendInfo(int id, GameObject target)
@@ -58,6 +66,9 @@ public class PlayerInfo : MonoBehaviour {
             case 0:
                 //TutorialScript request
                 target.GetComponent<TutorialScript>().GetInfo(playerName, friendName, playerIsFemale, pMaterial);
+                break;
+            case 1:
+                target.GetComponent<StartCutscene>().GetInfo(playerName, friendName, playerIsFemale, pYMaterial);
                 break;
         }
     }

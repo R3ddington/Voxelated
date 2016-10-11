@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/CoopScene.unity
   - enabled: 1
     path: Assets/Scenes/TurtorialScene.unity
+  - enabled: 1
+    path: Assets/Scenes/CutSceneBedroom.unity

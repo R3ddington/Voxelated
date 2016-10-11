@@ -20,6 +20,7 @@ public class TutorialScript : MonoBehaviour {
     public Material standardMaterial;
     Renderer rend;
     public Animator fade;
+    public GameObject[] info;
     // Use this for initialization
     void Start () {
         pInfo = GameObject.FindGameObjectWithTag("PlayerInfo");
@@ -71,10 +72,25 @@ public class TutorialScript : MonoBehaviour {
         ActivateCamera();
     }
 
+    public void CloseInfo (int i)
+    {
+        info[i].SetActive(false);
+        player.GetComponent<CharacterScript>().HitFreezeOff();
+        player.GetComponent<CharacterScript>().Freeze();
+    }
+
     void ActivateCamera()
     {
         this.GetComponent<CameraFollowScript>().SetPlayer(player);
         this.GetComponent<CameraFollowScript>().SetActive();
         fade.SetTrigger("Tut");
+        StartCoroutine(Wait());
+    }
+
+    IEnumerator Wait ()
+    {
+        yield return new WaitForSeconds(5);
+        info[0].SetActive(true);
+        player.GetComponent<CharacterScript>().Freeze();
     }
 }

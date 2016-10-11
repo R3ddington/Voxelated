@@ -40,6 +40,8 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     public Transform hParticlePos;
     public Material pMaterial;
     public Material fMaterial;
+    public Material pYMaterial;
+    public Material fYMaterial;
     public Material[] maleMaterial;
     public Material[] femaleMaterial;
 
@@ -231,7 +233,7 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
         }
     }
 
-    public void RetrieveID (string s, int i) {
+    public void RetrieveID (string s, int i, Material m) {
         
         if (!lock002) {
             if (isFemale)
@@ -242,6 +244,7 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
             {
                 pMaterial = maleMaterial[i];
             }
+            pYMaterial = m;
             playerMaterial = s;
             lock002 = true;
         }
@@ -253,8 +256,9 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
             }
             else
             {
-              //  fMaterial = femaleMaterial[i];
+                fMaterial = femaleMaterial[i];
             }
+            fYMaterial = m;
         }
     }
 
@@ -272,16 +276,18 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
         SendPlayerInfo(4, friendMaterial, null);
         SendPlayerInfo(5, null, pMaterial);
         SendPlayerInfo(6, null, fMaterial);
-        SendPlayerInfo(7, null, null);
+        SendPlayerInfo(7, null, pYMaterial);
+        SendPlayerInfo(8, null, fYMaterial);
+        SendPlayerInfo(9, null, null);
     }
 
     void SendPlayerInfo (int i, string s, Material m) {
-        if(i != 7)
+        if(i != 9)
         {
             print(i.ToString() + " " + s);
             playerInfo.GetComponent<PlayerInfo>().SetUp(i, s, m);
         }
-        if(i == 7)
+        if(i == 9)
         {
             characterLights.SetActive(false);
             LightsOff();
@@ -291,6 +297,6 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     IEnumerator GoToCutScene()
     {
         yield return new WaitForSeconds(4);
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 }
