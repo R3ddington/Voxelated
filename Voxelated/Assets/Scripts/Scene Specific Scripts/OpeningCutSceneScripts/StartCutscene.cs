@@ -97,14 +97,13 @@ public class StartCutscene : MonoBehaviour {
             case 3:
                 chat.SetActive(false);
                 fade.SetTrigger("FadeIn");
-                StartCoroutine(Wait(i, 5));
+                anim.SetTrigger("StandUp");
+                StartCoroutine(Wait(i, 4));
                 break;
             case 4:
-                anim.SetTrigger("StandUp");
-                StartCoroutine(Wait(i, 3));
-                break;
-            case 5:
-
+                Vector3 tempV = new Vector3(-162, 0, - 187);
+                player.GetComponent<PlayerMoving>().Move(tempV);
+                anim.SetBool("Walk", true);
                 break;
         }
     }
