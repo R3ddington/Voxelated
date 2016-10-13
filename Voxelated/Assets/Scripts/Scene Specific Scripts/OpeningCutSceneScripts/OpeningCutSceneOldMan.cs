@@ -278,16 +278,17 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
         SendPlayerInfo(6, null, fMaterial);
         SendPlayerInfo(7, null, pYMaterial);
         SendPlayerInfo(8, null, fYMaterial);
-        SendPlayerInfo(9, null, null);
+        SendPlayerInfo(9, "No", null);
+        SendPlayerInfo(10, null, null);
     }
 
     void SendPlayerInfo (int i, string s, Material m) {
-        if(i != 9)
+        if(i != 10)
         {
             print(i.ToString() + " " + s);
             playerInfo.GetComponent<PlayerInfo>().SetUp(i, s, m);
         }
-        if(i == 9)
+        if(i == 10)
         {
             characterLights.SetActive(false);
             LightsOff();
@@ -297,6 +298,6 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     IEnumerator GoToCutScene()
     {
         yield return new WaitForSeconds(4);
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(6);
     }
 }

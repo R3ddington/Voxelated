@@ -1,21 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PreparePlayer : MonoBehaviour {
 
-    public GameObject female;
-    public GameObject male;
+    public GameObject[] female;
+    public GameObject[] male;
     public GameObject player;
-    public GameObject mM;
-    public GameObject fM;
+    public GameObject friend;
+    public GameObject[] mM;
+    public GameObject[] fM;
     public GameObject pM;
+    public GameObject friendM;
     public Material pMaterial;
+    public Material fMaterial;
     public bool isFemale;
     public string pName;
     public string fName;
     public GameObject pInfo;
+    public bool isAdult;
     public Material standardMaterial;
     Renderer rend;
+    Renderer fRend;
     // Use this for initialization
     void Start()
     {
@@ -26,7 +32,7 @@ public class PreparePlayer : MonoBehaviour {
         }
         else
         {
-            GetInfo("FakePlayer", "FakeFriend", true, standardMaterial);
+          //  GetInfo("FakePlayer", "FakeFriend", true, standardMaterial, true);
         }
     }
     /*
@@ -38,39 +44,65 @@ public class PreparePlayer : MonoBehaviour {
     */
     public void PullInfo()
     {
-        pInfo.GetComponent<PlayerInfo>().SendInfo(0, gameObject);
+        pInfo.GetComponent<PlayerInfo>().SendInfo(2, gameObject);
     }
 
-    public void GetInfo(string i_pName, string i_fName, bool i_isFemale, Material i_pMaterial)
+    public void GetInfo(string i_pName, string i_fName, bool i_isFemale, Material i_pMaterial, Material i_fMaterial, bool i_isAdult)
     {
         pName = i_pName;
         fName = i_fName;
         isFemale = i_isFemale;
         pMaterial = i_pMaterial;
+        fMaterial = i_fMaterial;
+        isAdult = i_isAdult;
         Prepare();
     }
 
     public void Prepare()
     {
-        if (isFemale)
+        if (!isAdult)
         {
-            Destroy(male);
-            player = female;
-            pM = fM;
+            if (isFemale)
+            {
+                player = female[1];
+                friend = male[1];
+                pM = fM[1];
+                friendM = mM[1];
+            }
+            else
+            {
+                friend = female[1];
+                player = male[1];
+                pM = mM[1];
+                friendM = fM[1];
+            }
         }
         else
         {
-            Destroy(female);
-            player = male;
-            pM = mM;
+            if (isFemale)
+            {
+                friend = male[1];
+                player = female[0];
+                pM = fM[0];
+                friendM = mM[0];
+            }
+            else
+            {
+                player = male[0];
+                pM = mM[0];
+                friendM = fM[0];
+            }
         }
+        
         rend = pM.transform.GetComponent<Renderer>();
         rend.material = pMaterial;
-        ActivateCamera();
-    }
-    void ActivateCamera()
-    {
-        this.GetComponent<CameraFollowScript>().SetPlayer(player);
-        this.GetComponent<CameraFollowScript>().SetActive();
+        DontDestroyOnLoad(player);
+
+        fRend = friendM.transform.GetComponent<Renderer>();
+        fRend.material = fMaterial;
+        friend.transform.tag = "Friend";
+        DontDestroyOnLoad(friend);
+
+        SceneManager.LoadScene(5);
     }
 }

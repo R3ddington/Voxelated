@@ -15,3 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TurtorialScene.unity
   - enabled: 1
     path: Assets/Scenes/CutSceneBedroom.unity
+  - enabled: 1
+    path: Assets/Scenes/MainHub.unity
+  - enabled: 1
+    path: Assets/Scenes/PlayerPreparer.unity
