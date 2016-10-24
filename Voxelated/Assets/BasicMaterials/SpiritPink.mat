@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: AnimatedTextureTest
-  m_Shader: {fileID: 4800000, guid: 0fb8e73834c2d9a419bb52c7fb4b802c, type: 3}
+  m_Name: SpiritPink
+  m_Shader: {fileID: 4800000, guid: c4ea3da953060f84e9891e10e39519f3, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -54,29 +54,17 @@ Material:
     - first:
         name: _EmissionTex
       second:
-        m_Texture: {fileID: 2800000, guid: 19555d7d9d114c7f1100f5ab44295342, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5dea2f776678fd04f9cec4635abcd9b8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: d53e32c9d4cc30d49b3a8ec99e48b853, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
         name: _MetallicGlossMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _NormalMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _NormalMap2
       second:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -108,27 +96,24 @@ Material:
       second: 0
     - first:
         name: _EmissionIntensity
-      second: 0.427
+      second: 0.448
     - first:
         name: _GlossMapScale
       second: 1
     - first:
         name: _Glossiness
-      second: 0.776
+      second: 0.5
     - first:
         name: _GlossyReflections
       second: 1
     - first:
+        name: _InvFade
+      second: 0.59
+    - first:
         name: _Metallic
-      second: 0.392
+      second: 0
     - first:
         name: _Mode
-      second: 0
-    - first:
-        name: _Normal2Intensity
-      second: 0
-    - first:
-        name: _NormalIntensity
       second: 0
     - first:
         name: _OcclusionStrength
@@ -138,10 +123,10 @@ Material:
       second: 0.02
     - first:
         name: _ScrollSpeedX
-      second: 1
+      second: 15.8
     - first:
         name: _ScrollSpeedY
-      second: 1
+      second: 17.9
     - first:
         name: _SmoothnessTextureChannel
       second: 0
@@ -162,8 +147,8 @@ Material:
         name: _Color
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
-        name: _Emission
-      second: {r: 1, g: 0, b: 0, a: 1}
-    - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _TintColor
+      second: {r: 0.20588237, g: 0.010596884, b: 0.168172, a: 0.209}

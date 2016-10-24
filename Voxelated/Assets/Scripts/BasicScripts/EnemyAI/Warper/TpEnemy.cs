@@ -35,7 +35,7 @@ public class TpEnemy : MonoBehaviour {
 		transform.LookAt(player.transform);
 		if(Physics.Raycast(transform.position, transform.forward, warper.range)){
 			teleportedEnemy = true;
-			if(teleportedEnemy = true){
+			if(teleportedEnemy == true){
 				teleportedEnemy = false;
 				transform.position = (playerPos += enemyAdjustPos);
 			}

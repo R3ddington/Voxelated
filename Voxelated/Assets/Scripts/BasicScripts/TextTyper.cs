@@ -38,15 +38,15 @@ public class TextTyper : MonoBehaviour {
 
     void ShowText(string s) {
         handleString = handleString + s.Substring(0, 1);
+        string l = s.Substring(0, 1);
         textField.text = handleString;
         s = s.Remove(0, 1);
         if (s.Length != 0) {
-            if (!(s == " ")) {
-                StartCoroutine(ChatDelay(s));
+            if(l == " ")
+            {
+                handleString = handleString + " ";
             }
-            else {
-                ShowText(s);
-            }
+            StartCoroutine(ChatDelay(s));
         }
         else {
            // arrow.SetActive(true);

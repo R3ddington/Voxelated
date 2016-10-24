@@ -86,7 +86,7 @@ public class PlayerInfo : MonoBehaviour {
                 target.GetComponent<PreparePlayer>().GetInfo(playerName, friendName, playerIsFemale, pMaterial, fMaterial, isAdult);
                 break;
             case 3:
-                target.GetComponent<StartCutscene>().GetInfo(playerName, friendName);
+                target.GetComponent<NewOpeningCutscene>().GetInfo(playerName, friendName, playerIsFemale);
                 break;
         }
     }
