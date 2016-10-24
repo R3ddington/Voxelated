@@ -8,10 +8,15 @@ public class StartCutscene : MonoBehaviour {
     public Animator anim;
     public string pName;
     public string fName;
+    public GameObject fObject;
     public Animator fade;
     public GameObject chat;
     public Transform[] sLocs; //0 = house pos player, 1 = house pos friend
     GameObject pInfo;
+    public int chatInt;
+    public bool spaceable;
+    public GameObject igChat;
+    public Text cName;
 
     Renderer rend;
     // Use this for initialization
@@ -33,13 +38,19 @@ public class StartCutscene : MonoBehaviour {
             fade.SetTrigger("FadeIn");
         }
     }
-    /*
+
     // Update is called once per frame
     void Update()
     {
-
+        if (spaceable)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                ChatSkip();
+            }
+        }
     }
-    */
+
 
     public void PullInfo ()
     {
@@ -76,13 +87,46 @@ public class StartCutscene : MonoBehaviour {
                 break;
             case 3:
                 chat.SetActive(false);
+                this.GetComponent<TextTyper>().Switch(0);
                 fade.SetTrigger("FadeIn");
                 StartCoroutine(Wait(i, 4));
                 break;
             case 4:
-                
+                fObject.SetActive(false);
+                igChat.SetActive(true);
+                cName.text = pName.ToString();
+                this.GetComponent<TextTyper>().RecieveText(fName + "  " + "what  are you  doing  here?  it’s  almost  midnight", "StartCutscene_001");
+                chatInt = i;
+                ChatReady();
+                break;
+            case 5:
+                cName.text = fName.ToString();
+                this.GetComponent<TextTyper>().RecieveText("I  have  to  show  you  something!", "StartCutscene_001");
+                chatInt = i;
+                ChatReady();
+                break;
+            case 6:
+                cName.text = fName.ToString();
+                this.GetComponent<TextTyper>().RecieveText("Follow  Me!", "StartCutscene_001");
+                chatInt = i;
+                ChatReady();
+                break;
+            case 7:
+                igChat.SetActive(false);
                 break;
         }
+    }
+
+    public void ChatReady ()
+    {
+        spaceable = true;
+    }
+
+    public void ChatSkip ()
+    {
+        spaceable = false;
+        chatInt++;
+        Animations(chatInt);
     }
 
     void MovePlayer ()

@@ -7,8 +7,10 @@ public class TextTyper : MonoBehaviour {
     //public List<string> textList = new List<string>();
     string handleString;
     public Text textField;
+    public Text[] nextTexts;
    // public GameObject arrow;
     bool busy;
+    public bool isCut;
     /*
 	// Use this for initialization
 	void Start () {
@@ -49,8 +51,19 @@ public class TextTyper : MonoBehaviour {
         else {
            // arrow.SetActive(true);
             busy = false;
+           /* if (isCut)
+            {
+                //do space stuff
+            }
+            */
         }
     }
+
+    public void Switch (int i)
+    {
+        textField = nextTexts[i];
+    }
+
     IEnumerator ChatDelay (string s) {
         yield return new WaitForSeconds(0.04f);
         ShowText(s);
