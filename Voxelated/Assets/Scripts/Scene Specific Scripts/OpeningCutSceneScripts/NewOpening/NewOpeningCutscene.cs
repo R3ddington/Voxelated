@@ -12,6 +12,11 @@ public class NewOpeningCutscene : MonoBehaviour {
     public string[] hisHer; //0 = player, 1 = friend
     public string[] himHer; //0 = player, 1 = friend
     public string[] heShe; //0 = player, 1 = friend
+    public GameObject[] show; //0 = town, 1 = forest, 2 = stonehenge, 3 = rift
+    public GameObject[] players; //0 = town female, 1 = town male
+    public Animator[] playerAnimations; //0 = town female, 1 = town male
+    bool m;
+    int pM = 0;
 
     // Use this for initialization
     void Start () {
@@ -63,6 +68,7 @@ public class NewOpeningCutscene : MonoBehaviour {
             himHer[1] = "her";
             heShe[1] = "she";
             hisHer[1] = "her";
+            m = true;
         }
         RunThrough();
     }
@@ -86,6 +92,7 @@ public class NewOpeningCutscene : MonoBehaviour {
                 break;
             case 3:
                 this.GetComponent<TextTyper>().RecieveText("Once there was a small town", "OpeningCutscene_003");
+                show[0].SetActive(true);
                 ChatReady();
                 break;
             case 4:
@@ -96,18 +103,37 @@ public class NewOpeningCutscene : MonoBehaviour {
             case 5:
                 this.GetComponent<TextTyper>().RecieveText("One night" + " " + fName + " " + "went to" + " " + pName +
                     " " + "and woke" + " " + himHer[1] + " " + "up", "OpeningCutscene_005");
+                if (!m)
+                {
+                    pM = 0;
+                }
+                else
+                {
+                    pM = 1;
+                }
+                players[pM].SetActive(true);
+                playerAnimations[pM].SetBool("Walk", true);
                 ChatReady();
                 break;
             case 6:
-                this.GetComponent<TextTyper>().RecieveText("They walked through the forest", "OpeningCutscene_006");
+                this.GetComponent<TextTyper>().RecieveText(fName + " " + "told" + " " + pName + " " + "that" + " " +
+                    heShe[1] + " " + "found something awesome and that" + " " + heShe[0] + " " + "had to follow" + " " + himHer[1]  , "OpeningCutscene_006");
                 ChatReady();
                 break;
             case 7:
-                this.GetComponent<TextTyper>().RecieveText("Until they reached a stonehenge", "OpeningCutscene_006");
+                this.GetComponent<TextTyper>().RecieveText("They walked through the forest", "OpeningCutscene_007");
+                show[0].SetActive(false);
+                show[1].SetActive(true);
                 ChatReady();
                 break;
             case 8:
-
+                this.GetComponent<TextTyper>().RecieveText("Until they reached a stonehenge", "OpeningCutscene_008");
+                ChatReady();
+                break;
+            case 9:
+                this.GetComponent<TextTyper>().RecieveText(fName + " " + "showed" + " " + pName + " " +  "the strange rocks she found before" 
+                    , "OpeningCutscene_009");
+                ChatReady();
                 break;
         }
     }
