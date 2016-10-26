@@ -48,7 +48,7 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        StartCoroutine(StartWaitTimer(3, "WaitOnStart"));
+        StartCoroutine(StartWaitTimer(3, "WaitForText"));
     }
 	
 	// Update is called once per frame
@@ -67,10 +67,12 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     IEnumerator StartWaitTimer (int i, string s) {
         yield return new WaitForSeconds(i);
         switch (s) {
+            /*
             case "WaitOnStart":
-                LightsOn();
-                print("Turned Lights On");
+             //   LightsOn();
+             //   print("Turned Lights On");
                 break;
+                */
             case "WaitForText":
                 chatBar.SetActive(true);
                 textField.GetComponent<TextTyper>().RecieveText(textList[0], "00");
@@ -79,7 +81,7 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
                 break;
             case "WaitForCustom":
                 if (!lock001) {
-                    oldman.SetActive(false);
+                 //   oldman.SetActive(false);
                     male.SetActive(true);
                     isFemale = false;
                     maleS.GetComponent<MaleCustomization>().SetOn();
@@ -187,7 +189,7 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
                 else {
                     himOrHer = "her";
                 }
-                friendTell.text = "I heard you have a friend, Please tell me about " + himOrHer;
+                friendTell.text = "Make your friend";
                 spaceAble = true;
                 break;
             case 2:
@@ -201,19 +203,21 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
 
     void ChatBarButton (int i) {
         switch (i) {
+            /*
             case 1:
                 textField.GetComponent<TextTyper>().RecieveText(textList[chatInt], "0" + chatInt.ToString());
                 //   spaceAble = false;
                 chatInt++;
                 break;
-            case 2:
+            */
+            case 1:
                 chatBar.SetActive(false);
-                LightsOff();
+               // LightsOff();
                 StartCoroutine(StartWaitTimer(2, "WaitForCustom"));
                 spaceAble = false;
                 chatInt++;
                 break;
-            case 3:
+            case 2:
                 friendCustomizer.SetActive(true);
                 friendTellPage.SetActive(false);
                 if (isFemale) {
@@ -291,7 +295,7 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
         if(i == 10)
         {
             characterLights.SetActive(false);
-            LightsOff();
+         //   LightsOff();
             StartCoroutine(GoToCutScene());
         }
     }

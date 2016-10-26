@@ -11,6 +11,8 @@ public class TextTyper : MonoBehaviour {
    // public GameObject arrow;
     bool busy;
     public bool isCut;
+
+    public bool isIntro;
     /*
 	// Use this for initialization
 	void Start () {
@@ -51,11 +53,10 @@ public class TextTyper : MonoBehaviour {
         else {
            // arrow.SetActive(true);
             busy = false;
-           /* if (isCut)
+            if (isIntro)
             {
-                //do space stuff
+                this.GetComponent<NewOpeningCutscene>().ChatReady();
             }
-            */
         }
     }
 
