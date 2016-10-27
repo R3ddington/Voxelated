@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class NewOpeningCutscene : MonoBehaviour {
     public GameObject pInfo;
@@ -7,14 +8,16 @@ public class NewOpeningCutscene : MonoBehaviour {
     public string fName;
     public Animator fade;
     public int step;
-    bool spaceable;
+    public bool spaceable;
     public GameObject chat;
     public string[] hisHer; //0 = player, 1 = friend
     public string[] himHer; //0 = player, 1 = friend
     public string[] heShe; //0 = player, 1 = friend
-    public GameObject[] show; //0 = town, 1 = forest, 2 = stonehenge, 3 = rift
-    public GameObject[] players; //0 = town female, 1 = town male, 2 = stongehedge female, 3 = stonehedge male, 4 = female down, 5 = male down
+    public GameObject[] show; //0 = town, 1 = forest, 2 = stonehenge, 3 = rift, 4 = wizard room
+    public GameObject[] players; //0 = town female, 1 = town male, 2 = stongehedge female, 3 = stonehedge male, 4 = female down, 5 = male down, 
+                                 //6 = female bed, 7 = male bed
     public Animator[] playerAnimations; //0 = town female, 1 = town male, 2 = forest female, 3 = forest male, 4 = stongehedge female, 5 = stonehedge male
+                                        // 6 = female bed, 7 = male bed
     bool m;
     int pM = 0;
     public Transform riftLoc;
@@ -144,7 +147,7 @@ public class NewOpeningCutscene : MonoBehaviour {
                 StartCoroutine(Wait(3));
                 break;
             case 13:
-                if (m)
+                if (!m)
                 {
                     playerAnimations[5].SetBool("MaleSuck", true);
                     playerAnimations[4].SetBool("Stun", true);
@@ -158,7 +161,7 @@ public class NewOpeningCutscene : MonoBehaviour {
                 StartCoroutine(Wait2(0.6f));
                 break;
             case 14:
-                if (m)
+                if (!m)
                 {
                     playerAnimations[5].SetBool("MaleSuck", true);
                     players[5].SetActive(true);
@@ -190,6 +193,7 @@ public class NewOpeningCutscene : MonoBehaviour {
                 break;
             case 19:
                 this.GetComponent<TextTyper>().RecieveText("N-n-no..." + " " + fName + " " + "please...", "OpeningCutscene_019");
+                show[3].SetActive(false);
                 break;
             case 20:
                 this.GetComponent<TextTyper>().RecieveText("Come back... please...", "OpeningCutscene_020");
@@ -205,18 +209,136 @@ public class NewOpeningCutscene : MonoBehaviour {
                 StartCoroutine(Wait(3));
                 break;
             case 24:
-                show[3].SetActive(false);
                 show[2].SetActive(false);
+                show[4].SetActive(true);
+                if (!m)
+                {
+                    players[6].SetActive(true);
+                }
+                else
+                {
+                    players[7].SetActive(true);
+                }
                 fade.SetTrigger("FadeIn");
                 this.GetComponent<TextTyper>().RecieveText("...", "OpeningCutscene_024");
                 StartCoroutine(Wait(3));
+                break;
+            case 25:
+                this.GetComponent<TextTyper>().RecieveText("ugh... eh...", "OpeningCutscene_025");
+                break;
+            case 26:
+                this.GetComponent<TextTyper>().RecieveText("Hey, take it easy you are still wounded", "OpeningCutscene_026");
+                break;
+            case 27:
+                this.GetComponent<TextTyper>().RecieveText("I found you at the stonehenge", "OpeningCutscene_027");
+                break;
+            case 28:
+                this.GetComponent<TextTyper>().RecieveText(fName + "!" + " " + "Did you see" + " " + himHer[1] + "?", "OpeningCutscene_028");
+                break;
+            case 29:
+                this.GetComponent<TextTyper>().RecieveText("No... was" + " " + heShe[1] + " " + "with you?", "OpeningCutscene_029");
+                break;
+            case 30:
+                this.GetComponent<TextTyper>().RecieveText("yes... w-w-we... we were there and then there was a huge flash of light...",
+                    "OpeningCutscene_030");
+                break;
+            case 31:
+                this.GetComponent<TextTyper>().RecieveText("And then this... this... i don't know what it was...", "OpeningCutscene_031");
+                break;
+            case 32:
+                this.GetComponent<TextTyper>().RecieveText("It took" + " " + himHer[1] + "...", "OpeningCutscene_032");
+                break;
+            case 33:
+                this.GetComponent<TextTyper>().RecieveText("No... no... no! this is impossible... it can't be...", "OpeningCutscene_033");
+                break;
+            case 34:
+                this.GetComponent<TextTyper>().RecieveText("Are you really sure that you saw this?!", "OpeningCutscene_034");
+                break;
+            case 35:
+                this.GetComponent<TextTyper>().RecieveText("y-y-yes...", "OpeningCutscene_035");
+                break;
+            case 36:
+                this.GetComponent<TextTyper>().RecieveText("Listen, long ago there was a tale about a legendary beast", "OpeningCutscene_036");
+                break;
+            case 37:
+                this.GetComponent<TextTyper>().RecieveText("It would travel between universums and devour anything on its path", "OpeningCutscene_037");
+                break;
+            case 38:
+                this.GetComponent<TextTyper>().RecieveText("However, this was not just a fairy tail, it was real", "OpeningCutscene_038");
+                break;
+            case 39:
+                this.GetComponent<TextTyper>().RecieveText("Every 7 years it would open a rift somewhere on earth and rampage until it ate enough",
+                    "OpeningCutscene_039");
+                break;
+            case 40:
+                this.GetComponent<TextTyper>().RecieveText("The rift always opens at the same location, which is on this island", "OpeningCutscene_040");
+                break;
+            case 41:
+                this.GetComponent<TextTyper>().RecieveText("35 years ago we finally succeeded in slaying the beast", "OpeningCutscene_041");
+                break;
+            case 42:
+                this.GetComponent<TextTyper>().RecieveText("Atleast that's what we thought", "OpeningCutscene_042");
+                break;
+            case 43:
+                this.GetComponent<TextTyper>().RecieveText("If it opened a new rift it means that it survived and will return", "OpeningCutscene_043");
+                break;
+            case 44:
+                this.GetComponent<TextTyper>().RecieveText("This is bad... I'm old and all the others who fought the beast with me died ages ago",
+                    "OpeningCutscene_044");
+                break;
+            case 45:
+                this.GetComponent<TextTyper>().RecieveText("L..let me fight it....", "OpeningCutscene_045");
+                break;
+            case 46:
+                this.GetComponent<TextTyper>().RecieveText("What?", "OpeningCutscene_046");
+                break;
+            case 47:
+                this.GetComponent<TextTyper>().RecieveText("I will kill it", "OpeningCutscene_047");
+                break;
+            case 48:
+                this.GetComponent<TextTyper>().RecieveText("You are way too weak and young to do that!", "OpeningCutscene_048");
+                break;
+            case 49:
+                this.GetComponent<TextTyper>().RecieveText("You said it opens once each 7 years right?", "OpeningCutscene_049");
+                break;
+            case 50:
+                this.GetComponent<TextTyper>().RecieveText("I will be 19 then, I have to rescue" + " " + himHer[1], "OpeningCutscene_050");
+                break;
+            case 51:
+                this.GetComponent<TextTyper>().RecieveText("Very well, Who am I to stop you, I did the same thing years ago...", "OpeningCutscene_051");
+                break;
+            case 52:
+                this.GetComponent<TextTyper>().RecieveText("Rest and heal up, after that I will start training you to fight whatever you will find inside there"
+                    , "OpeningCutscene_052");
+                break;
+            case 53:
+                this.GetComponent<TextTyper>().RecieveText("You can have the armor and weapons I found during my adventure in there", "OpeningCutscene_053");
+                break;
+            case 54:
+                this.GetComponent<TextTyper>().RecieveText("How will we be able to get from the rift after I found" + " " + fName + "?",
+                    "OpeningCutscene_054");
+                break;
+            case 55:
+                this.GetComponent<TextTyper>().RecieveText("Don't worry about that, I will use my magic to keep my rift open until you are back",
+                    "OpeningCutscene_055");
+                break;
+            case 56:
+                this.GetComponent<TextTyper>().RecieveText("Rest now child, you have a long and rough path ahead of you", "OpeningCutscene_056");
+                break;
+            case 57:
+                fade.SetTrigger("FadeOut");
+                StartCoroutine(Wait(3));
+                break;
+            case 58:
+                SceneManager.LoadScene(3);
                 break;
         }
     }
 
     public void ChatReady()
     {
-        if (!(step == 12 || step == 13 || step == 14 || step == 17 || step == 18 || step == 23 || step == 24))  //Not space able during these cases
+        if (!(step == 12 || step == 13 || step == 14 || step == 17 || step == 18 || step == 23 || step == 24 || step == 57 || step == 58)) 
+            //Not space able during these cases
         {
             spaceable = true;
         }
