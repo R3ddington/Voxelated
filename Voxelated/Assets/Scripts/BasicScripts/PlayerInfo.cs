@@ -12,6 +12,7 @@ public class PlayerInfo : MonoBehaviour {
     public Material fMaterial;
     public Material pYMaterial;
     public Material fYMaterial;
+    public bool isAdult;
     // Use this for initialization
     void Start () {
         DontDestroyOnLoad(transform.gameObject);
@@ -57,6 +58,16 @@ public class PlayerInfo : MonoBehaviour {
             case 8:
                 fYMaterial = m;
                 break;
+            case 9:
+                if (s == "Yes")
+                {
+                    isAdult = true;
+                }
+                else
+                {
+                    isAdult = false;
+                }
+                break;
         }
     }
     public void SendInfo(int id, GameObject target)
@@ -67,8 +78,15 @@ public class PlayerInfo : MonoBehaviour {
                 //TutorialScript request
                 target.GetComponent<TutorialScript>().GetInfo(playerName, friendName, playerIsFemale, pMaterial);
                 break;
-            case 1:
+         /*   case 1:
                 target.GetComponent<StartCutscene>().GetInfo(playerName, friendName, playerIsFemale, pYMaterial);
+                break;
+          */
+            case 2:
+                target.GetComponent<PreparePlayer>().GetInfo(playerName, friendName, playerIsFemale, pMaterial, fMaterial, isAdult);
+                break;
+            case 3:
+                target.GetComponent<NewOpeningCutscene>().GetInfo(playerName, friendName, playerIsFemale);
                 break;
         }
     }

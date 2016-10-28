@@ -3,88 +3,79 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class StartCutscene : MonoBehaviour {
-    public GameObject female;
-    public GameObject male;
     public GameObject player;
-    public GameObject mM;
-    public GameObject fM;
-    public GameObject pM;
-    public Material pMaterial;
-    public bool isFemale;
+    public GameObject friend;
+    public Animator anim;
     public string pName;
     public string fName;
-    public GameObject pInfo;
-    public Material standardMaterial;
-    public Animator anim;
-    public Animator mAnim;
-    public Animator fAnim;
+    public GameObject fObject;
     public Animator fade;
     public GameObject chat;
+    public Transform[] sLocs; //0 = house pos player, 1 = house pos friend
+    GameObject pInfo;
+    public int chatInt;
+    public bool spaceable;
+    public GameObject igChat;
+    public Text cName;
 
     Renderer rend;
     // Use this for initialization
     void Start()
     {
-        pInfo = GameObject.FindGameObjectWithTag("PlayerInfo");
-        if (pInfo != null)
+        GameObject baby = GameObject.FindGameObjectWithTag("Baby");
+        if(baby != null)
         {
-            PullInfo();
+            player = GameObject.FindGameObjectWithTag("Player");
+            friend = GameObject.FindGameObjectWithTag("Friend");
+            pInfo = GameObject.FindGameObjectWithTag("PlayerInfo");
+            if (pInfo != null)
+            {
+                PullInfo();
+            }
         }
         else
         {
-            GetInfo("FakePlayer", "FakeFriend", true, standardMaterial);
+            fade.SetTrigger("FadeIn");
         }
     }
-    /*
+
     // Update is called once per frame
     void Update()
     {
-
-    }
-    */
-    public void PullInfo()
-    {
-        pInfo.GetComponent<PlayerInfo>().SendInfo(1, gameObject);
-    }
-
-    public void GetInfo(string i_pName, string i_fName, bool i_isFemale, Material i_pMaterial)
-    {
-        pName = i_pName;
-        fName = i_fName;
-        isFemale = i_isFemale;
-        pMaterial = i_pMaterial;
-        PreparePlayer();
-    }
-
-    public void PreparePlayer()
-    {
-        if (isFemale)
+        if (spaceable)
         {
-            Destroy(male);
-            player = female;
-            pM = fM;
-            anim = fAnim;
+            if (Input.GetButtonDown("Jump"))
+            {
+                ChatSkip();
+            }
         }
-        else
-        {
-            Destroy(female);
-            player = male;
-            pM = mM;
-            anim = mAnim;
-        }
-        rend = pM.transform.GetComponent<Renderer>();
-        rend.material = pMaterial;
-        Animations(0);
+    }
+
+
+    public void PullInfo ()
+    {
+        pInfo.GetComponent<PlayerInfo>().SendInfo(3, gameObject);
+    }
+
+    public void GetInfo (string playerName, string friendName)
+    {
+        pName = playerName;
+        fName = friendName;
+        Prepare();
+    }
+
+    public void Prepare ()
+    {
+        player.transform.position = sLocs[0].position;
+        friend.transform.position = sLocs[1].position;
+        friend.transform.rotation = sLocs[1].rotation;
+        Animations(1);
     }
 
     public void Animations (int i)
     {
         switch (i)
         {
-            case 0:
-                anim.SetTrigger("Sitting");
-                StartCoroutine(Wait(i, 5));
-                break;
             case 1:
                 chat.SetActive(true);
                 this.GetComponent<TextTyper>().RecieveText(pName + "  " + "hey!  wake  up!" + pName + "!" , "StartCutscene_001");
@@ -96,16 +87,46 @@ public class StartCutscene : MonoBehaviour {
                 break;
             case 3:
                 chat.SetActive(false);
+                this.GetComponent<TextTyper>().Switch(0);
                 fade.SetTrigger("FadeIn");
-                anim.SetTrigger("StandUp");
                 StartCoroutine(Wait(i, 4));
                 break;
             case 4:
-                Vector3 tempV = new Vector3(-162, 0, - 187);
-                player.GetComponent<PlayerMoving>().Move(tempV);
-                anim.SetBool("Walk", true);
+                fObject.SetActive(false);
+                igChat.SetActive(true);
+                cName.text = pName.ToString();
+                this.GetComponent<TextTyper>().RecieveText(fName + "  " + "what  are you  doing  here?  it’s  almost  midnight", "StartCutscene_001");
+                chatInt = i;
+                ChatReady();
+                break;
+            case 5:
+                cName.text = fName.ToString();
+                this.GetComponent<TextTyper>().RecieveText("I  have  to  show  you  something!", "StartCutscene_001");
+                chatInt = i;
+                ChatReady();
+                break;
+            case 6:
+                cName.text = fName.ToString();
+                this.GetComponent<TextTyper>().RecieveText("Follow  Me!", "StartCutscene_001");
+                chatInt = i;
+                ChatReady();
+                break;
+            case 7:
+                igChat.SetActive(false);
                 break;
         }
+    }
+
+    public void ChatReady ()
+    {
+        spaceable = true;
+    }
+
+    public void ChatSkip ()
+    {
+        spaceable = false;
+        chatInt++;
+        Animations(chatInt);
     }
 
     void MovePlayer ()

@@ -12,6 +12,9 @@ TagManager:
   - GuardianHand
   - PlayerInfo
   - Dummy
+  - Baby
+  - Friend
+  - Target
   layers:
   - Default
   - TransparentFX
