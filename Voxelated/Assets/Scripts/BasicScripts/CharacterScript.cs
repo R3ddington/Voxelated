@@ -12,6 +12,11 @@ public class CharacterScript : MonoBehaviour {
     public BoxCollider boxCollider;
     public int[] hitboxHeight; //0 = normal size, 1 = crouch size
     public int[] hitboxCenter; //0 = normal center, 1 = crouch center
+    public bool goingLeft;
+    public float turnSpeed;
+    public GameObject model;
+    int turnDir;
+    public bool turning;
 
     // Use this for initialization
     void Start () {
@@ -21,6 +26,10 @@ public class CharacterScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         OnButtonDown();
+        if (turning)
+        {
+            Turn(turnDir);
+        }
 	}
 
     public void SetUp()
@@ -102,9 +111,46 @@ public class CharacterScript : MonoBehaviour {
         if (!freeze)
         {
             transform.Translate(new Vector3(0, 0, Input.GetAxis("Horizontal")) * speed[0] * Time.deltaTime);
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                if (!goingLeft)
+                {
+                    goingLeft = true;
+                    turnDir = -90;
+                    turning = true;
+                }
+            }
+            else
+            {
+                if (goingLeft)
+                {
+                    goingLeft = false;
+                    turnDir = 90;
+                    turning = true;
+                }
+            }
             if (anim.GetBool("Walk") == false)
             {
                 anim.SetBool("Walk", true);
+            }
+        }
+    }
+
+    void Turn (int i)
+    {
+        model.transform.rotation = Quaternion.Lerp(model.transform.rotation, Quaternion.Euler(0, i, 0),  Time.deltaTime * turnSpeed);
+        if (goingLeft)
+        {
+            if(model.transform.rotation.y == 180)
+            {
+                turning = false;
+            }
+        }
+        else
+        {
+            if(model.transform.rotation.y == 0)
+            {
+                turning = false; //ß
             }
         }
     }

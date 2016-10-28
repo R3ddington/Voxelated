@@ -314,6 +314,7 @@ public class NewOpeningCutscene : MonoBehaviour {
             case 53:
                 this.GetComponent<TextTyper>().RecieveText("You can have the armor and weapons I found during my adventure in there", "OpeningCutscene_053");
                 break;
+            /*
             case 54:
                 this.GetComponent<TextTyper>().RecieveText("How will we be able to get from the rift after I found" + " " + fName + "?",
                     "OpeningCutscene_054");
@@ -322,14 +323,15 @@ public class NewOpeningCutscene : MonoBehaviour {
                 this.GetComponent<TextTyper>().RecieveText("Don't worry about that, I will use my magic to keep my rift open until you are back",
                     "OpeningCutscene_055");
                 break;
-            case 56:
+            */
+            case 54:
                 this.GetComponent<TextTyper>().RecieveText("Rest now child, you have a long and rough path ahead of you", "OpeningCutscene_056");
                 break;
-            case 57:
+            case 55:
                 fade.SetTrigger("FadeOut");
                 StartCoroutine(Wait(3));
                 break;
-            case 58:
+            case 56:
                 SceneManager.LoadScene(3);
                 break;
         }
@@ -337,7 +339,7 @@ public class NewOpeningCutscene : MonoBehaviour {
 
     public void ChatReady()
     {
-        if (!(step == 12 || step == 13 || step == 14 || step == 17 || step == 18 || step == 23 || step == 24 || step == 57 || step == 58)) 
+        if (!(step == 12 || step == 13 || step == 14 || step == 17 || step == 18 || step == 23 || step == 24 || step == 55 || step == 56)) 
             //Not space able during these cases
         {
             spaceable = true;
