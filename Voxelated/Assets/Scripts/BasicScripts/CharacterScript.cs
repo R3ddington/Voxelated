@@ -8,7 +8,7 @@ public class CharacterScript : MonoBehaviour {
     public bool freeze;
     public bool hitFreeze;
     public int[] speed; //0 = using speed, 1 = normal speed, 2 = sprint speed, 3 = crouch speed
-    public int cMode;  //0 = Katana mode
+    public int cMode;  //0 = Katana mode, 1 = Gun mode
     public BoxCollider boxCollider;
     public int[] hitboxHeight; //0 = normal size, 1 = crouch size
     public int[] hitboxCenter; //0 = normal center, 1 = crouch center
@@ -17,6 +17,12 @@ public class CharacterScript : MonoBehaviour {
     public GameObject model;
     int turnDir;
     public bool turning;
+    public GameObject[] backItems; //0 = katana, 1 = gun
+    public GameObject[] handItems; //0 = katana, 1 = gun
+    bool switching;
+    public bool aiming;
+    public GameObject gunScript;
+
 
     // Use this for initialization
     void Start () {
@@ -29,6 +35,10 @@ public class CharacterScript : MonoBehaviour {
         if (turning)
         {
             Turn(turnDir);
+        }
+        if (aiming)
+        {
+         //   Aiming();
         }
 	}
 
@@ -43,22 +53,77 @@ public class CharacterScript : MonoBehaviour {
         {
             if (!hitFreeze)
             {
+                if (Input.GetButtonDown("1"))
+                {
+                    if (!switching)
+                    {
+                        switch (cMode)
+                        {
+                            case 0:
+                                print("Allready using katana");
+                                break;
+                            case 1:
+                                cMode = 0;
+                                TakeItem(3);
+                                switching = true;
+                                StartCoroutine(WaitTillSwitch(0, 1));
+                                //    TakeItem(0);
+                                break;
+                        }
+                    }
+                }
+               if (Input.GetButtonDown("2"))
+                {
+                    if (!switching)
+                    {
+                        switch (cMode)
+                        {
+                            case 0:
+                                cMode = 1;
+                                TakeItem(1);
+                                switching = true;
+                                StartCoroutine(WaitTillSwitch(2, 1));
+                                break;
+                            case 1:
+                                print("Allready using pistol");
+                                break;
+                        }
+                    }   
+                }
+                if (Input.GetButtonUp("Fire2"))
+                {
+                    aiming = false;
+                    anim.SetBool("Aiming", false);
+                    gunScript.GetComponent<LaserScript>().Lock(1);
+                }
+
                 if (Input.GetButtonDown("Fire1"))
                 {
-                    switch (cMode)
+                    if (!switching)
                     {
-                        case 0:
-                            anim.SetTrigger("Slash");
-                            break;
+                        switch (cMode)
+                        {
+                            case 0:
+                                anim.SetTrigger("Slash");
+                                break;
+                        }
                     }
                 }
                 if (Input.GetButtonDown("Fire2"))
                 {
-                    switch (cMode)
+                    if (!switching)
                     {
-                        case 0:
-                            anim.SetTrigger("Spin");
-                            break;
+                        switch (cMode)
+                        {
+                            case 0:
+                                anim.SetTrigger("Spin");
+                                break;
+                            case 1:
+                                aiming = true;
+                                anim.SetBool("Aiming", true);
+                                gunScript.GetComponent<LaserScript>().Lock(0);
+                                break;
+                        }
                     }
                 }
             }
@@ -77,9 +142,12 @@ public class CharacterScript : MonoBehaviour {
                 Moving();
                 if (Input.GetButtonDown("LShift"))
                 {
-                    //do sprint speed
-                    speed[0] = speed[2];
-                    anim.SetBool("Run", true);
+                    if (!aiming)
+                    {
+                        //do sprint speed
+                        speed[0] = speed[2];
+                        anim.SetBool("Run", true);
+                    }
                 }
                 if (Input.GetButtonUp("LShift"))
                 {
@@ -102,6 +170,16 @@ public class CharacterScript : MonoBehaviour {
         else
         {
             MoveOff();
+        }
+    }
+
+    void Aiming ()
+    {
+        print("OnAnimator triggered");
+        if (aiming)
+        {
+            anim.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
+            anim.SetIKPosition(AvatarIKGoal.LeftHand, Input.mousePosition);
         }
     }
 
@@ -178,6 +256,44 @@ public class CharacterScript : MonoBehaviour {
         }
 
     }
+
+    public void TakeItem(int i)
+    {
+        switch (i)
+        {
+            case 0:
+                anim.SetTrigger("TakeSword");
+                StartCoroutine(WaitTillDisable(backItems[0], handItems[0], 1));
+                break;
+            case 1:
+                anim.SetTrigger("SheatSword");
+                StartCoroutine(WaitTillDisable(handItems[0], backItems[0], 1));
+                break;
+            case 2:
+                anim.SetTrigger("TakeGun");
+                StartCoroutine(WaitTillDisable(backItems[1], handItems[1], 1));
+                break;
+            case 3:
+                anim.SetTrigger("SheatGun");
+                StartCoroutine(WaitTillDisable(handItems[1], backItems[1], 1));
+                break;
+        }
+    }
+
+    IEnumerator WaitTillDisable(GameObject o1, GameObject o2, int wait)
+    {
+        yield return new WaitForSeconds(wait);
+        o1.SetActive(false);
+        o2.SetActive(true);
+        switching = false;
+    }
+
+    IEnumerator WaitTillSwitch(int i, int wait)
+    {
+        yield return new WaitForSeconds(wait);
+        TakeItem(i);
+    }
+
     public void Freeze ()
     {
         if (!freeze)
