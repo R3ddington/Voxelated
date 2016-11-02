@@ -4616,6 +4616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 689556990}
+  health: 250
 --- !u!4 &690613005 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010798548696, guid: 7589e3db7af5479469c2afcd1f0d067d,

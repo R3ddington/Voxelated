@@ -47,7 +47,13 @@ public class LaserScript : MonoBehaviour {
                 break;
             case 1:
                 locked = true;
-                line.enabled = false;
+                if (line != null)
+                {
+                    if (line.enabled)
+                    {
+                        line.enabled = false;
+                    }
+                }
                 break;
         }
     }

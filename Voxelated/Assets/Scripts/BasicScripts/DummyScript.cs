@@ -3,20 +3,19 @@ using System.Collections;
 
 public class DummyScript : MonoBehaviour {
     public Animator anim;
-    /*
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-    */
+    public int health;
 
-    public void Hit ()
+    public void Hit (int i)
     {
-        anim.SetTrigger("Hit");
+        health -= i;
+        if (health <= 0)
+        {
+            //Play death animation
+            Destroy(gameObject);
+        }
+        else
+        {
+            anim.SetTrigger("Hit");
+        }
     }
 }

@@ -46,7 +46,7 @@ public class KatanaScript : MonoBehaviour {
         switch (tag)
         {
             case "Dummy":
-                c.GetComponent<DummyScript>().Hit();
+                c.GetComponent<DummyScript>().Hit(dealDamage);
                 break;
             case "Strypu":
                 c.GetComponent<Strypu>().Damage(dealDamage);

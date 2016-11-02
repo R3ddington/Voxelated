@@ -291,13 +291,16 @@ public class NewOpeningCutscene : MonoBehaviour {
                 break;
             case 46:
                 this.GetComponent<TextTyper>().RecieveText("What?", "OpeningCutscene_046");
+                step += 2; //add 2 to skip the comented lines below
                 break;
+            /*
             case 47:
                 this.GetComponent<TextTyper>().RecieveText("I will kill it", "OpeningCutscene_047");
                 break;
             case 48:
                 this.GetComponent<TextTyper>().RecieveText("You are way too weak and young to do that!", "OpeningCutscene_048");
                 break;
+            */
             case 49:
                 this.GetComponent<TextTyper>().RecieveText("You said it opens once each 7 years right?", "OpeningCutscene_049");
                 break;
