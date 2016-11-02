@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: e4d4423c7cb87fe43b047316ac244eb0
 folderAsset: yes
 timeCreated: 1477915054
+=======
+guid: 0278ecfaff9986349bba5b2da237dabb
+folderAsset: yes
+timeCreated: 1477987549
+>>>>>>> origin/master
 licenseType: Free
 DefaultImporter:
   userData: 
