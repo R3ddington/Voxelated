@@ -8,11 +8,13 @@ public class LaserScript : MonoBehaviour {
     public float coolDownTime;
     public bool locked;
     public bool cooldown;
+    public int dealDamage;
 
 	// Use this for initialization
 	void Start () {
         line = gameObject.GetComponent<LineRenderer>();
         incLengthCast = 0;
+        dealDamage = 1;
 
        // Screen.lockCursor = true;
 	}
@@ -76,7 +78,7 @@ public class LaserScript : MonoBehaviour {
                 if (Physics.Raycast(ray, out hit, incLengthCast))
                 {
                     line.SetPosition(1, hit.point);
-                    //StartCoroutine(CoolDownSystemLaser());
+                    DealDamage(hit);
                 }
                 else
                 {
@@ -114,5 +116,13 @@ public class LaserScript : MonoBehaviour {
     {
         yield return new WaitForSeconds(coolDownTime);
         cooldown = false;
+    }
+
+    public void DealDamage (RaycastHit h)
+    {
+        if(h.transform.tag == ("Dummy"))
+        {
+            h.transform.GetComponent<DummyScript>().Hit(dealDamage);
+        }
     }
 }
