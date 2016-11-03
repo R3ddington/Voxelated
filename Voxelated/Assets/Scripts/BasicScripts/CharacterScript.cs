@@ -55,7 +55,7 @@ public class CharacterScript : MonoBehaviour {
             {
                 if (Input.GetButtonDown("1"))
                 {
-                    if (!switching)
+                    if (!switching && anim.GetBool("Walk") == false && anim.GetBool("Crouch") == false)
                     {
                         switch (cMode)
                         {
@@ -66,15 +66,15 @@ public class CharacterScript : MonoBehaviour {
                                 cMode = 0;
                                 TakeItem(3);
                                 switching = true;
+                                freeze = true;
                                 StartCoroutine(WaitTillSwitch(0, 1));
-                                //    TakeItem(0);
                                 break;
                         }
                     }
                 }
                if (Input.GetButtonDown("2"))
                 {
-                    if (!switching)
+                    if (!switching && anim.GetBool("Walk") == false && anim.GetBool("Crouch") == false)
                     {
                         switch (cMode)
                         {
@@ -82,6 +82,7 @@ public class CharacterScript : MonoBehaviour {
                                 cMode = 1;
                                 TakeItem(1);
                                 switching = true;
+                                freeze = true;
                                 StartCoroutine(WaitTillSwitch(2, 1));
                                 break;
                             case 1:
@@ -286,6 +287,7 @@ public class CharacterScript : MonoBehaviour {
         o1.SetActive(false);
         o2.SetActive(true);
         switching = false;
+        freeze = false;
     }
 
     IEnumerator WaitTillSwitch(int i, int wait)
