@@ -217,6 +217,10 @@ public class CharacterScript : MonoBehaviour {
 
     void Turn (int i)
     {
+        if (freeze)
+        {
+            return;
+        }
         model.transform.rotation = Quaternion.Lerp(model.transform.rotation, Quaternion.Euler(0, i, 0),  Time.deltaTime * turnSpeed);
         if (goingLeft)
         {

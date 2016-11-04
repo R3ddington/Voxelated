@@ -11,8 +11,8 @@ public class TextTyper : MonoBehaviour {
    // public GameObject arrow;
     bool busy;
     public bool isCut;
-
-    public bool isIntro;
+    public GameObject inputObject;
+    public int type;
     /*
 	// Use this for initialization
 	void Start () {
@@ -53,9 +53,14 @@ public class TextTyper : MonoBehaviour {
         else {
            // arrow.SetActive(true);
             busy = false;
-            if (isIntro)
+            switch(type)
             {
-                this.GetComponent<NewOpeningCutscene>().ChatReady();
+                case 0:
+                    this.GetComponent<NewOpeningCutscene>().ChatReady();
+                    break;
+                case 1:
+                    inputObject.GetComponent<TpRift>().ChatReady();
+                    break;
             }
         }
     }
