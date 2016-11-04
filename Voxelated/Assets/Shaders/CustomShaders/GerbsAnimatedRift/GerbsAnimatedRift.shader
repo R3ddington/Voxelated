@@ -96,16 +96,16 @@ Shader "Custom/GerbsAnimatedRift" {
 		float sceneZ = LinearEyeDepth(UNITY_SAMPLE_DEPTH(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.projPos))));
 	float partZ = i.projPos.z;
 	float fade = saturate(_InvFade * (sceneZ - partZ));
-	fixed2 scrolledUV = IN.uv_EmissionTex;
-	fixed xScrollValue = _ScrollSpeedX * _Time;
-	fixed yScrollValue = _ScrollSpeedY * _Time;
-	scrolledUV += fixed2(xScrollValue, yScrollValue);
-	fixed4 m = tex2D(_EmissionMask, IN.uv_EmissionMask);
-	fixed4 e = tex2D(_EmissionTex, scrolledUV) * _EmissionIntensity;
-	o.Emission = e * m;
-	i.color.a *= fade;
+	//fixed2 scrolledUV = IN.uv_EmissionTex;
+//	fixed xScrollValue = _ScrollSpeedX * _Time;
+	//fixed yScrollValue = _ScrollSpeedY * _Time;
+//	scrolledUV += fixed2(xScrollValue, yScrollValue);
+	//fixed4 m = tex2D(_EmissionMask, IN.uv_EmissionMask);
+//	fixed4 e = tex2D(_EmissionTex, scrolledUV) * _EmissionIntensity;
+//	o.Emission = e * m;
+//	i.color.a *= fade;
 	void surf(Input IN, inout SurfaceOutputStandard o) {
-
+		 
 		fixed2 scrolledUV = IN.uv_EmissionTex;
 
 		fixed xScrollValue = _ScrollSpeedX * _Time;
