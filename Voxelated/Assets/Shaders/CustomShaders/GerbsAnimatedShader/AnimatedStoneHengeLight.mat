@@ -6,15 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: defaultMat
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-<<<<<<< HEAD
+  m_Name: AnimatedStoneHengeLight
+  m_Shader: {fileID: 4800000, guid: 0fb8e73834c2d9a419bb52c7fb4b802c, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
-=======
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
->>>>>>> origin/master
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -51,9 +46,21 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
+        name: _EmissionMask
+      second:
+        m_Texture: {fileID: 2800000, guid: 2c29c08dd1c0b6749b7cd0fcff7a29fd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _EmissionTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 987aeacf595cdaa49bb8ee0d1e88dc7a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b66f1d45c03170a4e9c54f30136b7c54, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -88,17 +95,20 @@ Material:
         name: _DstBlend
       second: 0
     - first:
+        name: _EmissionIntensity
+      second: 0.277
+    - first:
         name: _GlossMapScale
       second: 1
     - first:
         name: _Glossiness
-      second: 0.5
+      second: 0.497
     - first:
         name: _GlossyReflections
       second: 1
     - first:
         name: _Metallic
-      second: 0
+      second: 0.303
     - first:
         name: _Mode
       second: 0
@@ -108,6 +118,12 @@ Material:
     - first:
         name: _Parallax
       second: 0.02
+    - first:
+        name: _ScrollSpeedX
+      second: 18.3
+    - first:
+        name: _ScrollSpeedY
+      second: 14.1
     - first:
         name: _SmoothnessTextureChannel
       second: 0
@@ -126,7 +142,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+      second: {r: 0.9687172, g: 0.309202, b: 0.97794116, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
