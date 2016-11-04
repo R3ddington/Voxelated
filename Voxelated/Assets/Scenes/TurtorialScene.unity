@@ -21114,7 +21114,7 @@ MonoBehaviour:
   loc: {fileID: 1940233644}
   fade: {fileID: 10607324}
   step: 0
-  chat: {fileID: 0}
+  chat: {fileID: 88495296}
 --- !u!65 &926032130
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21141,8 +21141,8 @@ MonoBehaviour:
   textField: {fileID: 562555799}
   nextTexts: []
   isCut: 0
-  inputObject: {fileID: 0}
-  type: 0
+  inputObject: {fileID: 926032127}
+  type: 1
 --- !u!1001 &926816084
 Prefab:
   m_ObjectHideFlags: 0

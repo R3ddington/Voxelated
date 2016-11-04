@@ -9,6 +9,18 @@ public class TpRift : MonoBehaviour
     bool locked;
     bool spaceable;
     public GameObject chat;
+
+    void Update ()
+    {
+        if (spaceable)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                ChatSkip();
+            }
+        }
+    }
+
     void OnTriggerEnter(Collider c)
     {
         if (c.transform.tag == "Player")
