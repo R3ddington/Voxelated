@@ -21,3 +21,5 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayerPreparer.unity
   - enabled: 1
     path: Assets/Scenes/NewOpeningCutscene.unity
+  - enabled: 1
+    path: Assets/Scenes/RiftHub.unity

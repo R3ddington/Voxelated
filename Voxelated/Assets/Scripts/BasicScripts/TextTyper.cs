@@ -13,17 +13,6 @@ public class TextTyper : MonoBehaviour {
     public bool isCut;
     public GameObject inputObject;
     public int type;
-    /*
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-    */
 
     public void RecieveText (string s, string id) {
         if (!busy) {

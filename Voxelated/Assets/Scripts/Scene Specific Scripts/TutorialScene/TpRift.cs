@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TpRift : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class TpRift : MonoBehaviour
     bool locked;
     bool spaceable;
     public GameObject chat;
+    public GameObject player;
+    bool movePlayer;
 
     void Update ()
     {
@@ -19,6 +22,10 @@ public class TpRift : MonoBehaviour
                 ChatSkip();
             }
         }
+        if (movePlayer)
+        {
+            MovePlayer();
+        }
     }
 
     void OnTriggerEnter(Collider c)
@@ -27,6 +34,7 @@ public class TpRift : MonoBehaviour
         {
             if (!locked)
             {
+                player = c.gameObject;
                 locked = true;
                 fade.SetTrigger("FadeOut");
                 c.transform.GetComponent<CharacterScript>().Freeze();
@@ -53,6 +61,7 @@ public class TpRift : MonoBehaviour
             case 0:
                 chat.SetActive(true);
                 this.GetComponent<TextTyper>().RecieveText("Its time", "TPRift_0");
+                player.GetComponent<CharacterScript>().SpecialLock(1);
                 break;
             case 1:
                 this.GetComponent<TextTyper>().RecieveText("I will keep the rift open until you are back", "TPRift_1");
@@ -62,11 +71,34 @@ public class TpRift : MonoBehaviour
                 break;
             case 3:
                 chat.SetActive(false);
+                step = 4;
+                CutScene();
+                break;
+            case 4:
+                player.GetComponentInChildren<Animator>().SetBool("Walk", true);
+                movePlayer = true;
+                StartCoroutine(Wait(2));
+                break;
+            case 5:
+                fade.SetTrigger("FadeOut");
+                StartCoroutine(Wait(5));
+                break;
+            case 6:
+                player.GetComponent<CharacterScript>().SpecialLock(0);
+                // Animator anim = player.GetComponentInChildren<Animator>();
+                //  anim.SetBool("Walk", false);
+                player.GetComponentInChildren<Animator>().SetBool("Walk", false);
+                SceneManager.LoadScene(7);
                 break;
         }
     }
+    void MovePlayer ()
+    {
+        player.transform.Translate(new Vector3(0, 0, 1) * 20 * Time.deltaTime);
+    }
     public void ChatReady()
     {
+        if (!(step >= 4))
         {
             spaceable = true;
         }
@@ -75,6 +107,12 @@ public class TpRift : MonoBehaviour
     public void ChatSkip()
     {
         spaceable = false;
+        step++;
+        CutScene();
+    }
+    IEnumerator Wait(int waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
         step++;
         CutScene();
     }

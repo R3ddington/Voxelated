@@ -22,15 +22,16 @@ public class CharacterScript : MonoBehaviour {
     bool switching;
     public bool aiming;
     public GameObject gunScript;
+    public bool specialLock;
 
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         boxCollider = GetComponent<BoxCollider>() as BoxCollider;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
         OnButtonDown();
         if (turning)
         {
@@ -38,15 +39,15 @@ public class CharacterScript : MonoBehaviour {
         }
         if (aiming)
         {
-         //   Aiming();
+            //   Aiming();
         }
-	}
+    }
 
     public void SetUp()
     {
 
     }
-    
+
     //Button Input
     void OnButtonDown() {
         if (!freeze)
@@ -72,7 +73,7 @@ public class CharacterScript : MonoBehaviour {
                         }
                     }
                 }
-               if (Input.GetButtonDown("2"))
+                if (Input.GetButtonDown("2"))
                 {
                     if (!switching && anim.GetBool("Walk") == false && anim.GetBool("Crouch") == false)
                     {
@@ -89,7 +90,7 @@ public class CharacterScript : MonoBehaviour {
                                 print("Allready using pistol");
                                 break;
                         }
-                    }   
+                    }
                 }
                 if (Input.GetButtonUp("Fire2"))
                 {
@@ -174,7 +175,7 @@ public class CharacterScript : MonoBehaviour {
         }
     }
 
-    void Aiming ()
+    void Aiming()
     {
         print("OnAnimator triggered");
         if (aiming)
@@ -215,23 +216,23 @@ public class CharacterScript : MonoBehaviour {
         }
     }
 
-    void Turn (int i)
+    void Turn(int i)
     {
         if (freeze)
         {
             return;
         }
-        model.transform.rotation = Quaternion.Lerp(model.transform.rotation, Quaternion.Euler(0, i, 0),  Time.deltaTime * turnSpeed);
+        model.transform.rotation = Quaternion.Lerp(model.transform.rotation, Quaternion.Euler(0, i, 0), Time.deltaTime * turnSpeed);
         if (goingLeft)
         {
-            if(model.transform.rotation.y == 180)
+            if (model.transform.rotation.y == 180)
             {
                 turning = false;
             }
         }
         else
         {
-            if(model.transform.rotation.y == 0)
+            if (model.transform.rotation.y == 0)
             {
                 turning = false; //ß
             }
@@ -240,7 +241,24 @@ public class CharacterScript : MonoBehaviour {
 
     void MoveOff()
     {
-        anim.SetBool("Walk", false);
+        if (!specialLock)
+        {
+            anim.SetBool("Walk", false);
+        }
+    }
+
+    public void SpecialLock (int i)
+    {
+        print("SpecialLock Called");
+        switch (i)
+        {
+            case 0:
+                specialLock = false;
+                break;
+            case 1:
+                specialLock = true;
+                break;
+        }
     }
 
     void Jump () {
