@@ -6,12 +6,21 @@ public class CameraFollowScript : MonoBehaviour {
     public GameObject player;
     public bool active;
     public Vector3 offset;
-    /*
+    public bool searchPerm;
+    
 	// Use this for initialization
 	void Start () {
-	
+        if (searchPerm)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            SetTarget(player);
+            if(player != null)
+            {
+                active = true;
+            }
+        }
 	}
-    */
+    
 
 	// Update is called once per frame
 	void Update () {
