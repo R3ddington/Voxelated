@@ -217,7 +217,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (8)
+      value: TreePurple2_008
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -295,7 +295,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (22)
+      value: TreePurple2_022
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -423,7 +423,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (22)
+      value: TreePurple1_022
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -662,7 +662,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (20)
+      value: TreePurple1_020
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -740,7 +740,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (8)
+      value: TreePurple1_008
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -818,7 +818,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (21)
+      value: TreePurple2_021
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1004,7 +1004,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (25)
+      value: TreePurple2_025
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1074,7 +1074,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (12)
+      value: TreePurple1_012
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1302,7 +1302,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 8e293bd32a2909344a669d63197f1002, type: 3}
       propertyPath: m_Name
-      value: Candle (2)
+      value: Candle_002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e293bd32a2909344a669d63197f1002, type: 3}
@@ -1443,7 +1443,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (14)
+      value: TreePurple1_014
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1529,7 +1529,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (24)
+      value: TreePurple2_024
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1605,6 +1605,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1.8654693
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ab46223995645004b94d28c00bd0e890, type: 3}
+      propertyPath: m_Name
+      value: GraveStone_000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab46223995645004b94d28c00bd0e890, type: 3}
   m_IsPrefabParent: 0
@@ -1673,7 +1677,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (5)
+      value: TreePurple2_005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
@@ -1743,7 +1747,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (16)
+      value: TreePurple2_016
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1875,7 +1879,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (13)
+      value: TreePurple1_013
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -2066,7 +2070,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (11)
+      value: TreePurple1_011
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -2136,7 +2140,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (6)
+      value: TreePurple1_006
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -2256,7 +2260,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (18)
+      value: TreePurple2_018
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -2388,7 +2392,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (21)
+      value: TreePurple1_021
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -2458,7 +2462,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_Name
-      value: Dead man (1)
+      value: DeadMan_001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
@@ -2520,7 +2524,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (10)
+      value: TreePurple1_009
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -2673,7 +2677,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 8e293bd32a2909344a669d63197f1002, type: 3}
       propertyPath: m_Name
-      value: Candle (1)
+      value: Candle_001
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 8e293bd32a2909344a669d63197f1002, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2739,7 +2743,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (18)
+      value: TreePurple1_018
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -2829,7 +2833,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ab46223995645004b94d28c00bd0e890, type: 3}
       propertyPath: m_Name
-      value: CraveStone (2)
+      value: GraveStone_002
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab46223995645004b94d28c00bd0e890, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -2990,7 +2994,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (14)
+      value: TreePurple2_014
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3090,7 +3094,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (17)
+      value: TreePurple1_017
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3180,7 +3184,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ab46223995645004b94d28c00bd0e890, type: 3}
       propertyPath: m_Name
-      value: CraveStone (4)
+      value: GraveStone_004
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab46223995645004b94d28c00bd0e890, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3307,7 +3311,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (23)
+      value: TreePurple2_023
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3377,7 +3381,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (7)
+      value: TreePurple1_007
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3484,7 +3488,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (11)
+      value: TreePurple2_011
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3562,7 +3566,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (19)
+      value: TreePurple2_019
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3634,6 +3638,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -37.532
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 76dfa094b60d215439063d96cf2fdeb6, type: 3}
+      propertyPath: m_Name
+      value: BrokenTree_002
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76dfa094b60d215439063d96cf2fdeb6, type: 3}
   m_IsPrefabParent: 0
@@ -3694,7 +3702,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (19)
+      value: TreePurple1_019
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3850,7 +3858,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (17)
+      value: TreePurple2_017
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -4069,7 +4077,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (10)
+      value: TreePurple2_009
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -4147,7 +4155,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (26)
+      value: TreePurple2_026
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -4217,7 +4225,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ab46223995645004b94d28c00bd0e890, type: 3}
       propertyPath: m_Name
-      value: CraveStone (1)
+      value: GraveStone_001
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab46223995645004b94d28c00bd0e890, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -4390,7 +4398,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (1)
+      value: TreePurple2_001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
@@ -4460,7 +4468,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (2)
+      value: TreePurple2_002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
@@ -4675,7 +4683,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_Name
-      value: Dead man (4)
+      value: DeadMan_004
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_LocalScale.x
@@ -4850,7 +4858,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (25)
+      value: TreePurple1_025
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -5077,7 +5085,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (15)
+      value: TreePurple2_015
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -5148,6 +5156,10 @@ Prefab:
     - target: {fileID: 400002, guid: dddc379bce13bb44a95855c9b6763aaf, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.887974
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: dddc379bce13bb44a95855c9b6763aaf, type: 3}
+      propertyPath: m_Name
+      value: BrokenTree_001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dddc379bce13bb44a95855c9b6763aaf, type: 3}
@@ -5221,7 +5233,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 5061b5c4099a80e4394826c2fb3a7d52, type: 3}
       propertyPath: m_Name
-      value: Skull (1)
+      value: Skull_001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5061b5c4099a80e4394826c2fb3a7d52, type: 3}
@@ -5316,7 +5328,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ab46223995645004b94d28c00bd0e890, type: 3}
       propertyPath: m_Name
-      value: CraveStone (6)
+      value: GraveStone_006
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab46223995645004b94d28c00bd0e890, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -5399,6 +5411,10 @@ Prefab:
     - target: {fileID: 400002, guid: 5061b5c4099a80e4394826c2fb3a7d52, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -2.197
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 5061b5c4099a80e4394826c2fb3a7d52, type: 3}
+      propertyPath: m_Name
+      value: Skull_000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5061b5c4099a80e4394826c2fb3a7d52, type: 3}
@@ -5503,7 +5519,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (20)
+      value: TreePurple2_020
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -5562,6 +5578,10 @@ Prefab:
     - target: {fileID: 400000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 80.685005
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
+      propertyPath: m_Name
+      value: DeadMan_000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
@@ -5702,7 +5722,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ab46223995645004b94d28c00bd0e890, type: 3}
       propertyPath: m_Name
-      value: CraveStone (5)
+      value: GraveStone_005
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab46223995645004b94d28c00bd0e890, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -5780,7 +5800,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: dddc379bce13bb44a95855c9b6763aaf, type: 3}
       propertyPath: m_Name
-      value: DrijfTree_01 (1)
+      value: BrokenTree_000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dddc379bce13bb44a95855c9b6763aaf, type: 3}
@@ -6167,7 +6187,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 76dfa094b60d215439063d96cf2fdeb6, type: 3}
       propertyPath: m_Name
-      value: BrokenTree_01 (1)
+      value: BrokenTree_004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76dfa094b60d215439063d96cf2fdeb6, type: 3}
@@ -6404,7 +6424,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (15)
+      value: TreePurple1_015
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -6490,7 +6510,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (13)
+      value: TreePurple2_013
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -6562,6 +6582,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b70426fb455ca834e86b8201cf628d72, type: 2}
+    - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
+      propertyPath: m_Name
+      value: TreePurple1_000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
   m_IsPrefabParent: 0
@@ -6630,7 +6654,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (4)
+      value: TreePurple2_004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
@@ -6779,7 +6803,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (12)
+      value: TreePurple2_012
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -6904,7 +6928,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (9)
+      value: TreePurple1_009
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -6974,7 +6998,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (24)
+      value: TreePurple1_024
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -7089,7 +7113,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (6)
+      value: TreePurple2_006
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7155,7 +7179,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (26)
+      value: TreePurple1_026
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -7369,6 +7393,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 32.45
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8e293bd32a2909344a669d63197f1002, type: 3}
+      propertyPath: m_Name
+      value: Candle_000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e293bd32a2909344a669d63197f1002, type: 3}
   m_IsPrefabParent: 0
@@ -7508,7 +7536,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (16)
+      value: TreePurple1_016
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -7783,7 +7811,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: dddc379bce13bb44a95855c9b6763aaf, type: 3}
       propertyPath: m_Name
-      value: DrijfTree_01 (2)
+      value: BrokenTree_003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dddc379bce13bb44a95855c9b6763aaf, type: 3}
@@ -8012,7 +8040,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (2)
+      value: TreePurple1_002
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -8042,15 +8070,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.2
+      value: 7.7382
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.4
+      value: 65.2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 302.2
+      value: 304.57
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_LocalRotation.x
@@ -8078,19 +8106,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_Name
-      value: Dead man (3)
+      value: DeadMan_003
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.8357991
+      value: 1.1139175
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.8358012
+      value: 1.1139189
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.8358012
+      value: 1.1139189
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
@@ -8152,7 +8180,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (3)
+      value: TreePurple1_003
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -8553,7 +8581,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ab46223995645004b94d28c00bd0e890, type: 3}
       propertyPath: m_Name
-      value: CraveStone (3)
+      value: GraveStone_003
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab46223995645004b94d28c00bd0e890, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -8665,7 +8693,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (1)
+      value: TreePurple1_001
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -8735,7 +8763,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (4)
+      value: TreePurple1_004
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -8821,7 +8849,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (3)
+      value: TreePurple2_003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
@@ -8957,7 +8985,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (9)
+      value: TreePurple2_009
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -9027,7 +9055,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (23)
+      value: TreePurple1_023
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -9171,7 +9199,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 76dfa094b60d215439063d96cf2fdeb6, type: 3}
       propertyPath: m_Name
-      value: BrokenTree_01 (2)
+      value: BrokenTree_005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76dfa094b60d215439063d96cf2fdeb6, type: 3}
@@ -9388,6 +9416,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
+    - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
+      propertyPath: m_Name
+      value: TreePurple2_000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
   m_IsPrefabParent: 0
@@ -9435,15 +9467,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 75.3
+      value: 73.562
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.5
+      value: 25.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 366.9
+      value: 366.53
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_LocalRotation.x
@@ -9471,19 +9503,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_Name
-      value: Dead man (2)
+      value: DeadMan_002
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3563565
+      value: 1.1024282
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.3563569
+      value: 1.1024286
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.3563569
+      value: 1.1024286
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68b5bc03054dd5b42b7ec3ccb9a637fc, type: 3}
@@ -9619,7 +9651,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 97b02092560b50a4781e4f5ae65bb7a5, type: 2}
     - target: {fileID: 100002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_Name
-      value: TreePurple2 (7)
+      value: TreePurple2_007
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: df947e60ebaf82840ba56e7f7135541c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -9833,7 +9865,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Name
-      value: TreePurple1 (5)
+      value: TreePurple1_005
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 22b36818ee56bdc4cb263006c01268c4, type: 3}
       propertyPath: m_Materials.Array.data[0]

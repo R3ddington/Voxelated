@@ -4586,7 +4586,7 @@ MonoBehaviour:
   tweakMode: 0
   screenBlendMode: 1
   hdr: 0
-  sepBlurSpread: 0.1
+  sepBlurSpread: 1.64
   quality: 1
   bloomIntensity: 0.5
   bloomThreshold: 0.4
