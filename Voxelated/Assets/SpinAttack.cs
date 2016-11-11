@@ -10,7 +10,10 @@ public class SpinAttack : StateMachineBehaviour {
         {
             katana = GameObject.FindGameObjectWithTag("Katana");
         }
-        katana.GetComponent<KatanaScript>().SetOn();
+        if(katana != null)
+        {
+            katana.GetComponent<KatanaScript>().SetOn();
+        }
     }
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

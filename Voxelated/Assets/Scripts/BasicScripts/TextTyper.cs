@@ -50,6 +50,9 @@ public class TextTyper : MonoBehaviour {
                 case 1:
                     inputObject.GetComponent<TpRift>().ChatReady();
                     break;
+                case 2:
+                    //Absolutly nothing
+                    break;
             }
         }
     }

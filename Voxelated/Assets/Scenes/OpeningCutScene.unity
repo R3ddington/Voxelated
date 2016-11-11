@@ -8939,6 +8939,8 @@ MonoBehaviour:
   textField: {fileID: 304954028}
   nextTexts: []
   isCut: 0
+  inputObject: {fileID: 1994101953}
+  type: 2
 --- !u!1 &2030164492
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,11 +23,15 @@ public class CharacterScript : MonoBehaviour {
     public bool aiming;
     public GameObject gunScript;
     public bool specialLock;
+    Rigidbody rb;
+    public int jumpSpeed;
+    bool jumping;
 
 
     // Use this for initialization
     void Start() {
         boxCollider = GetComponent<BoxCollider>() as BoxCollider;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -40,6 +44,10 @@ public class CharacterScript : MonoBehaviour {
         if (aiming)
         {
             //   Aiming();
+        }
+        if (jumping)
+        {
+            Fall();
         }
     }
 
@@ -165,7 +173,10 @@ public class CharacterScript : MonoBehaviour {
             {
                 if (!freeze)
                 {
-                    Jump();
+                    if (rb.velocity == new Vector3(0, 0, 0))
+                    {
+                        Jump();
+                    }
                 }
             }
         }
@@ -174,6 +185,32 @@ public class CharacterScript : MonoBehaviour {
             MoveOff();
         }
     }
+
+    void Jump()
+    {
+        // rb.AddForce(0, jumpSpeed, 0);
+        rb.velocity = new Vector3(0, jumpSpeed, 0);
+        anim.SetBool("Jump", true);
+        jumping = true;
+     //   StartCoroutine(JumpWait());
+    }
+    void Fall ()
+    {
+        //   rb.velocity = new Vector3(0, -jumpSpeed * 1.2f, 0);
+        if (rb.velocity == new Vector3(0, 0, 0))
+        {
+            jumping = false;
+            anim.SetBool("Jump", false);
+        }
+    }
+
+    /* 
+    IEnumerator JumpWait ()
+    {
+        yield return new WaitForSeconds(1);
+        Fall();
+    }
+    */
 
     void Aiming()
     {
@@ -259,10 +296,6 @@ public class CharacterScript : MonoBehaviour {
                 specialLock = true;
                 break;
         }
-    }
-
-    void Jump () {
-        //Do jumping
     }
 
     void Crouch ()
