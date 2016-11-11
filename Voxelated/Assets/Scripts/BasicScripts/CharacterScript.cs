@@ -25,7 +25,9 @@ public class CharacterScript : MonoBehaviour {
     public bool specialLock;
     Rigidbody rb;
     public int jumpSpeed;
-    bool jumping;
+    public bool jumping;
+    bool onLog;
+    public Vector3 vel;
 
 
     // Use this for initialization
@@ -49,6 +51,7 @@ public class CharacterScript : MonoBehaviour {
         {
             Fall();
         }
+        vel = rb.velocity; //To check velocity in editor, remove for final build
     }
 
     public void SetUp()
@@ -177,6 +180,10 @@ public class CharacterScript : MonoBehaviour {
                     {
                         Jump();
                     }
+                    else if(onLog == true)
+                    {
+                        Jump();
+                    }
                 }
             }
         }
@@ -194,21 +201,37 @@ public class CharacterScript : MonoBehaviour {
         jumping = true;
      //   StartCoroutine(JumpWait());
     }
+
+    public void OnLog()
+    {
+        onLog = true;
+    }
+
+    public void OffLog()
+    {
+        onLog = false;
+    }
+    public void ResetVelocity ()
+    {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        print("Reset velocity");
+    }
+
     void Fall ()
     {
         //   rb.velocity = new Vector3(0, -jumpSpeed * 1.2f, 0);
-        if (rb.velocity == new Vector3(0, 0, 0))
+        if (rb.velocity == new Vector3(0, 0, 0)) //BackUp <---
+       // if (rb.velocity == new Vector3(0, 0, 0) || rb.velocity == new Vector3(-0.1f, -0.1f, -0.1f) || rb.velocity == new Vector3(0.1f, 0.1f, 0.1f))
         {
             jumping = false;
             anim.SetBool("Jump", false);
         }
     }
-
-    /* 
+    /*
     IEnumerator JumpWait ()
     {
         yield return new WaitForSeconds(1);
-        Fall();
     }
     */
 
