@@ -176,6 +176,10 @@ public class CharacterScript : MonoBehaviour {
             {
                 if (!freeze)
                 {
+                    if(rb.velocity == new Vector3(0, -0.0003051758f, 0))
+                    {
+                        rb.velocity = new Vector3(0, 0, 0);
+                    }
                     if (rb.velocity == new Vector3(0, 0, 0))
                     {
                         Jump();
