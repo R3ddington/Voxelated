@@ -112,7 +112,7 @@ public class CharacterScript : MonoBehaviour {
 
                 if (Input.GetButtonDown("Fire1"))
                 {
-                    if (!switching)
+                    if (!switching && !jumping)
                     {
                         switch (cMode)
                         {
@@ -124,7 +124,7 @@ public class CharacterScript : MonoBehaviour {
                 }
                 if (Input.GetButtonDown("Fire2"))
                 {
-                    if (!switching)
+                    if (!switching && !jumping)
                     {
                         switch (cMode)
                         {
@@ -142,13 +142,24 @@ public class CharacterScript : MonoBehaviour {
             }
             if (Input.GetButtonDown("S"))
             {
-                anim.SetBool("Crouch", true);
-                Crouch();
+                if (rb.velocity == new Vector3(0, 0, 0))
+                {
+                    anim.SetBool("Crouch", true);
+                    Crouch();
+                }
             }
             if (Input.GetButtonUp("S"))
             {
-                anim.SetBool("Crouch", false);
-                Crouch();
+                //Fix velocity bugs
+                if (rb.velocity == new Vector3(0, -0.0001525879f, 0))
+                {
+                    rb.velocity = new Vector3(0, 0, 0);
+                }
+                if (rb.velocity == new Vector3(0, 0, 0))
+                {
+                    anim.SetBool("Crouch", false);
+                    Crouch();
+                }
             }
             if (Input.GetAxis("Horizontal") != 0)
             {
@@ -176,13 +187,17 @@ public class CharacterScript : MonoBehaviour {
             {
                 if (!freeze)
                 {
+                    //Check if velocity isnt bugged, if it is this should fix it
                     if(rb.velocity == new Vector3(0, -0.0003051758f, 0))
                     {
                         rb.velocity = new Vector3(0, 0, 0);
                     }
                     if (rb.velocity == new Vector3(0, 0, 0))
                     {
-                        Jump();
+                        if (!anim.GetBool("Crouch"))
+                        {
+                            Jump();
+                        }
                     }
                     else if(onLog == true)
                     {
