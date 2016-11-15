@@ -11,64 +11,77 @@ public class PlayerHUD : MonoBehaviour {
     public float fillReductShield;
     public bool playerDead;
     public Image ammoFillBar;
-    public float ammoReduct;
-    public GameObject ammoHUD;
+    public int ammoReduct;
+   // public GameObject ammoHUD;
     public GameObject gunIcons;
     public GameObject swordIcon;
     bool gunEquiped;
 
+    public GameObject gameOver;
+
+
+    /*
     // Use this for initialization
     void Start () {
         gunIcons.SetActive(false);
         swordIcon.SetActive(true);
         gunEquiped = false;
 	}
+    */
 	
 	// Update is called once per frame
 	void Update () {
-        HPShieldReduct();
-        WeaponSwitching();
-        AmmoAndGunReduct();
+      //  HPShieldReduct();
+      //  WeaponSwitching();
+      //  AmmoAndGunReduct();
     }
 
-    public void WeaponSwitching() {
-        if (Input.GetButtonDown("1")) {
-            gunIcons.SetActive(false);
-            swordIcon.SetActive(true);
-            gunEquiped = false;
-        }
-        else if (Input.GetButtonDown("2")) {
-            gunIcons.SetActive(true);
-            swordIcon.SetActive(false);
-            gunEquiped = true;
-        }
-    }
-
-    public void AmmoAndGunReduct() {
-        if (gunEquiped == true) { 
-            if (Input.GetButtonDown("Fire2")) {
-                if (ammoFillBar.fillAmount >= 0) {
-                    ammoFillBar.fillAmount -= ammoReduct;
-                }
-            }
+    public void WeaponSwitching(int i) {
+        switch (i)
+        {
+            case 0:
+                gunIcons.SetActive(false);
+                swordIcon.SetActive(true);
+                gunEquiped = false;
+                break;
+            case 1:
+                gunIcons.SetActive(true);
+                swordIcon.SetActive(false);
+                gunEquiped = true;
+                break;
         }
     }
 
-    public void HPShieldReduct() {
-        if (Input.GetButtonDown("Fire1")) {
-            if (shieldBar.fillAmount > 0) {
-                shieldBar.fillAmount -= fillReductShield;
-            }
-            else if (shieldBar.fillAmount <= 0) {
-                hpBar.fillAmount -= fillReductHP;
-            }
+    public void AmmoAndGunReduct(float a) {
+        if (ammoFillBar.fillAmount >= 0)
+        {
+            float ammo = a / ammoReduct;
+            ammoFillBar.fillAmount -= ammo;
+        }
+    }
+
+    public void AddAmmo ()
+    {
+        //Instant refill for now, change to show bar filling later
+        ammoFillBar.fillAmount = 1;
+    }
+
+    public void HPShieldReduct(float d, bool trueDamage) {
+        float damage = d / 100;
+        if (shieldBar.fillAmount > 0 && !trueDamage)
+        {
+            //  shieldBar.fillAmount -= fillReductShield;
+            shieldBar.fillAmount -= damage;
+        }
+        else if (shieldBar.fillAmount <= 0 || trueDamage)
+        {
+            // hpBar.fillAmount -= fillReductHP;
+            hpBar.fillAmount -= damage;
         }
         if (hpBar.fillAmount <= 0.1) {
             playerDead = true;
+            gameOver.SetActive(true);
             headsUD.SetActive(false);
         }
-
     }
-
-
 }

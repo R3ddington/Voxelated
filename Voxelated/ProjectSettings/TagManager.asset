@@ -15,6 +15,7 @@ TagManager:
   - Baby
   - Friend
   - Target
+  - Hud
   layers:
   - Default
   - TransparentFX

@@ -9,9 +9,15 @@ public class LaserScript : MonoBehaviour {
     public bool locked;
     public bool cooldown;
     public int dealDamage;
+    public GameObject hud;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+        hud = GameObject.FindGameObjectWithTag("Hud");
+        if(hud == null)
+        {
+            print("WARNING HUD IS NULL IN LASERSCRIPT");
+        }
         line = gameObject.GetComponent<LineRenderer>();
         incLengthCast = 0;
         dealDamage = 1;
@@ -75,6 +81,7 @@ public class LaserScript : MonoBehaviour {
                 Ray ray = new Ray(transform.position, transform.forward);
                 RaycastHit hit;
                 line.SetPosition(0, ray.origin);
+                hud.GetComponent<PlayerHUD>().AmmoAndGunReduct(incLengthCast);
                 if (Physics.Raycast(ray, out hit, incLengthCast))
                 {
                     line.SetPosition(1, hit.point);
@@ -116,6 +123,7 @@ public class LaserScript : MonoBehaviour {
     {
         yield return new WaitForSeconds(coolDownTime);
         cooldown = false;
+        hud.GetComponent<PlayerHUD>().AddAmmo();
     }
 
     public void DealDamage (RaycastHit h)

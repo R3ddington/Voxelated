@@ -28,12 +28,18 @@ public class CharacterScript : MonoBehaviour {
     public bool jumping;
     bool onLog;
     public Vector3 vel;
+    public GameObject hud;
 
 
     // Use this for initialization
     void Start() {
         boxCollider = GetComponent<BoxCollider>() as BoxCollider;
         rb = GetComponent<Rigidbody>();
+        hud = GameObject.FindGameObjectWithTag("Hud");
+        if(hud == null)
+        {
+            print("WARNING HUD NOT FOUND, CHARACTERSCRIPT LINE 41");
+        }
     }
 
     // Update is called once per frame
@@ -362,6 +368,7 @@ public class CharacterScript : MonoBehaviour {
             case 0:
                 anim.SetTrigger("TakeSword");
                 StartCoroutine(WaitTillDisable(backItems[0], handItems[0], 1));
+                hud.GetComponent<PlayerHUD>().WeaponSwitching(0);
                 break;
             case 1:
                 anim.SetTrigger("SheatSword");
@@ -370,6 +377,7 @@ public class CharacterScript : MonoBehaviour {
             case 2:
                 anim.SetTrigger("TakeGun");
                 StartCoroutine(WaitTillDisable(backItems[1], handItems[1], 1));
+                hud.GetComponent<PlayerHUD>().WeaponSwitching(1);
                 break;
             case 3:
                 anim.SetTrigger("SheatGun");
@@ -411,5 +419,10 @@ public class CharacterScript : MonoBehaviour {
     public void HitFreezeOff()
     {
         hitFreeze = false;
+    }
+
+    public void TakeDamage (float d, bool trueDamage)
+    {
+        hud.GetComponent<PlayerHUD>().HPShieldReduct(d, trueDamage);
     }
 }
