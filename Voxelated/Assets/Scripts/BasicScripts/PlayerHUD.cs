@@ -19,23 +19,6 @@ public class PlayerHUD : MonoBehaviour {
 
     public GameObject gameOver;
 
-
-    /*
-    // Use this for initialization
-    void Start () {
-        gunIcons.SetActive(false);
-        swordIcon.SetActive(true);
-        gunEquiped = false;
-	}
-    */
-	
-	// Update is called once per frame
-	void Update () {
-      //  HPShieldReduct();
-      //  WeaponSwitching();
-      //  AmmoAndGunReduct();
-    }
-
     public void WeaponSwitching(int i) {
         switch (i)
         {
@@ -70,12 +53,10 @@ public class PlayerHUD : MonoBehaviour {
         float damage = d / 100;
         if (shieldBar.fillAmount > 0 && !trueDamage)
         {
-            //  shieldBar.fillAmount -= fillReductShield;
             shieldBar.fillAmount -= damage;
         }
         else if (shieldBar.fillAmount <= 0 || trueDamage)
         {
-            // hpBar.fillAmount -= fillReductHP;
             hpBar.fillAmount -= damage;
         }
         if (hpBar.fillAmount <= 0.1) {

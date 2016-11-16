@@ -49,10 +49,6 @@ public class CharacterScript : MonoBehaviour {
         {
             Turn(turnDir);
         }
-        if (aiming)
-        {
-            //   Aiming();
-        }
         if (jumping)
         {
             Fall();
@@ -220,11 +216,9 @@ public class CharacterScript : MonoBehaviour {
 
     void Jump()
     {
-        // rb.AddForce(0, jumpSpeed, 0);
         rb.velocity = new Vector3(0, jumpSpeed, 0);
         anim.SetBool("Jump", true);
         jumping = true;
-     //   StartCoroutine(JumpWait());
     }
 
     public void OnLog()
@@ -245,20 +239,12 @@ public class CharacterScript : MonoBehaviour {
 
     void Fall ()
     {
-        //   rb.velocity = new Vector3(0, -jumpSpeed * 1.2f, 0);
-        if (rb.velocity == new Vector3(0, 0, 0)) //BackUp <---
-       // if (rb.velocity == new Vector3(0, 0, 0) || rb.velocity == new Vector3(-0.1f, -0.1f, -0.1f) || rb.velocity == new Vector3(0.1f, 0.1f, 0.1f))
+        if (rb.velocity == new Vector3(0, 0, 0))
         {
             jumping = false;
             anim.SetBool("Jump", false);
         }
     }
-    /*
-    IEnumerator JumpWait ()
-    {
-        yield return new WaitForSeconds(1);
-    }
-    */
 
     void Aiming()
     {
