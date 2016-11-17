@@ -154,7 +154,7 @@ public class NewOpeningCutscene : MonoBehaviour {
                 break;
             case 12:
                 show[3].SetActive(true);
-                ChangeChatColor(3);
+                ChangeChatColor(1);
                 this.GetComponent<TextTyper>().RecieveText("huh!", "OpeningCutscene_012");
                 StartCoroutine(Wait(3));
                 break;
