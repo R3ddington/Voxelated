@@ -21,6 +21,7 @@ public class NewOpeningCutscene : MonoBehaviour {
     bool m;
     int pM = 0;
     public Transform riftLoc;
+    bool female;
 
     // Use this for initialization
     void Start () {
@@ -63,6 +64,7 @@ public class NewOpeningCutscene : MonoBehaviour {
             himHer[1] = "him";
             heShe[1] = "he";
             hisHer[1] = "his";
+            female = true;
         }
         else
         {
@@ -87,6 +89,7 @@ public class NewOpeningCutscene : MonoBehaviour {
                 break;
             case 1:
                 chat.SetActive(true);
+                ChangeChatColor(2);
                 this.GetComponent<TextTyper>().RecieveText("Welcome", "OpeningCutscene_001");
                 break;
             case 2:
@@ -114,11 +117,18 @@ public class NewOpeningCutscene : MonoBehaviour {
                 players[pM].SetActive(true);
                 playerAnimations[pM].SetBool("Walk", true);
                 break;
+            /*
             case 6:
                 this.GetComponent<TextTyper>().RecieveText(fName + " " + "told" + " " + pName + " " + "that" + " " +
                     heShe[1] + " " + "found something awesome and that" + " " + heShe[0] + " " + "had to follow" + " " + himHer[1]  , "OpeningCutscene_006");
                 break;
+            */
+            case 6:
+                ChangeChatColor(1);
+                this.GetComponent<TextTyper>().RecieveText("Hey" + " " + pName + " " + ", follow me, I found something awesome!" , "OpeningCutscene_006");
+                break;
             case 7:
+                ChangeChatColor(2);
                 this.GetComponent<TextTyper>().RecieveText("They walked through the forest", "OpeningCutscene_007");
                 show[0].SetActive(false);
                 show[1].SetActive(true);
@@ -135,14 +145,16 @@ public class NewOpeningCutscene : MonoBehaviour {
                     , "OpeningCutscene_009");
                 break;
             case 10:
-                this.GetComponent<TextTyper>().RecieveText("hey" + " " + pName + "," + " " + "we will always be together, right?" + " " + 
-                    fName + " " + "asked" , "OpeningCutscene_010");
+                ChangeChatColor(1);
+                this.GetComponent<TextTyper>().RecieveText("hey" + " " + pName + "," + " " + "we will always be together, right?", "OpeningCutscene_010");
                 break;
             case 11:
-                this.GetComponent<TextTyper>().RecieveText("always," + " " + pName + " " + "replied", "OpeningCutscene_011");
+                ChangeChatColor(0);
+                this.GetComponent<TextTyper>().RecieveText("always", "OpeningCutscene_011");
                 break;
             case 12:
                 show[3].SetActive(true);
+                ChangeChatColor(3);
                 this.GetComponent<TextTyper>().RecieveText("huh!", "OpeningCutscene_012");
                 StartCoroutine(Wait(3));
                 break;
@@ -176,9 +188,11 @@ public class NewOpeningCutscene : MonoBehaviour {
                 StartCoroutine(Wait2(0.6f));
                 break;
             case 15:
+                ChangeChatColor(1);
                 this.GetComponent<TextTyper>().RecieveText(pName +  " " + "heeeeeelp!", "OpeningCutscene_015");
                 break;
             case 16:
+                ChangeChatColor(0);
                 this.GetComponent<TextTyper>().RecieveText(fName + " " + "Hold on! I can't move!", "OpeningCutscene_016");
                 break;
             case 17:
@@ -186,12 +200,14 @@ public class NewOpeningCutscene : MonoBehaviour {
                 StartCoroutine(Wait(1));
                 break;
             case 18:
+                ChangeChatColor(1);
                 Animator riftAnim = show[3].GetComponent<Animator>();
                 riftAnim.SetTrigger("Disapear");
                 this.GetComponent<TextTyper>().RecieveText("Whaaaaaaaa!", "OpeningCutscene_018");
                 StartCoroutine(Wait(2));
                 break;
             case 19:
+                ChangeChatColor(0);
                 this.GetComponent<TextTyper>().RecieveText("N-n-no..." + " " + fName + " " + "please...", "OpeningCutscene_019");
                 show[3].SetActive(false);
                 break;
@@ -200,9 +216,10 @@ public class NewOpeningCutscene : MonoBehaviour {
                 break;
             case 21:
                 this.GetComponent<TextTyper>().RecieveText("Ple....", "OpeningCutscene_021");
+                step++;
                 break;
             case 22:
-                this.GetComponent<TextTyper>().RecieveText(pName + " " + "fainted", "OpeningCutscene_022");
+                // this.GetComponent<TextTyper>().RecieveText(pName + " " + "fainted", "OpeningCutscene_022");
                 break;
             case 23:
                 fade.SetTrigger("FadeOut");
@@ -227,18 +244,22 @@ public class NewOpeningCutscene : MonoBehaviour {
                 this.GetComponent<TextTyper>().RecieveText("ugh... eh...", "OpeningCutscene_025");
                 break;
             case 26:
+                ChangeChatColor(4);
                 this.GetComponent<TextTyper>().RecieveText("Hey, take it easy you are still wounded", "OpeningCutscene_026");
                 break;
             case 27:
                 this.GetComponent<TextTyper>().RecieveText("I found you at the stonehenge", "OpeningCutscene_027");
                 break;
             case 28:
+                ChangeChatColor(0);
                 this.GetComponent<TextTyper>().RecieveText(fName + "!" + " " + "Did you see" + " " + himHer[1] + "?", "OpeningCutscene_028");
                 break;
             case 29:
+                ChangeChatColor(4);
                 this.GetComponent<TextTyper>().RecieveText("No... was" + " " + heShe[1] + " " + "with you?", "OpeningCutscene_029");
                 break;
             case 30:
+                ChangeChatColor(0);
                 this.GetComponent<TextTyper>().RecieveText("yes... w-w-we... we were there and then there was a huge flash of light...",
                     "OpeningCutscene_030");
                 break;
@@ -249,15 +270,18 @@ public class NewOpeningCutscene : MonoBehaviour {
                 this.GetComponent<TextTyper>().RecieveText("It took" + " " + himHer[1] + "...", "OpeningCutscene_032");
                 break;
             case 33:
+                ChangeChatColor(4);
                 this.GetComponent<TextTyper>().RecieveText("No... no... no! this is impossible... it can't be...", "OpeningCutscene_033");
                 break;
             case 34:
                 this.GetComponent<TextTyper>().RecieveText("Are you really sure that you saw this?!", "OpeningCutscene_034");
                 break;
             case 35:
+                ChangeChatColor(0);
                 this.GetComponent<TextTyper>().RecieveText("y-y-yes...", "OpeningCutscene_035");
                 break;
             case 36:
+                ChangeChatColor(4);
                 this.GetComponent<TextTyper>().RecieveText("Listen, long ago there was a tale about a legendary beast", "OpeningCutscene_036");
                 break;
             case 37:
@@ -287,9 +311,11 @@ public class NewOpeningCutscene : MonoBehaviour {
                     "OpeningCutscene_044");
                 break;
             case 45:
+                ChangeChatColor(0);
                 this.GetComponent<TextTyper>().RecieveText("L..let me fight it....", "OpeningCutscene_045");
                 break;
             case 46:
+                ChangeChatColor(4);
                 this.GetComponent<TextTyper>().RecieveText("What?", "OpeningCutscene_046");
                 step += 2; //add 2 to skip the comented lines below
                 break;
@@ -302,12 +328,14 @@ public class NewOpeningCutscene : MonoBehaviour {
                 break;
             */
             case 49:
+                ChangeChatColor(0);
                 this.GetComponent<TextTyper>().RecieveText("You said it opens once each 7 years right?", "OpeningCutscene_049");
                 break;
             case 50:
                 this.GetComponent<TextTyper>().RecieveText("I will be 19 then, I have to rescue" + " " + himHer[1], "OpeningCutscene_050");
                 break;
             case 51:
+                ChangeChatColor(4);
                 this.GetComponent<TextTyper>().RecieveText("Very well, Who am I to stop you, I did the same thing years ago...", "OpeningCutscene_051");
                 break;
             case 52:
@@ -366,5 +394,43 @@ public class NewOpeningCutscene : MonoBehaviour {
         yield return new WaitForSeconds(waitTime);
         step++;
         RunThrough();
+    }
+
+    public void ChangeChatColor(int i)
+    {
+        switch (i)
+        {
+            //Player chat
+            case 0:
+                if (female)
+                {
+                    this.GetComponent<TextTyper>().SetColor("pink");
+                }
+                else
+                {
+                    this.GetComponent<TextTyper>().SetColor("blue");
+                }
+                break;
+            //Friend chat
+            case 1:
+                if (female)
+                {
+                    this.GetComponent<TextTyper>().SetColor("blue");
+                }
+                else
+                {
+                    this.GetComponent<TextTyper>().SetColor("pink");
+                }
+                break;
+            case 2:
+                this.GetComponent<TextTyper>().SetColor("green");
+                break;
+            case 3:
+                this.GetComponent<TextTyper>().SetColor("cyan");
+                break;
+            case 4:
+                this.GetComponent<TextTyper>().SetColor("yellow");
+                break;
+        }
     }
 }

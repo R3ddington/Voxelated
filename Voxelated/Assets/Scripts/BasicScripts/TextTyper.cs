@@ -26,7 +26,7 @@ public class TextTyper : MonoBehaviour {
             print("ERROR, received a string while being busy, string id = " + id);
         }
     }
-
+    
     void ShowText(string s) {
         handleString = handleString + s.Substring(0, 1);
         string l = s.Substring(0, 1);
@@ -60,6 +60,31 @@ public class TextTyper : MonoBehaviour {
     public void Switch (int i)
     {
         textField = nextTexts[i];
+    }
+
+    public void SetColor (string c)
+    {
+        switch (c)
+        {
+            case "red":
+                textField.color = Color.red;
+                break;
+            case "blue":
+                textField.color = Color.blue;
+                break;
+            case "yellow":
+                textField.color = Color.yellow;
+                break;
+            case "pink":
+                textField.color = Color.magenta;
+                break;
+            case "green":
+                textField.color = Color.green;
+                break;
+            case "cyan":
+                textField.color = Color.cyan;
+                break;
+        }
     }
 
     IEnumerator ChatDelay (string s) {
