@@ -9,6 +9,8 @@ public class KatanaScript : MonoBehaviour {
     public bool active;
     public GameObject blood;
     public GameObject owner;
+
+    GameObject tempObject;
     /*
 	// Use this for initialization
 	void Start () {
@@ -62,6 +64,22 @@ public class KatanaScript : MonoBehaviour {
                 c.GetComponent<Guardian>().Damage(dealDamage, owner);
                 Bleed(c.transform.gameObject);
                 combo++;
+                break;
+            case "BreakAble":
+                c.GetComponent<DestroyableObject>().Hit(dealDamage);
+                Bleed(c.transform.gameObject);
+                break;
+            case "TreantRoot":
+                if(tempObject == null || tempObject.transform.tag != "Treant")
+                {
+                    tempObject = GameObject.FindGameObjectWithTag("Treant");
+                }
+                if(tempObject == null)
+                {
+                    return;
+                }
+                tempObject.GetComponent<TreantBoss>().Hit(dealDamage);
+                Bleed(c.transform.gameObject);
                 break;
         }
     }

@@ -16,6 +16,9 @@ TagManager:
   - Friend
   - Target
   - Hud
+  - BreakAble
+  - TreantRoot
+  - Treant
   layers:
   - Default
   - TransparentFX
