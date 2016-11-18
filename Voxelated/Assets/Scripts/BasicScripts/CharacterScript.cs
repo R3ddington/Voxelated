@@ -200,10 +200,10 @@ public class CharacterScript : MonoBehaviour {
                     }
                     if (rb.velocity == new Vector3(0, 0, 0))
                     {
-                        if (!anim.GetBool("Crouch"))
-                        {
+                   //     if (!anim.GetBool("Crouch"))
+                   //     {
                             Jump();
-                        }
+                  //      }
                     }
                 }
             }
