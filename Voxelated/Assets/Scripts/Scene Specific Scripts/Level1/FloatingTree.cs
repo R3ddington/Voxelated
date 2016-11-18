@@ -3,6 +3,7 @@ using System.Collections;
 
 public class FloatingTree : MonoBehaviour {
 
+    /*
 	// Use this for initialization
 	void Start () {
 	
@@ -12,6 +13,7 @@ public class FloatingTree : MonoBehaviour {
 	void Update () {
 	
 	}
+    */
 
     void OnCollisionEnter(Collision c)
     {
