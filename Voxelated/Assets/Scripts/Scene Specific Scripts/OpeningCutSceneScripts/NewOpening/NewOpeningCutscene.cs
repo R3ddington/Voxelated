@@ -368,6 +368,13 @@ public class NewOpeningCutscene : MonoBehaviour {
         }
     }
 
+    public void SkipCutscene ()
+    {
+        print("Skipped cutscene");
+        step = 55;
+        RunThrough();
+    }
+
     public void ChatReady()
     {
         if (!(step == 12 || step == 13 || step == 14 || step == 17 || step == 18 || step == 23 || step == 24 || step == 55 || step == 56)) 
