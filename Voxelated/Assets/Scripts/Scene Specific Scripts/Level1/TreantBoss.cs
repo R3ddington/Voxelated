@@ -95,6 +95,7 @@ public class TreantBoss : MonoBehaviour {
             case 1:
                 //Wait a second to give player time to dodge
                 targetMode = false;
+                anim.SetTrigger("Stomp");
                 StartCoroutine(RootTimer(i, 0.5f));
                 break;
             case 2:
