@@ -46,6 +46,10 @@ public class ObjectInteraction : MonoBehaviour {
                         interactText.SetActive(false);
                         Destroy(gameObject);
                         break;
+                    case 1:
+                        target.GetComponent<BossDoor>().CheckDoor();
+                        interactText.SetActive(false);
+                        break;
                 }
             }
         }

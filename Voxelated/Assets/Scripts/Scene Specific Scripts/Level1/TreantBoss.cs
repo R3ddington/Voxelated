@@ -18,6 +18,11 @@ public class TreantBoss : MonoBehaviour {
 	
 	}
     */
+    public void StartBattle ()
+    {
+        hpBar.SetActive(true);
+    }
+    
     public void Hit(int i)
     {
         health -= i;

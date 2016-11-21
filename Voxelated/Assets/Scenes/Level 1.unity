@@ -3625,6 +3625,67 @@ Transform:
   - {fileID: 1272777558}
   m_Father: {fileID: 1781604172}
   m_RootOrder: 10
+--- !u!1 &127139318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 127139319}
+  - 95: {fileID: 127139320}
+  - 114: {fileID: 127139321}
+  m_Layer: 0
+  m_Name: BossDoor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &127139319
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 127139318}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 2115053466}
+  - {fileID: 586439812}
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+--- !u!95 &127139320
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 127139318}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3746462155a2a354ab14becbda092d5c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &127139321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 127139318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f944d8358234e46438af939a354e245d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasKey: 0
 --- !u!1001 &128337860
 Prefab:
   m_ObjectHideFlags: 0
@@ -4238,7 +4299,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013554185264, guid: 7589e3db7af5479469c2afcd1f0d067d, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114000011860164094, guid: 7589e3db7af5479469c2afcd1f0d067d,
         type: 2}
@@ -10018,7 +10079,7 @@ Transform:
   m_Children:
   - {fileID: 305314886}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
 --- !u!1001 &317567996
 Prefab:
   m_ObjectHideFlags: 0
@@ -18825,6 +18886,26 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 8e293bd32a2909344a669d63197f1002, type: 3}
   m_PrefabInternal: {fileID: 585343071}
+--- !u!1 &586439808 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 1dbabf3a2c03eec47a751ed7028d870a, type: 3}
+  m_PrefabInternal: {fileID: 1294911633}
+--- !u!65 &586439809
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 586439808}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 38.999996, y: 4.9999995, z: 36.999996}
+  m_Center: {x: 19.288504, y: 0, z: 18.499998}
+--- !u!4 &586439812 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: 1dbabf3a2c03eec47a751ed7028d870a, type: 3}
+  m_PrefabInternal: {fileID: 1294911633}
 --- !u!1 &586980674
 GameObject:
   m_ObjectHideFlags: 0
@@ -23808,7 +23889,7 @@ Transform:
   - {fileID: 670396926}
   - {fileID: 882893358}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 15
 --- !u!1001 &790674503
 Prefab:
   m_ObjectHideFlags: 0
@@ -31113,7 +31194,7 @@ Transform:
   m_Children:
   - {fileID: 826349796}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
 --- !u!1 &1067889372
 GameObject:
   m_ObjectHideFlags: 0
@@ -32581,7 +32662,7 @@ Transform:
   - {fileID: 1205062001}
   - {fileID: 2081904011}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
 --- !u!1001 &1170688336
 Prefab:
   m_ObjectHideFlags: 0
@@ -35879,7 +35960,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 127139319}
     m_Modifications:
     - target: {fileID: 400000, guid: 1dbabf3a2c03eec47a751ed7028d870a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35911,7 +35992,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1dbabf3a2c03eec47a751ed7028d870a, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1dbabf3a2c03eec47a751ed7028d870a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -35941,7 +36022,8 @@ Prefab:
       propertyPath: m_Name
       value: LevelOneBossDoor_002
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 1dbabf3a2c03eec47a751ed7028d870a, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 1dbabf3a2c03eec47a751ed7028d870a, type: 3}
   m_IsPrefabParent: 0
 --- !u!1 &1296950783
@@ -36592,7 +36674,7 @@ Transform:
   - {fileID: 1460712549}
   - {fileID: 1705276715}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
 --- !u!1001 &1338245355
 Prefab:
   m_ObjectHideFlags: 0
@@ -38136,7 +38218,7 @@ RectTransform:
   - {fileID: 544929854}
   - {fileID: 532621178}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -40819,7 +40901,7 @@ Transform:
   - {fileID: 181377888}
   - {fileID: 1042479102}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
 --- !u!1001 &1552147727
 Prefab:
   m_ObjectHideFlags: 0
@@ -42730,7 +42812,7 @@ Transform:
   - {fileID: 2123943212}
   - {fileID: 874800094}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
 --- !u!1001 &1784740343
 Prefab:
   m_ObjectHideFlags: 0
@@ -46898,7 +46980,7 @@ Transform:
   m_Children:
   - {fileID: 883710719}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 13
 --- !u!1 &2021139995
 GameObject:
   m_ObjectHideFlags: 0
@@ -47485,7 +47567,7 @@ Transform:
   - {fileID: 1797627628}
   - {fileID: 2096097900}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
 --- !u!1 &2054393508
 GameObject:
   m_ObjectHideFlags: 0
@@ -47975,7 +48057,7 @@ Transform:
   m_Children:
   - {fileID: 726174042}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
 --- !u!1 &2076401584 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: dddc379bce13bb44a95855c9b6763aaf, type: 3}
@@ -48240,7 +48322,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 127139319}
     m_Modifications:
     - target: {fileID: 400000, guid: 1dbabf3a2c03eec47a751ed7028d870a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48272,7 +48354,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1dbabf3a2c03eec47a751ed7028d870a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1dbabf3a2c03eec47a751ed7028d870a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -48302,7 +48384,8 @@ Prefab:
       propertyPath: m_Name
       value: LevelOneBossDoor_001
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 1dbabf3a2c03eec47a751ed7028d870a, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 1dbabf3a2c03eec47a751ed7028d870a, type: 3}
   m_IsPrefabParent: 0
 --- !u!1 &2085806386
@@ -48334,7 +48417,7 @@ Transform:
   - {fileID: 369023097}
   - {fileID: 432213397}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 14
 --- !u!1 &2089380731
 GameObject:
   m_ObjectHideFlags: 0
@@ -48363,7 +48446,7 @@ Transform:
   m_Children:
   - {fileID: 748061161}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
 --- !u!1 &2092570874
 GameObject:
   m_ObjectHideFlags: 0
@@ -48836,11 +48919,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012650191494, guid: 7900989df66ffd14a91ef39c1387d7bc, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7900989df66ffd14a91ef39c1387d7bc, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2115053462 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 1dbabf3a2c03eec47a751ed7028d870a, type: 3}
+  m_PrefabInternal: {fileID: 2083352850}
+--- !u!65 &2115053463
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2115053462}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 38.999996, y: 4.9999995, z: 36.999996}
+  m_Center: {x: 19.288504, y: 0, z: 18.499998}
+--- !u!4 &2115053466 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: 1dbabf3a2c03eec47a751ed7028d870a, type: 3}
+  m_PrefabInternal: {fileID: 2083352850}
 --- !u!1 &2115304528
 GameObject:
   m_ObjectHideFlags: 0
@@ -49027,6 +49130,64 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 49.806023, y: 5.71, z: 374.00003}
   m_Center: {x: 43.525158, y: 0, z: 0}
+--- !u!1 &2136246256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2136246258}
+  - 65: {fileID: 2136246257}
+  - 114: {fileID: 2136246259}
+  m_Layer: 0
+  m_Name: BossDoorTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &2136246257
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2136246256}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 50, z: 100}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &2136246258
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2136246256}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4901.9, y: -120.9, z: -2989.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+--- !u!114 &2136246259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2136246256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fddabedc0d162c4e8b68117c6b63c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 127139318}
+  interactText: {fileID: 1074855451}
+  activated: 0
+  locked: 0
+  type: 1
 --- !u!1001 &2137584004
 Prefab:
   m_ObjectHideFlags: 0
