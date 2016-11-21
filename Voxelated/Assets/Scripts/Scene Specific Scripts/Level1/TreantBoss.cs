@@ -3,6 +3,7 @@ using System.Collections;
 
 public class TreantBoss : MonoBehaviour {
     public int health;
+    public bool dead;
     public int maxHealth;
     public GameObject hpBar;
     public GameObject hpBarParent;
@@ -89,27 +90,27 @@ public class TreantBoss : MonoBehaviour {
             case 0:
                 print("Activated targeting mode");
                 targetMode = true;
-                StartCoroutine(RootTimer(i, 2));
+                StartCoroutine(RootTimer(i, 2f));
                 break;
             case 1:
                 //Wait a second to give player time to dodge
                 targetMode = false;
-                StartCoroutine(RootTimer(i, 1));
+                StartCoroutine(RootTimer(i, 0.5f));
                 break;
             case 2:
                 print("Activated RootsUp mode");
                 RootsUp();
-                StartCoroutine(RootTimer(i, 8));
+                StartCoroutine(RootTimer(i, 5f));
                 break;
             case 3:
                 print("Activated RootsDown mode");
                 moveRootsModeDown = true;
-                StartCoroutine(RootTimer(i, 5));
+                StartCoroutine(RootTimer(i, 4f));
                 break;
         }
     }
 
-    IEnumerator RootTimer (int i, int w)
+    IEnumerator RootTimer (int i, float w)
     {
         yield return new WaitForSeconds(w);
         if(i != 3)
@@ -120,7 +121,10 @@ public class TreantBoss : MonoBehaviour {
         {
             i = 0;
         }
-        RootAttack(i);
+        if (!dead)
+        {
+            RootAttack(i);
+        }
     }
 
     public void Targeting()
@@ -169,6 +173,8 @@ public class TreantBoss : MonoBehaviour {
         hpBar.transform.GetComponent<LifeBar>().Damage(maxHealth, i);
         if (health <= 0)
         {
+            dead = true;
+            RootAttack(3);
             anim.SetBool("Death", true);
         }
     }
