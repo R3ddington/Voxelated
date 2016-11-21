@@ -410,6 +410,10 @@ public class CharacterScript : MonoBehaviour {
 
     public void TakeDamage (float d, bool trueDamage)
     {
+        if(hud == null)
+        {
+            hud = GameObject.FindGameObjectWithTag("Hud");
+        }
         hud.GetComponent<PlayerHUD>().HPShieldReduct(d, trueDamage);
     }
 }

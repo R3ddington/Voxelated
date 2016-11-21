@@ -50,6 +50,12 @@ public class ObjectInteraction : MonoBehaviour {
                         target.GetComponent<BossDoor>().CheckDoor();
                         interactText.SetActive(false);
                         break;
+                    case 2:
+                        locked = true;
+                        interactText.SetActive(false);
+                        target.SetActive(true);
+                        target.GetComponent<LevelSelect>().FreezePlayer();
+                        break;
                 }
             }
         }
