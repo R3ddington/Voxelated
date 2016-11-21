@@ -13747,6 +13747,8 @@ MonoBehaviour:
   active: 0
   offset: {x: 21.5, y: 17.2, z: -78.24}
   searchPerm: 0
+  fakePlayer: {fileID: 0}
+  playerPos: {fileID: 0}
 --- !u!114 &640483249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13814,7 +13816,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 640483241}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec92b071d2d424aecb3e46f28eb63174, type: 3}
   m_Name: 
@@ -21116,6 +21118,7 @@ MonoBehaviour:
   fade: {fileID: 10607324}
   step: 0
   chat: {fileID: 88495296}
+  player: {fileID: 0}
 --- !u!65 &926032130
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23233,6 +23236,7 @@ MonoBehaviour:
   locked: 1
   cooldown: 0
   dealDamage: 0
+  hud: {fileID: 0}
 --- !u!1 &1072896938
 GameObject:
   m_ObjectHideFlags: 0
@@ -32246,6 +32250,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011860164094, guid: 7589e3db7af5479469c2afcd1f0d067d,
+        type: 2}
+      propertyPath: jumpSpeed
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7589e3db7af5479469c2afcd1f0d067d, type: 2}
   m_IsPrefabParent: 0
@@ -33992,6 +34001,7 @@ MonoBehaviour:
   locked: 1
   cooldown: 0
   dealDamage: 0
+  hud: {fileID: 0}
 --- !u!120 &1633009638
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -40434,6 +40444,11 @@ Prefab:
         type: 2}
       propertyPath: m_Size.z
       value: 1.9869543
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012146312964, guid: e7684f0b1d2cd154f87d1e89f6cac679,
+        type: 2}
+      propertyPath: jumpSpeed
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7684f0b1d2cd154f87d1e89f6cac679, type: 2}

@@ -7,12 +7,24 @@ public class CameraFollowScript : MonoBehaviour {
     public bool active;
     public Vector3 offset;
     public bool searchPerm;
+
+    public GameObject fakePlayer;
+    public Transform playerPos;
     
 	// Use this for initialization
 	void Start () {
         if (searchPerm)
         {
             player = GameObject.FindGameObjectWithTag("Player");
+            if (player == null)
+            {
+                fakePlayer.SetActive(true);
+                player = GameObject.FindGameObjectWithTag("Player");
+            }
+            player.transform.position = playerPos.position;
+            player.transform.rotation = playerPos.rotation;
+            player.GetComponent<CharacterScript>().hitFreeze = false;
+            player.GetComponent<CharacterScript>().freeze = false;
             SetTarget(player);
             if(player != null)
             {

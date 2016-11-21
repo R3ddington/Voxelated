@@ -33,6 +33,7 @@ public class CharacterScript : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        DontDestroyOnLoad(this);
         boxCollider = GetComponent<BoxCollider>() as BoxCollider;
         rb = GetComponent<Rigidbody>();
         hud = GameObject.FindGameObjectWithTag("Hud");
