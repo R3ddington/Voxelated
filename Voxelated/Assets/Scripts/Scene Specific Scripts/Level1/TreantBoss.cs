@@ -15,18 +15,37 @@ public class TreantBoss : MonoBehaviour {
     public GameObject player;
     public int step = -1;
 
+    public GameObject targeter;
+    public GameObject rootAttackPrefab;
+    public bool targetMode;
+    public bool moveRootsMode;
+    public bool moveRootsModeDown;
+    public GameObject activeRoots;
+    public int movingInt;
+
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
 	}
 
-    /*
+
 	// Update is called once per frame
 	void Update () {
-	
+        if (targetMode)
+        {
+            Targeting();
+        }
+        if (moveRootsMode)
+        {
+            MoveRootsUp();
+        }
+        if (moveRootsModeDown)
+        {
+            RootsDown();
+        }
 	}
-    */
+
     public void StartBattle ()
     {
         cutsceneCam.enabled = true;
@@ -55,10 +74,92 @@ public class TreantBoss : MonoBehaviour {
                 mainCam.enabled = true;
                 hpBarParent.SetActive(true);
                 player.transform.position = new Vector3(5032, -142, -2992);
+                StartCoroutine(RunWaiting(2));
                 break;
             case 2:
-
+                RootAttack(0);
                 break;
+        }
+    }
+
+    public void RootAttack (int i)
+    {
+        switch (i)
+        {
+            case 0:
+                print("Activated targeting mode");
+                targetMode = true;
+                StartCoroutine(RootTimer(i, 2));
+                break;
+            case 1:
+                //Wait a second to give player time to dodge
+                targetMode = false;
+                StartCoroutine(RootTimer(i, 1));
+                break;
+            case 2:
+                print("Activated RootsUp mode");
+                RootsUp();
+                StartCoroutine(RootTimer(i, 8));
+                break;
+            case 3:
+                print("Activated RootsDown mode");
+                moveRootsModeDown = true;
+                StartCoroutine(RootTimer(i, 5));
+                break;
+        }
+    }
+
+    IEnumerator RootTimer (int i, int w)
+    {
+        yield return new WaitForSeconds(w);
+        if(i != 3)
+        {
+            i++;
+        }
+        else
+        {
+            i = 0;
+        }
+        RootAttack(i);
+    }
+
+    public void Targeting()
+    {
+        targeter.transform.position = new Vector3(player.transform.position.x, targeter.transform.position.y, player.transform.position.z);
+    }
+
+    public void MoveRootsUp ()
+    {
+        if(movingInt < 50)
+        {
+            activeRoots.transform.Translate(0, 0, 1);
+            movingInt++;
+        }
+        else
+        {
+            movingInt = 0;
+            moveRootsMode = false;
+        }
+    }
+
+    public void RootsUp ()
+    {
+        activeRoots = Instantiate(rootAttackPrefab, targeter.transform.position, rootAttackPrefab.transform.rotation) as GameObject;
+        moveRootsMode = true;
+    }
+
+    public void RootsDown ()
+    {
+        if (movingInt < 50)
+        {
+            activeRoots.transform.Translate(0, 0, -1);
+            movingInt++;
+        }
+        else
+        {
+            movingInt = 0;
+            moveRootsModeDown = false;
+            Destroy(activeRoots);
         }
     }
 
@@ -68,8 +169,6 @@ public class TreantBoss : MonoBehaviour {
         hpBar.transform.GetComponent<LifeBar>().Damage(maxHealth, i);
         if (health <= 0)
         {
-            //Play death animation
-            //   Destroy(gameObject);
             anim.SetBool("Death", true);
         }
     }
