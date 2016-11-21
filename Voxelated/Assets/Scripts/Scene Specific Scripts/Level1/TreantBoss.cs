@@ -24,8 +24,6 @@ public class TreantBoss : MonoBehaviour {
         hpBar.transform.GetComponent<LifeBar>().Damage(maxHealth, i);
         if (health <= 0)
         {
-            //Play death animation
-            //   Destroy(gameObject);
             anim.SetBool("Death", true);
         }
     }
