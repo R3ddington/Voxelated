@@ -108,6 +108,7 @@ public class SpiderTemp : MonoBehaviour {
     {
         yield return new WaitForSeconds(1);
         Instantiate(deathParticle, particlePos.transform.position, Quaternion.identity);
+        player.GetComponent<CharacterScript>().AddQubits(5);
         Destroy(gameObject);
     }
 }

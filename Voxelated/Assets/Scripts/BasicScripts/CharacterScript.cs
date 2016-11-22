@@ -30,6 +30,7 @@ public class CharacterScript : MonoBehaviour {
     bool onLog;
     public Vector3 vel;
     public GameObject hud;
+    public int qubits;
 
 
     // Use this for initialization
@@ -417,6 +418,12 @@ public class CharacterScript : MonoBehaviour {
             hud = GameObject.FindGameObjectWithTag("Hud");
         }
         hud.GetComponent<PlayerHUD>().AddHP(health);
+    }
+
+    public void AddQubits (int i)
+    {
+        qubits += i;
+        hud.GetComponent<PlayerHUD>().SetQubits(qubits);
     }
 
     public void TakeDamage (float d, bool trueDamage)

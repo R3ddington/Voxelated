@@ -12,6 +12,8 @@ public class OpenChest : MonoBehaviour {
     public GameObject showLootMessage;
     public Text lootText;
 
+    public int qubits;
+
 	public void Interact ()
     {
         anim.SetTrigger("Open");
@@ -24,7 +26,8 @@ public class OpenChest : MonoBehaviour {
         {
             case 0:
                 Instantiate(particle, particlePos.position, Quaternion.identity);
-                //Give cubits
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                player.GetComponent<CharacterScript>().AddQubits(qubits);
                 break;
             case 1:
                 Instantiate(particle, particlePos.position, Quaternion.identity);

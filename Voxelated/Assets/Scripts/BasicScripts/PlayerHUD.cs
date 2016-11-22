@@ -16,6 +16,7 @@ public class PlayerHUD : MonoBehaviour {
     public GameObject gunIcons;
     public GameObject swordIcon;
     bool gunEquiped;
+    public Text qubitsCounter;
 
     public GameObject gameOver;
 
@@ -47,6 +48,11 @@ public class PlayerHUD : MonoBehaviour {
     {
         //Instant refill for now, change to show bar filling later
         ammoFillBar.fillAmount = 1;
+    }
+
+    public void SetQubits (int i)
+    {
+        qubitsCounter.text = i.ToString();
     }
 
     public void AddShield (float i, GameObject p)
