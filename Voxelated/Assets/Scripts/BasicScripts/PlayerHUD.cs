@@ -87,7 +87,10 @@ public class PlayerHUD : MonoBehaviour {
         }
         if (hpBar.fillAmount <= 0.1) {
             playerDead = true;
-            gameOver.SetActive(true);
+            if(gameOver != null)
+            {
+                gameOver.SetActive(true);
+            }
             headsUD.SetActive(false);
         }
     }

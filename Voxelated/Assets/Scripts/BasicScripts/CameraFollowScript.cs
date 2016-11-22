@@ -39,7 +39,6 @@ public class CameraFollowScript : MonoBehaviour {
         }
 	}
     
-
 	// Update is called once per frame
 	void Update () {
         if (active)
