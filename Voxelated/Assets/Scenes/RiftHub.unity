@@ -3460,6 +3460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  interactTrigger: {fileID: 237802270}
 --- !u!1001 &328235705
 Prefab:
   m_ObjectHideFlags: 0
@@ -21663,6 +21664,7 @@ MonoBehaviour:
   swordIcon: {fileID: 877308688}
   qubitsCounter: {fileID: 37948517}
   gameOver: {fileID: 0}
+  parentObject: {fileID: 0}
 --- !u!1001 &2088715097
 Prefab:
   m_ObjectHideFlags: 0

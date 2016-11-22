@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class LevelSelect : MonoBehaviour {
 
     public GameObject player;
+    public GameObject interactTrigger;
 
     public void FreezePlayer ()
     {
@@ -24,6 +25,7 @@ public class LevelSelect : MonoBehaviour {
             case 0:
                 player.GetComponent<CharacterScript>().freeze = false;
                 player.GetComponent<CharacterScript>().hitFreeze = false;
+                interactTrigger.GetComponent<ObjectInteraction>().locked = false;
                 gameObject.SetActive(false);
                 break;
             //Load level 1
