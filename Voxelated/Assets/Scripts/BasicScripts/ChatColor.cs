@@ -25,14 +25,6 @@ public class ChatColor : MonoBehaviour {
         }
 	}
 	
-    /*
-	// Update is called once per frame
-	void Update () {
-	    
-	}
-    */
-    
-
     void ChangeWholeLine ()
     {
         switch (wholeLineInt)

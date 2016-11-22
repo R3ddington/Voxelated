@@ -18,12 +18,6 @@ public class PlayerInfo : MonoBehaviour {
         DontDestroyOnLoad(transform.gameObject);
     }
 	
-    /*
-	// Update is called once per frame
-	void Update () {
-	
-	}
-    */
     public void SetUp (int i, string s, Material m) {
         switch (i) {
             case 0:

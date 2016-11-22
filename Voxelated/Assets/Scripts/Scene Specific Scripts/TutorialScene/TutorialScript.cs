@@ -34,11 +34,6 @@ public class TutorialScript : MonoBehaviour {
         }
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
     public void PullInfo()
     {
         pInfo.GetComponent<PlayerInfo>().SendInfo(0, gameObject);

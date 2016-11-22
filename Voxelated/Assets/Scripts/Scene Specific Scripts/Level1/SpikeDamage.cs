@@ -12,7 +12,6 @@ public class SpikeDamage : MonoBehaviour {
             c.transform.GetComponent<CharacterScript>().TakeDamage(damage, false);
             Rigidbody rb = c.transform.GetComponent<Rigidbody>();
             rb.AddExplosionForce(7500f, transform.position, 200f);
-        //    rb.velocity = new Vector3(50, 100, 0);
             Destroy(gameObject);
         }
     }

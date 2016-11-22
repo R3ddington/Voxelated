@@ -11,17 +11,7 @@ public class KatanaScript : MonoBehaviour {
     public GameObject owner;
 
     GameObject tempObject;
-    /*
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-    */
+
     public void SetOn ()
     {
         active = true;

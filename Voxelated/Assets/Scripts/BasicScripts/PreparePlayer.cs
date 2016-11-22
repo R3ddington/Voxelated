@@ -35,13 +35,6 @@ public class PreparePlayer : MonoBehaviour {
           //  GetInfo("FakePlayer", "FakeFriend", true, standardMaterial, true);
         }
     }
-    /*
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    */
     public void PullInfo()
     {
         pInfo.GetComponent<PlayerInfo>().SendInfo(2, gameObject);
