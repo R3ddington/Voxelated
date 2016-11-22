@@ -81,6 +81,10 @@ public class KatanaScript : MonoBehaviour {
                 tempObject.GetComponent<TreantBoss>().Hit(dealDamage);
                 Bleed(c.transform.gameObject);
                 break;
+            case "Spider":
+                c.GetComponent<SpiderTemp>().Hit(dealDamage);
+                Bleed(c.transform.gameObject);
+                break;
         }
     }
 

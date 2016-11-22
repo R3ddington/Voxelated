@@ -128,9 +128,13 @@ public class LaserScript : MonoBehaviour {
 
     public void DealDamage (RaycastHit h)
     {
-        if(h.transform.tag == ("Dummy"))
+        if(h.transform.tag == "Dummy")
         {
             h.transform.GetComponent<DummyScript>().Hit(dealDamage);
+        }
+        if(h.transform.tag == "Spider")
+        {
+            h.transform.GetComponent<SpiderTemp>().Hit(dealDamage);
         }
     }
 }
