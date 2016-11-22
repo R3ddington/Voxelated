@@ -9,6 +9,7 @@ public class CameraFollowScript : MonoBehaviour {
     public bool searchPerm;
 
     public GameObject fakePlayer;
+    public GameObject fakeHud;
     public Transform playerPos;
     
 	// Use this for initialization
@@ -30,6 +31,11 @@ public class CameraFollowScript : MonoBehaviour {
             {
                 active = true;
             }
+            GameObject hud = GameObject.FindGameObjectWithTag("Hud");
+                if(hud == null)
+                {
+                    fakeHud.SetActive(true);
+                }
         }
 	}
     

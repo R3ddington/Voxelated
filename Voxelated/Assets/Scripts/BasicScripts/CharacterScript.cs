@@ -357,6 +357,10 @@ public class CharacterScript : MonoBehaviour {
             case 0:
                 anim.SetTrigger("TakeSword");
                 StartCoroutine(WaitTillDisable(backItems[0], handItems[0], 1));
+                if(hud == null)
+                {
+                    hud = GameObject.FindGameObjectWithTag("Hud");
+                }
                 hud.GetComponent<PlayerHUD>().WeaponSwitching(0);
                 break;
             case 1:
@@ -366,6 +370,10 @@ public class CharacterScript : MonoBehaviour {
             case 2:
                 anim.SetTrigger("TakeGun");
                 StartCoroutine(WaitTillDisable(backItems[1], handItems[1], 1));
+                if (hud == null)
+                {
+                    hud = GameObject.FindGameObjectWithTag("Hud");
+                }
                 hud.GetComponent<PlayerHUD>().WeaponSwitching(1);
                 break;
             case 3:

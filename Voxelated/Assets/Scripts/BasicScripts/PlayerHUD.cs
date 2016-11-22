@@ -19,6 +19,12 @@ public class PlayerHUD : MonoBehaviour {
     public Text qubitsCounter;
 
     public GameObject gameOver;
+    public GameObject parentObject;
+
+    void Start ()
+    {
+        DontDestroyOnLoad(parentObject);
+    }
 
     public void WeaponSwitching(int i) {
         switch (i)
