@@ -49,11 +49,25 @@ public class PlayerHUD : MonoBehaviour {
         ammoFillBar.fillAmount = 1;
     }
 
-    public void HPShieldReduct(float d, bool trueDamage) {
+    public void AddShield (float i, GameObject p)
+    {
+        float regen = i / 100;
+        shieldBar.fillAmount += regen;
+        p.GetComponent<CharacterScript>().shield = shieldBar.fillAmount * 100;
+    }
+
+    public void AddHP(int i)
+    {
+        float regen = i / 100;
+        hpBar.fillAmount = regen;
+    }
+
+    public void HPShieldReduct(float d, bool trueDamage, GameObject p) {
         float damage = d / 100;
         if (shieldBar.fillAmount > 0 && !trueDamage)
         {
             shieldBar.fillAmount -= damage;
+            p.GetComponent<CharacterScript>().shield = shieldBar.fillAmount * 100;
         }
         else if (shieldBar.fillAmount <= 0 || trueDamage)
         {

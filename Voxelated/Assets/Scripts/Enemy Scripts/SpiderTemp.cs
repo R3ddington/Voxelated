@@ -54,7 +54,7 @@ public class SpiderTemp : MonoBehaviour {
             rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
         }
         if (Physics.Raycast(spiderPrefab.transform.localPosition, spiderPrefab.transform.forward, playerDetLength)) {
-            print("RC1 Works");
+          //  print("RC1 Works");
             anim.SetBool("OnGround", true);
             //  spiderPrefab.transform.Translate(spiderPrefab.transform.forward * spiderSpeed);
             if(Physics.Raycast(spiderPrefab.transform.localPosition, spiderPrefab.transform.forward, spiderAttackRange)) {

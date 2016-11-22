@@ -4,6 +4,7 @@ using System;
 
 public class CharacterScript : MonoBehaviour {
     public int health;
+    public float shield;
     public Animator anim;
     public bool freeze;
     public bool hitFreeze;
@@ -408,12 +409,22 @@ public class CharacterScript : MonoBehaviour {
         hitFreeze = false;
     }
 
+    public void AddHP(int i)
+    {
+        health += i;
+        if (hud == null)
+        {
+            hud = GameObject.FindGameObjectWithTag("Hud");
+        }
+        hud.GetComponent<PlayerHUD>().AddHP(health);
+    }
+
     public void TakeDamage (float d, bool trueDamage)
     {
         if(hud == null)
         {
             hud = GameObject.FindGameObjectWithTag("Hud");
         }
-        hud.GetComponent<PlayerHUD>().HPShieldReduct(d, trueDamage);
+        hud.GetComponent<PlayerHUD>().HPShieldReduct(d, trueDamage, gameObject);
     }
 }
