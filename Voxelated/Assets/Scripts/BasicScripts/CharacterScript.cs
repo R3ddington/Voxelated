@@ -70,6 +70,11 @@ public class CharacterScript : MonoBehaviour {
         {
             if (!hitFreeze)
             {
+                if (Input.GetButtonDown("I"))
+                {
+                    transform.position = new Vector3(3553.299f, -193.1f, -2954.95f);
+                }
+
                 if (Input.GetButtonDown("1"))
                 {
                     if (!switching && anim.GetBool("Walk") == false && anim.GetBool("Crouch") == false)
