@@ -69,6 +69,9 @@ public class SpiderTemp : MonoBehaviour {
                 }
             }
             else {
+                /*if (Physics.Raycast(spiderPrefab.transform.localPosition, -spiderPrefab.transform.forward, spiderAttackRange)) {
+                    spiderPrefab.transform.Rotate(spiderPrefab.transform.right * Time.deltaTime);
+                }*/
                 spiderSpeed = spiderSpeedAdj;
                 targeting = true;
             }
