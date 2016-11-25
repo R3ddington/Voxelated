@@ -7,6 +7,7 @@ public class MainMenuButtons : MonoBehaviour {
     public Animator fadeAnim;
     public GameObject[] creditText;
     public GameObject[] optionPages; //0 = main page, 1 = audio, 2 = grafics
+    public GameObject audioHandler;
     /*
 	// Use this for initialization
 	void Start () {
@@ -53,6 +54,7 @@ public class MainMenuButtons : MonoBehaviour {
                 screens[3].SetActive(false);
                 break;
         }
+        audioHandler.GetComponent<AudioMaster>().PlaySound(0);
     }
 
     public void CreditButtons (int i)

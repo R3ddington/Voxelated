@@ -31,11 +31,16 @@ public class CharacterScript : MonoBehaviour {
     public Vector3 vel;
     public GameObject hud;
     public int qubits;
+    public GameObject audioHandler;
 
 
     // Use this for initialization
     void Start() {
         DontDestroyOnLoad(this);
+        if(audioHandler == null)
+        {
+            audioHandler = GameObject.FindGameObjectWithTag("AudioMaster");
+        }
         boxCollider = GetComponent<BoxCollider>() as BoxCollider;
         rb = GetComponent<Rigidbody>();
         hud = GameObject.FindGameObjectWithTag("Hud");
@@ -224,6 +229,10 @@ public class CharacterScript : MonoBehaviour {
 
     void Jump()
     {
+        if(audioHandler != null)
+        {
+            audioHandler.GetComponent<AudioMaster>().PlaySound(1);
+        }
         rb.velocity = new Vector3(0, jumpSpeed, 0);
         anim.SetBool("Jump", true);
         jumping = true;

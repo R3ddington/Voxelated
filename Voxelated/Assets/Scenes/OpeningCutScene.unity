@@ -3014,7 +3014,7 @@ Light:
   serializedVersion: 7
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 8
+  m_Intensity: 3.6
   m_Range: 89.55
   m_SpotAngle: 80
   m_CookieSize: 10
@@ -3443,7 +3443,7 @@ Light:
   serializedVersion: 7
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3.21
+  m_Intensity: 1.86
   m_Range: 89.55
   m_SpotAngle: 92
   m_CookieSize: 10
@@ -5637,7 +5637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1383779558
 Light:
   m_ObjectHideFlags: 0
@@ -5648,7 +5648,7 @@ Light:
   serializedVersion: 7
   m_Type: 0
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_Intensity: 8
+  m_Intensity: 1.9
   m_Range: 89.55
   m_SpotAngle: 61
   m_CookieSize: 10
@@ -8108,7 +8108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1916183497
 Light:
   m_ObjectHideFlags: 0
@@ -8119,7 +8119,7 @@ Light:
   serializedVersion: 7
   m_Type: 0
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_Intensity: 3.85
+  m_Intensity: 2.6
   m_Range: 89.55
   m_SpotAngle: 43
   m_CookieSize: 10
