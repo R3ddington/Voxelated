@@ -64,6 +64,7 @@ public class MainMenuButtons : MonoBehaviour {
             creditText[o].SetActive(false);
         }
         creditText[i].SetActive(true);
+        audioHandler.GetComponent<AudioMaster>().PlaySound(0);
     }
 
     public void OptionsMenu (int i)
@@ -84,6 +85,7 @@ public class MainMenuButtons : MonoBehaviour {
                 optionPages[2].SetActive(true);
                 break;
         }
+        audioHandler.GetComponent<AudioMaster>().PlaySound(0);
     }
 
     IEnumerator StartWaitTimer(int i, int id, int map) {

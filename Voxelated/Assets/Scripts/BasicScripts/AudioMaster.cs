@@ -14,6 +14,7 @@ public class AudioMaster : MonoBehaviour {
 
     public void PlaySound (int i)
     {
+        /*
         switch (i)
         {
             case 0:
@@ -24,7 +25,25 @@ public class AudioMaster : MonoBehaviour {
                 //JumpSound
                 aSource.clip = clip[1];
                 break;
+            case 2:
+                //KatanaSound
+                aSource.clip = clip[2];
+                break;
         }
+        */
+        aSource.clip = clip[i];
+        aSource.Play();
+    }
+
+    public void PlayDelay (int i, float w)
+    {
+        StartCoroutine(DelayedSound(i, w));
+    }
+
+    IEnumerator DelayedSound (int i, float w)
+    {
+        yield return new WaitForSeconds(w);
+        aSource.clip = clip[i];
         aSource.Play();
     }
 }

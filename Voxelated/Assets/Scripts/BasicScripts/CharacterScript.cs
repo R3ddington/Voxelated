@@ -133,6 +133,10 @@ public class CharacterScript : MonoBehaviour {
                         {
                             case 0:
                                 anim.SetTrigger("Slash");
+                                if (audioHandler != null)
+                                {
+                                    audioHandler.GetComponent<AudioMaster>().PlayDelay(2 , 0.5f);
+                                }
                                 break;
                         }
                     }
@@ -144,6 +148,10 @@ public class CharacterScript : MonoBehaviour {
                         switch (cMode)
                         {
                             case 0:
+                                if (audioHandler != null)
+                                {
+                                    audioHandler.GetComponent<AudioMaster>().PlayDelay(2, 0.5f);
+                                }
                                 anim.SetTrigger("Spin");
                                 break;
                             case 1:

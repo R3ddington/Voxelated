@@ -18924,7 +18924,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.89
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -19002,6 +19002,7 @@ MonoBehaviour:
   clip:
   - {fileID: 8300000, guid: 6e8346feb62dce247ba1770c6b0b834c, type: 3}
   - {fileID: 8300000, guid: 3ad519135154e3c47996ab9689320670, type: 3}
+  - {fileID: 8300000, guid: d3f003340c339484a9bf5d066bf787de, type: 3}
 --- !u!4 &1302760575 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013639866578, guid: 9aa40948ec8835845a4e00ec41c5c6df,
