@@ -18,8 +18,11 @@ public class CharacterScript : MonoBehaviour {
     public GameObject model;
     int turnDir;
     public bool turning;
-    public GameObject[] backItems; //0 = katana, 1 = gun
-    public GameObject[] handItems; //0 = katana, 1 = gun
+    public GameObject[] backItems; //0 = katana, 1 = gun, 2 = skull sword
+    public GameObject[] handItems; //0 = katana, 1 = gun, 2 = skull sword
+    public int selectedSword; //0 = katana
+    public int selectedGun; //1 = basegun
+    public bool[] unlockedItems; //0 = katana, 1 = gun, 2 = skull sword
     bool switching;
     public bool aiming;
     public GameObject gunScript;
@@ -378,7 +381,7 @@ public class CharacterScript : MonoBehaviour {
         {
             case 0:
                 anim.SetTrigger("TakeSword");
-                StartCoroutine(WaitTillDisable(backItems[0], handItems[0], 1));
+                StartCoroutine(WaitTillDisable(backItems[selectedSword], handItems[selectedSword], 1));
                 if(hud == null)
                 {
                     hud = GameObject.FindGameObjectWithTag("Hud");
@@ -387,11 +390,11 @@ public class CharacterScript : MonoBehaviour {
                 break;
             case 1:
                 anim.SetTrigger("SheatSword");
-                StartCoroutine(WaitTillDisable(handItems[0], backItems[0], 1));
+                StartCoroutine(WaitTillDisable(handItems[selectedSword], backItems[selectedSword], 1));
                 break;
             case 2:
                 anim.SetTrigger("TakeGun");
-                StartCoroutine(WaitTillDisable(backItems[1], handItems[1], 1));
+                StartCoroutine(WaitTillDisable(backItems[selectedGun], handItems[selectedGun], 1));
                 if (hud == null)
                 {
                     hud = GameObject.FindGameObjectWithTag("Hud");
@@ -400,7 +403,7 @@ public class CharacterScript : MonoBehaviour {
                 break;
             case 3:
                 anim.SetTrigger("SheatGun");
-                StartCoroutine(WaitTillDisable(handItems[1], backItems[1], 1));
+                StartCoroutine(WaitTillDisable(handItems[selectedGun], backItems[selectedGun], 1));
                 break;
         }
     }

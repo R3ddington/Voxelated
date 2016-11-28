@@ -56,6 +56,12 @@ public class ObjectInteraction : MonoBehaviour {
                         target.SetActive(true);
                         target.GetComponent<LevelSelect>().FreezePlayer();
                         break;
+                    case 3:
+                        locked = true;
+                        interactText.SetActive(false);
+                        target.SetActive(true);
+                        target.GetComponent<ShopScript>().FreezePlayer();
+                        break;
                 }
             }
         }
