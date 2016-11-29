@@ -21,6 +21,7 @@ TagManager:
   - Treant
   - Spider
   - AudioMaster
+  - Waypoint
   layers:
   - Default
   - TransparentFX

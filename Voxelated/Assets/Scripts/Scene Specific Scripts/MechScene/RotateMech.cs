@@ -22,7 +22,7 @@ public class RotateMech : MonoBehaviour {
     public void Turn ()
     {
         area.transform.rotation = Quaternion.Lerp(area.transform.rotation, Quaternion.Euler(0, 90, 0), Time.deltaTime * turnSpeed);
-        if (area.transform.rotation.eulerAngles.y >= 89 && area.transform.rotation.eulerAngles.y <= 91)
+        if (area.transform.rotation.eulerAngles.y >= 89.9f && area.transform.rotation.eulerAngles.y <= 90.1f)
         {
             area.transform.rotation = Quaternion.Euler(0, 90, 0);
             turning = false;
