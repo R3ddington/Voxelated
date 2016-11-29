@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TreantBoss : MonoBehaviour {
     public int health;
@@ -174,9 +175,19 @@ public class TreantBoss : MonoBehaviour {
         hpBar.transform.GetComponent<LifeBar>().Damage(maxHealth, i);
         if (health <= 0)
         {
-            dead = true;
-            RootAttack(3);
-            anim.SetBool("Death", true);
+            if (!dead)
+            {
+                dead = true;
+                RootAttack(3);
+                anim.SetBool("Death", true);
+                StartCoroutine(WaitForTP());
+            }
         }
+    }
+
+    IEnumerator WaitForTP()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(7);
     }
 }

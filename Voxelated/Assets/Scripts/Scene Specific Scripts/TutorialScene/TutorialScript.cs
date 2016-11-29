@@ -71,7 +71,14 @@ public class TutorialScript : MonoBehaviour {
 
     public void CloseInfo (int i)
     {
-        audioHandler.GetComponent<AudioMaster>().PlaySound(0);
+        if(audioHandler == null)
+        {
+            audioHandler = GameObject.FindGameObjectWithTag("AudioMaster");
+        }
+        if(audioHandler != null)
+        {
+            audioHandler.GetComponent<AudioMaster>().PlaySound(0);
+        }
         info[i].SetActive(false);
         player.GetComponent<CharacterScript>().HitFreezeOff();
         player.GetComponent<CharacterScript>().Freeze();
