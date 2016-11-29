@@ -105,19 +105,20 @@ Shader "Custom/GerbsAnimatedRift" {
 //	o.Emission = e * m;
 //	i.color.a *= fade;
 	void surf(Input IN, inout SurfaceOutputStandard o) {
-		 
-		fixed2 scrolledUV = IN.uv_EmissionTex;
+		
+		/* fixed2 scrolledUV = IN.uv_EmissionTex;
 
 		fixed xScrollValue = _ScrollSpeedX * _Time;
 		fixed yScrollValue = _ScrollSpeedY * _Time;
 
-		scrolledUV += fixed2(xScrollValue, yScrollValue);
+		scrolledUV += fixed2(xScrollValue, yScrollValue);*/
+		
 
 		// Albedo comes from a texture tinted by color
 		fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
-		fixed4 m = tex2D(_EmissionMask, IN.uv_EmissionMask);
-		fixed4 e = tex2D(_EmissionTex, scrolledUV) * _EmissionIntensity;
-		o.Emission = e * m;
+		//fixed4 m = tex2D(_EmissionMask, IN.uv_EmissionMask);
+		//fixed4 e = tex2D(_EmissionTex, scrolledUV) * _EmissionIntensity;
+		//o.Emission = e * m;
 	}
 #endif
 
