@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PlayerMoving : MonoBehaviour {
-    NavMeshAgent nav;
+    UnityEngine.AI.NavMeshAgent nav;
     public Animator anim;
     public Transform target;
 
@@ -10,7 +10,7 @@ public class PlayerMoving : MonoBehaviour {
     {
         if (nav == null)
         {
-            nav = GetComponent<NavMeshAgent>();
+            nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         }
         nav.SetDestination(target.position);
         print("nav mesh target set");

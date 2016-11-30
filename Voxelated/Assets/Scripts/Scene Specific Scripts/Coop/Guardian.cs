@@ -21,10 +21,10 @@ public class Guardian : MonoBehaviour {
     bool done;
     public GameObject targetObject;
     // Use this for initialization
-    NavMeshAgent nav;
+    UnityEngine.AI.NavMeshAgent nav;
     void Start()
     {
-        nav = GetComponent<NavMeshAgent>();
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -122,7 +122,7 @@ public class Guardian : MonoBehaviour {
             target = turrets[i].transform.position;
             if (nav == null)
             {
-                nav = GetComponent<NavMeshAgent>();
+                nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
             }
             nav.SetDestination(target);
         }

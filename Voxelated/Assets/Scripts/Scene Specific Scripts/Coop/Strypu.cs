@@ -19,9 +19,9 @@ public class Strypu : MonoBehaviour {
     bool prepared;
     bool done;
     // Use this for initialization
-    NavMeshAgent nav;
+    UnityEngine.AI.NavMeshAgent nav;
     void Start () {
-        nav = GetComponent<NavMeshAgent>();
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 	
 	// Update is called once per frame
@@ -123,7 +123,7 @@ public class Strypu : MonoBehaviour {
             //target.y = transform.position.y;
             if(nav == null)
             {
-                nav = GetComponent<NavMeshAgent>();
+                nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
             }
             nav.SetDestination(target);
         }
