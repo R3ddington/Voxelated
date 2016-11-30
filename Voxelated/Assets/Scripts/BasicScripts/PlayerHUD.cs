@@ -90,6 +90,7 @@ public class PlayerHUD : MonoBehaviour {
             if(gameOver != null)
             {
                 gameOver.SetActive(true);
+                Time.timeScale = 0f;
             }
             headsUD.SetActive(false);
         }

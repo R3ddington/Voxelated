@@ -22,6 +22,8 @@ TagManager:
   - Spider
   - AudioMaster
   - Waypoint
+  - CheckpointMaster
+  - Reload
   layers:
   - Default
   - TransparentFX

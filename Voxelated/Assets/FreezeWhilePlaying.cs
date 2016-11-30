@@ -10,13 +10,13 @@ public class FreezeWhilePlaying : StateMachineBehaviour {
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
-        player.GetComponent<CharacterScript>().Freeze();
+        player.GetComponent<CharacterScript>().FreezeOn();
     }
 
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        player.GetComponent<CharacterScript>().Freeze();
+        player.GetComponent<CharacterScript>().FreezeOff();
     }
 }

@@ -14,6 +14,11 @@ public class CameraFollowScript : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
+        GameObject reloader = GameObject.FindGameObjectWithTag("Reload");
+        if(reloader != null)
+        {
+            reloader.GetComponent<SceneReload>().DoLoad();
+        }
         if (searchPerm)
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -22,8 +27,19 @@ public class CameraFollowScript : MonoBehaviour {
                 fakePlayer.SetActive(true);
                 player = GameObject.FindGameObjectWithTag("Player");
             }
-            player.transform.position = playerPos.position;
-            player.transform.rotation = playerPos.rotation;
+            if(!player.GetComponent<CharacterScript>().reloaded)
+            {
+                print("reloaded is false");
+                player.transform.position = playerPos.position;
+                player.transform.rotation = playerPos.rotation;
+                print("Changed Pos in cam follow script");
+            }
+            else
+            {
+                print("Set reload on false, didnt change pos in cam follow script");
+                player.GetComponent<CharacterScript>().reloaded = false;
+             //   player.transform.position = player.GetComponent<CharacterScript>().checkpointPos;
+            }
             player.GetComponent<CharacterScript>().hitFreeze = false;
             player.GetComponent<CharacterScript>().freeze = false;
             SetTarget(player);

@@ -35,22 +35,14 @@ public class CharacterScript : MonoBehaviour {
     public GameObject hud;
     public int qubits;
     public GameObject audioHandler;
+    public bool reloaded;
+  //  public Vector3 checkpointPos;
 
 
     // Use this for initialization
     void Start() {
         DontDestroyOnLoad(this);
-        if(audioHandler == null)
-        {
-            audioHandler = GameObject.FindGameObjectWithTag("AudioMaster");
-        }
-        boxCollider = GetComponent<BoxCollider>() as BoxCollider;
-        rb = GetComponent<Rigidbody>();
-        hud = GameObject.FindGameObjectWithTag("Hud");
-        if(hud == null)
-        {
-            print("WARNING HUD NOT FOUND, CHARACTERSCRIPT LINE 41");
-        }
+        SetUp();
     }
 
     // Update is called once per frame
@@ -69,7 +61,37 @@ public class CharacterScript : MonoBehaviour {
 
     public void SetUp()
     {
+        if (audioHandler == null)
+        {
+            audioHandler = GameObject.FindGameObjectWithTag("AudioMaster");
+        }
+        boxCollider = GetComponent<BoxCollider>() as BoxCollider;
+        rb = GetComponent<Rigidbody>();
+        hud = GameObject.FindGameObjectWithTag("Hud");
+        if (hud == null)
+        {
+            print("WARNING HUD NOT FOUND, CHARACTERSCRIPT LINE 71, RECHECKING IN 1 SECOND");
+            StartCoroutine(SecondHudCheck());
+        }
+        else
+        {
+            AddQubits(0);
+        }
+        freeze = false;
+    }
 
+    IEnumerator SecondHudCheck()
+    {
+        yield return new WaitForSeconds(1);
+        hud = GameObject.FindGameObjectWithTag("Hud");
+        if (hud == null)
+        {
+            print("SECOND HUD CHECK DIDNT FIND A HUD!");
+        }
+        else
+        {
+            AddQubits(0);
+        }
     }
 
     //Button Input
@@ -423,7 +445,7 @@ public class CharacterScript : MonoBehaviour {
         TakeItem(i);
     }
 
-    public void Freeze ()
+    public void Freeze () //Dont use this one anymore, slowly changing everything that uses it
     {
         if (!freeze)
         {
@@ -433,6 +455,14 @@ public class CharacterScript : MonoBehaviour {
         {
             freeze = false;
         }
+    }
+    public void FreezeOn()
+    {
+        freeze = true;
+    }
+    public void FreezeOff()
+    {
+        freeze = false;
     }
     public void HitFreezeOn()
     {
