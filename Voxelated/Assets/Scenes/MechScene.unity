@@ -7681,6 +7681,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000012186941696, guid: 7589e3db7af5479469c2afcd1f0d067d,
     type: 2}
   m_PrefabInternal: {fileID: 2147085509}
+--- !u!4 &522094185 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000013554185264, guid: 7589e3db7af5479469c2afcd1f0d067d,
+    type: 2}
+  m_PrefabInternal: {fileID: 2147085509}
 --- !u!1 &537735488 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 9f10fc470d887d141b00d48bf3125b37, type: 3}
@@ -19048,6 +19053,7 @@ GameObject:
   - component: {fileID: 1904469196}
   - component: {fileID: 1904469195}
   - component: {fileID: 1904469194}
+  - component: {fileID: 1904469203}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -19202,6 +19208,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1904469203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1904469193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a338d679868f45439ea43c7ae035e36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    visualizeFocus: 0
+    tweakMode: 0
+    filteringQuality: 2
+    apertureShape: 0
+    apertureOrientation: 0
+  focus:
+    transform: {fileID: 522094185}
+    focusPlane: 104.28272
+    range: 59.999985
+    nearPlane: 74.28273
+    nearFalloff: 5.92
+    farPlane: 134.28271
+    farFalloff: 50
+    nearBlurRadius: 9.3
+    farBlurRadius: 9
+  bokehTexture:
+    texture: {fileID: 0}
+    scale: 1
+    intensity: 50
+    threshold: 2
+    spawnHeuristic: 0.15
+  m_FilmicDepthOfFieldShader: {fileID: 4800000, guid: bff0e5458fb914f5c9985ba4f09171d2,
+    type: 3}
+  m_MedianFilterShader: {fileID: 4800000, guid: a058b22d4123add4b807e832604e5e7b,
+    type: 3}
+  m_TextureBokehShader: {fileID: 4800000, guid: c961b8ed1f00f924d804ada5143bd0e8,
+    type: 3}
 --- !u!1 &1904522293
 GameObject:
   m_ObjectHideFlags: 0
