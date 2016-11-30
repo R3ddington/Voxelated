@@ -50,13 +50,13 @@ public class SpiderTemp : MonoBehaviour {
         float distance = Vector3.Distance(transform.position, player.transform.position);
         if(distance < agroDistance)
         {
-            anim.SetTrigger("Aggro");
+            anim.SetBool("Aggro", true);
             rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
         }
         if (Physics.Raycast(spiderPrefab.transform.localPosition, spiderPrefab.transform.forward, playerDetLength)) {
           //  print("RC1 Works");
             anim.SetBool("OnGround", true);
-            //  spiderPrefab.transform.Translate(spiderPrefab.transform.forward * spiderSpeed);
+            //spiderPrefab.transform.Translate(spiderPrefab.transform.forward * spiderSpeed);
             if(Physics.Raycast(spiderPrefab.transform.localPosition, spiderPrefab.transform.forward, spiderAttackRange)) {
                 targeting = false;
                 spiderSpeed = 0;
@@ -69,9 +69,9 @@ public class SpiderTemp : MonoBehaviour {
                 }
             }
             else {
-                /*if (Physics.Raycast(spiderPrefab.transform.localPosition, -spiderPrefab.transform.forward, spiderAttackRange)) {
+                if (Physics.Raycast(spiderPrefab.transform.localPosition, -spiderPrefab.transform.forward, spiderAttackRange)) {
                     spiderPrefab.transform.Rotate(spiderPrefab.transform.right * Time.deltaTime);
-                }*/
+                }
                 spiderSpeed = spiderSpeedAdj;
                 targeting = true;
             }
