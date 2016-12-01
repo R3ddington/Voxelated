@@ -13,6 +13,13 @@ public class CheckPointManager : MonoBehaviour {
     }
     public void GoToPoint(GameObject g)
     {
-        g.transform.position = checkpoint.transform.position;
+        if(checkpoint != null)
+        {
+            g.transform.position = checkpoint.transform.position;
+        }
+        else
+        {
+            g.transform.position = new Vector3(0, 0, 0);
+        }
     }
 }

@@ -59,6 +59,11 @@ public class CharacterScript : MonoBehaviour {
         vel = rb.velocity; //To check velocity in editor, remove for final build
     }
 
+    public void SetToDontDestroy()
+    {
+        DontDestroyOnLoad(this);
+    }
+
     public void SetUp()
     {
         if (audioHandler == null)

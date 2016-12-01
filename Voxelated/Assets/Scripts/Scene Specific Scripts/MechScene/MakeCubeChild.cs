@@ -16,6 +16,7 @@ public class MakeCubeChild : MonoBehaviour {
         if (c.transform.tag == "Player")
         {
             c.transform.parent = null;
+            c.transform.GetComponent<CharacterScript>().SetToDontDestroy();
         }
     }
 }
