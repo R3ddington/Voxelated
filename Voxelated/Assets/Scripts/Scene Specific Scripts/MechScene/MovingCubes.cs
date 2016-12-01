@@ -8,12 +8,22 @@ public class MovingCubes : MonoBehaviour {
     public Transform target;
     public int targetNumber;
     public float speed;
+    public bool oneWay;
 	// Use this for initialization
 	void Start () {
         target = waypoints[targetNumber];
-        Move();
+        if (!oneWay)
+        {
+            Move();
+        }
 	}
-    void Move ()
+    public void SetOn ()
+    {
+        target = waypoints[targetNumber];
+        Move();
+    }
+
+    public void Move ()
     {
        // print("Moving");
        // print("Own Location" + " " + transform.position.ToString() + " " + "Target Location" + " " + target.position.ToString());
@@ -33,7 +43,11 @@ public class MovingCubes : MonoBehaviour {
     }
     void NextWayPoint()
     {
-     //   print("Setting New Waypoint");
+        //   print("Setting New Waypoint");
+        if (oneWay)
+        {
+            return;
+        }
         if(targetNumber == amount)
         {
             targetNumber = 0;
