@@ -17,6 +17,7 @@ public class MovingCubes : MonoBehaviour {
             Move();
         }
 	}
+
     public void SetOn ()
     {
         target = waypoints[targetNumber];
