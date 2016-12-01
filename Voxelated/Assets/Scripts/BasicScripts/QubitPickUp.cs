@@ -4,6 +4,7 @@ using System.Collections;
 public class QubitPickUp : MonoBehaviour {
     public int value;
     public GameObject waveSystem;
+    public int type;
 
     void Start ()
     {
@@ -14,7 +15,16 @@ public class QubitPickUp : MonoBehaviour {
     {
         if (c.transform.tag == "Player")
         {
-            waveSystem.GetComponent<CoopWaveSystem>().AddQubits(value);
+            switch (type)
+            {
+                case 0:
+                    waveSystem.GetComponent<CoopWaveSystem>().AddQubits(value);
+                    break;
+                case 1:
+                    c.transform.gameObject.GetComponent<CharacterScript>().AddQubits(value);
+                    break;
+            }
+            
             Destroy(gameObject);
         }
     }

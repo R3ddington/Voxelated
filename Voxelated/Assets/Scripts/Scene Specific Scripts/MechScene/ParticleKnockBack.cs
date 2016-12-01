@@ -10,9 +10,22 @@ public class ParticleKnockBack : MonoBehaviour {
         Rigidbody rb = g.GetComponent<Rigidbody>();
         if(rb != null)
         {
+            /*
             Vector3 dir = g.transform.position - transform.position;
             dir = dir.normalized;
-            rb.AddForce(dir * force);
+            */
+            if(g.transform.tag == "Player")
+            {
+                if (g.transform.GetComponent<CharacterScript>().goingLeft)
+                {
+                    rb.AddForce(force, force / 2, 0);
+                }
+                else
+                {
+                    rb.AddForce(-force, force / 2, 0);
+                }
+            }
+        //    rb.AddForce(dir * force);
         }
     }
 }
