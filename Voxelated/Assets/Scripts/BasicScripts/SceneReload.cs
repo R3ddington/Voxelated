@@ -33,6 +33,13 @@ public class SceneReload : MonoBehaviour {
     {
         print("Reloading");
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if(player == null)
+        {
+            print("Player not found in DoLoad void, starting retry counter");
+            StartCoroutine(WaitForRetry());
+            return;
+        }
+        print("Found player, pushing reload");
         player.GetComponent<CharacterScript>().qubits = qubits;
         player.GetComponent<CharacterScript>().SetUp();
         player.transform.position = checkpoint;
@@ -40,5 +47,11 @@ public class SceneReload : MonoBehaviour {
         player.GetComponent<CharacterScript>().freeze = false;
         Time.timeScale = 1f;
         Destroy(gameObject);
+    }
+    IEnumerator WaitForRetry()
+    {
+        yield return new WaitForSeconds(2);
+        print("Retrying reload");
+        DoLoad();
     }
 }
