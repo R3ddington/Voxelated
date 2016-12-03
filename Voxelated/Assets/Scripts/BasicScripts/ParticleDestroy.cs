@@ -2,9 +2,13 @@
 using System.Collections;
 
 public class ParticleDestroy : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-        Destroy(gameObject, 10f);
+    public float cooldown;
+    // Use this for initialization
+    void Start() {
+        if (cooldown == 0)
+        {
+            cooldown = 10;
+        }
+        Destroy(gameObject, cooldown);
 	}
 }
