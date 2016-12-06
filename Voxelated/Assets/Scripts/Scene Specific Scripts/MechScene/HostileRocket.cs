@@ -18,7 +18,7 @@ public class HostileRocket : MonoBehaviour {
     void Move ()
     {
         float moveSpeed = speed * Time.deltaTime;
-      //  transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed);
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed);
     }
     void OnCollisionEnter(Collision c)
     {

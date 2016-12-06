@@ -18,6 +18,10 @@ public class BazookaRocket : MonoBehaviour {
     void Move()
     {
         float moveSpeed = speed * Time.deltaTime;
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = 78.24f;
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        target = mousePos;
         transform.LookAt(target);
         transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed);
         if(transform.position == target)

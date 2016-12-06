@@ -216,7 +216,7 @@ MonoBehaviour:
   damage: 20
   expParticles: {fileID: 1613771699831202, guid: e19625ba1e8f6b5488df830855958e63,
     type: 2}
-  speed: 40
+  speed: 70
   target: {x: 0, y: 0, z: 0}
 --- !u!198 &198290551119756524
 ParticleSystem:

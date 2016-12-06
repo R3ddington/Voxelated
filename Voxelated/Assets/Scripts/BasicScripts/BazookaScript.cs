@@ -12,11 +12,11 @@ public class BazookaScript : MonoBehaviour {
         if (!cooling)
         {
             cooling = true;
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = 78.24f;
-            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+          //  Vector3 mousePos = Input.mousePosition;
+          //  mousePos.z = 78.24f;
+          //  mousePos = Camera.main.ScreenToWorldPoint(mousePos);
             GameObject newRocket = Instantiate(rocket, barrelEnd.transform.position, rocket.transform.rotation) as GameObject;
-            newRocket.GetComponent<BazookaRocket>().target = mousePos;
+            //newRocket.GetComponent<BazookaRocket>().target = mousePos;
             StartCoroutine(Cooldown());
         }
     }
