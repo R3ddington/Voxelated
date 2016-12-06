@@ -25,6 +25,7 @@ TagManager:
   - CheckpointMaster
   - Reload
   - Enemy
+  - ParticleMove
   layers:
   - Default
   - TransparentFX
