@@ -18,11 +18,11 @@ public class CharacterScript : MonoBehaviour {
     public GameObject model;
     int turnDir;
     public bool turning;
-    public GameObject[] backItems; //0 = katana, 1 = gun, 2 = skull sword
-    public GameObject[] handItems; //0 = katana, 1 = gun, 2 = skull sword
+    public GameObject[] backItems; //0 = katana, 1 = gun, 2 = skull sword, 3 = bazooka
+    public GameObject[] handItems; //0 = katana, 1 = gun, 2 = skull sword, 3 = bazooka
     public int selectedSword; //0 = katana
-    public int selectedGun; //1 = basegun
-    public bool[] unlockedItems; //0 = katana, 1 = gun, 2 = skull sword
+    public int selectedGun; //1 = basegun, 3 = bazooka
+    public bool[] unlockedItems; //0 = katana, 1 = gun, 2 = skull sword, 3 = bazooka
     bool switching;
     public bool aiming;
     public GameObject gunScript;
@@ -36,6 +36,7 @@ public class CharacterScript : MonoBehaviour {
     public int qubits;
     public GameObject audioHandler;
     public bool reloaded;
+    bool bazookaOn;
   //  public Vector3 checkpointPos;
 
 
@@ -153,6 +154,7 @@ public class CharacterScript : MonoBehaviour {
                     aiming = false;
                     anim.SetBool("Aiming", false);
                     gunScript.GetComponent<LaserScript>().Lock(1);
+                    bazookaOn = false;
                 }
 
                 if (Input.GetButtonDown("Fire1"))
@@ -166,6 +168,12 @@ public class CharacterScript : MonoBehaviour {
                                 if (audioHandler != null)
                                 {
                                     audioHandler.GetComponent<AudioMaster>().PlayDelay(2 , 0.5f);
+                                }
+                                break;
+                            case 1:
+                                if (bazookaOn)
+                                {
+                                    handItems[3].GetComponent<BazookaScript>().Fire();
                                 }
                                 break;
                         }
@@ -187,7 +195,14 @@ public class CharacterScript : MonoBehaviour {
                             case 1:
                                 aiming = true;
                                 anim.SetBool("Aiming", true);
-                                gunScript.GetComponent<LaserScript>().Lock(0);
+                                if (selectedGun == 1)
+                                {
+                                    gunScript.GetComponent<LaserScript>().Lock(0);
+                                }
+                                if(selectedGun == 3)
+                                {
+                                    bazookaOn = true;
+                                }
                                 break;
                         }
                     }

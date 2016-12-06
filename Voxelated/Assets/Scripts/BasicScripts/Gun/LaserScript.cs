@@ -81,6 +81,10 @@ public class LaserScript : MonoBehaviour {
                 Ray ray = new Ray(transform.position, transform.forward);
                 RaycastHit hit;
                 line.SetPosition(0, ray.origin);
+                if(hud == null)
+                {
+                    hud = GameObject.FindGameObjectWithTag("Hud");
+                }
                 hud.GetComponent<PlayerHUD>().AmmoAndGunReduct(incLengthCast);
                 if (Physics.Raycast(ray, out hit, incLengthCast))
                 {
