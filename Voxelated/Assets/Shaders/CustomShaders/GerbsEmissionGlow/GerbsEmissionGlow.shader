@@ -5,7 +5,7 @@
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
 		_Metallic ("Metallic", Range(0,1)) = 0.0
 		_Emission ("Emission", 2D) = "black" {}
-		_Intensity("Emission Intensity", float) = 1
+		_Intensity("Emission Intensity", Range(0,2)) = 1
 		_Freq("Freq", float) = 1
 	}
 	SubShader {
@@ -37,13 +37,20 @@
 			//float nFreq = _Freq * UNITY_PI * 2;
 			//_Intensity += sin(_Intensity * nFreq + _Time);
 			//_Intensity = Mathf.PingPong(Time.time, 2 - 1);
+			float i = _Intensity;
+			if (i > 2) {
+				i = i - _SinTime.y;
+			}
+			else {
+				i = i + _SinTime.y;
+			}
 			fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
 			fixed4 e = tex2D(_Emission, IN.uv_MainTex); // *_Intensity;
 			o.Albedo = c.rgb;
 			// Metallic and smoothness come from slider variables
 			o.Metallic = _Metallic;
 			o.Smoothness = _Glossiness;
-			o.Emission = e;// *_Intensity;
+			o.Emission = e * i;
 			o.Alpha = c.a;
 		}
 		ENDCG

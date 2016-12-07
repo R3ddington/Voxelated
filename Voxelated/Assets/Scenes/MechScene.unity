@@ -47068,19 +47068,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 45, y: 45, z: 45}
   m_Center: {x: 0, y: 22.5, z: 0}
---- !u!114 &787496286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 787496281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76b38937d2f8d4540b1631c48d7d8646, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rend: {fileID: 0}
-  mat: {fileID: 0}
 --- !u!1001 &789580127
 Prefab:
   m_ObjectHideFlags: 0
@@ -53071,7 +53058,8 @@ Prefab:
       propertyPath: m_Name
       value: MechCube_020
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114653028134453032, guid: 64540e92ffcd77248a90b4a75179a696, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 64540e92ffcd77248a90b4a75179a696, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &881033814 stripped
