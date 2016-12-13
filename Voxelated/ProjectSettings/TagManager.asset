@@ -26,6 +26,7 @@ TagManager:
   - Reload
   - Enemy
   - ParticleMove
+  - Puzzle
   layers:
   - Default
   - TransparentFX

@@ -62,6 +62,12 @@ public class ObjectInteraction : MonoBehaviour {
                         target.SetActive(true);
                         target.GetComponent<ShopScript>().FreezePlayer();
                         break;
+                    case 4:
+                        locked = true;
+                        interactText.SetActive(false);
+                        //target.SetActive(true);
+                        target.GetComponent<ShufflePuzzle>().SetOn();
+                        break;
                 }
             }
         }
