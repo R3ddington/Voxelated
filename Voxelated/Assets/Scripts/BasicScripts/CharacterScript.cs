@@ -260,7 +260,7 @@ public class CharacterScript : MonoBehaviour {
                         Jump();
                     }
                     //Check if velocity isnt bugged, if it is this should fix it
-                    if (rb.velocity == new Vector3(0, -0.0003051758f, 0) || rb.velocity == new Vector3(0, -0.0001525879f, 0) || rb.velocity == new Vector3(0, -3.814697e-05f, 0) || rb.velocity == new Vector3(0, -0.0001144409f, 0))
+                    if (rb.velocity == new Vector3(0, -0.0003051758f, 0) || rb.velocity == new Vector3(0, -0.0001907349f, 0) || rb.velocity == new Vector3(0, -0.0001525879f, 0) || rb.velocity == new Vector3(0, -3.814697e-05f, 0) || rb.velocity == new Vector3(0, -0.0001144409f, 0))
                     {
                         rb.velocity = new Vector3(0, 0, 0);
                     }

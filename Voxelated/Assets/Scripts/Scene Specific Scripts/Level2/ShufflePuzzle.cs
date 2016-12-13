@@ -17,9 +17,11 @@ public class ShufflePuzzle : MonoBehaviour {
     public GameObject selectedPiece;
     public GameObject[] pieces;
     public GameObject player;
+    public GameObject interactTrigger;
 
     void Start()
     {
+        puzzleCam.enabled = false;
         FindPlayer();
     }
 
@@ -57,6 +59,7 @@ public class ShufflePuzzle : MonoBehaviour {
         puzzleCam.enabled = false;
         player.GetComponent<CharacterScript>().freeze = false;
         player.GetComponent<CharacterScript>().hitFreeze = false;
+        interactTrigger.GetComponent<ObjectInteraction>().locked = false;
     }
 
     void CustomUpdate() {
