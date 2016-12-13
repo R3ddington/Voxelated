@@ -7,7 +7,6 @@ public class Renamer : MonoBehaviour {
 
     public GameObject parentObject;
     GameObject handle;
-  //  public List<Transform> objects = new List<Transform>();
     public string baseName;
     public int counter;
     string giveName;
@@ -24,7 +23,6 @@ public class Renamer : MonoBehaviour {
         {
             foreach (Transform child in parentObject.transform)
             {
-              //  objects.Add(child);
                 if (counter < 10)
                 {
                     giveName = baseName + "00" + counter.ToString();
