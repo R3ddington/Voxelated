@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShufflePuzzle : MonoBehaviour {
 
@@ -18,6 +19,9 @@ public class ShufflePuzzle : MonoBehaviour {
     public GameObject[] pieces;
     public GameObject player;
     public GameObject interactTrigger;
+    public GameObject puzzleCounter;
+    public int clickCount;
+    public Text clickCounter;
 
     void Start()
     {
@@ -50,10 +54,12 @@ public class ShufflePuzzle : MonoBehaviour {
         puzzleCam.enabled = true;
         CustomUpdate();
         FreezePlayer();
+        puzzleCounter.SetActive(true);
     }
 
     public void SetOff()
     {
+        puzzleCounter.SetActive(false);
         isOn = false;
         mainCam.enabled = true;
         puzzleCam.enabled = false;
@@ -188,6 +194,8 @@ public class ShufflePuzzle : MonoBehaviour {
         openSlot = pieceInSlot[usePiece];
         pieceInSlot[usePiece] = keepSlot;
         CheckForRightSpot();
+        clickCount++;
+        clickCounter.text = clickCount.ToString();
     }
 
     public void CheckForRightSpot()
