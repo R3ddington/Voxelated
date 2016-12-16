@@ -8,6 +8,10 @@ public class TreeZombie : MonoBehaviour {
     public float playerInRange;
     public float playerHitable;
     public RaycastHit playerHit;
+    public GameObject playerModel;
+    public Vector3 rayInsDis;
+    public Vector3 playerGrAtRange;
+    public GameObject rayOrigin;
 
 	// Update is called once per frame
 	void Update () {
@@ -15,18 +19,19 @@ public class TreeZombie : MonoBehaviour {
 	}
 
     public void DetectManager() {
-        if(Physics.Raycast(transform.position, transform.forward, out playerHit, playerInRange)) {
+        Vector3 dir = playerModel.transform.position - rayOrigin.transform.position;
+        Debug.DrawRay(rayOrigin.transform.position, dir, Color.red, playerInRange);
+        //Debug.DrawRay(rayOrigin.transform.position + rayInsDis, dir, Color.blue, playerInGrAtRange);
+        Debug.DrawRay(rayOrigin.transform.position, rayOrigin.transform.forward, Color.green, playerHitable);
+
+        if (Physics.Raycast(rayOrigin.transform.position, dir, out playerHit, playerInRange)) {
+            treeZombieAnim.SetBool("GroundAttack", false);
             if (playerHit.transform.tag == "Player") {
-                treeZombieAnim.SetBool("Walking", true);
-                if (Physics.Raycast(transform.position, transform.forward, playerHitable))
-                    treeZombieAnim.SetTrigger("Melee");
+                
+
+                }
             }
         }
-        /*if(TreeZombieHealth <= 0)
-            treeZombieAnim.SetBool("Death", true); 
-
-           misschien nog de ground attack ergens ( treeZombieAnim.SetBool("GroundAttack", true); ) maar kan zijn dat we die dus niet doen */
-        
-            
     }
+                
 }
