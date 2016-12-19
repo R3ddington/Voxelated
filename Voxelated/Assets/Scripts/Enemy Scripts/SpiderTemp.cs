@@ -62,10 +62,14 @@ public class SpiderTemp : MonoBehaviour {
                 spiderSpeed = 0;
                 if (!cooldown)
                 {
-                    cooldown = true;
-                    StartCoroutine(CoolDown());
-                    anim.SetTrigger("Attack");
-                    damageOutput();
+                    float playerDistance = Vector3.Distance(transform.position, player.transform.position);
+                    if(playerDistance < 30)
+                    {
+                        cooldown = true;
+                        StartCoroutine(CoolDown());
+                        anim.SetTrigger("Attack");
+                        damageOutput();
+                    }
                 }
             }
             else {
