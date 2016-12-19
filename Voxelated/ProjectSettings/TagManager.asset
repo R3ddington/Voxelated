@@ -27,6 +27,8 @@ TagManager:
   - Enemy
   - ParticleMove
   - Puzzle
+  - Floor
+  - Board
   layers:
   - Default
   - TransparentFX
