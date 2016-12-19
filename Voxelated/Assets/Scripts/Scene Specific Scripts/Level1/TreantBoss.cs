@@ -24,6 +24,7 @@ public class TreantBoss : MonoBehaviour {
     public bool moveRootsModeDown;
     public GameObject activeRoots;
     public int movingInt;
+    public Animator fade;
 
     // Use this for initialization
     void Start () {
@@ -181,6 +182,7 @@ public class TreantBoss : MonoBehaviour {
                 RootAttack(3);
                 anim.SetBool("Death", true);
                 player.GetComponent<CharacterScript>().levelNumber = 1;
+                fade.SetTrigger("FadeOut");
                 StartCoroutine(WaitForTP());
             }
         }

@@ -270,7 +270,6 @@ GameObject:
   - component: {fileID: 82000013993716718}
   - component: {fileID: 54504320760857666}
   - component: {fileID: 65707903293613274}
-  - component: {fileID: 114983212182127214}
   m_Layer: 0
   m_Name: SpiderPrefab
   m_TagString: Spider
@@ -1336,36 +1335,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114983212182127214
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012061559372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18207108918703b4499e11411f59160c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spiderPrefab: {fileID: 1000012061559372}
-  player: {fileID: 0}
-  playerDetLength: 50
-  anim: {fileID: 95000011379713558}
-  spiderSpeed: 50
-  spiderAttackRange: 10
-  spiderSpeedAdj: 10
-  rb: {fileID: 0}
-  damage: 10
-  health: 100
-  maxHealth: 100
-  hpBar: {fileID: 0}
-  cooldown: 0
-  dead: 0
-  deathParticle: {fileID: 1000012921790254, guid: e783a0280a96a7444bc81c3000761e75,
-    type: 2}
-  particlePos: {fileID: 1150329163710318}
-  targeting: 0
-  agroDistance: 60
 --- !u!137 &137000014004470444
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
