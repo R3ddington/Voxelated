@@ -3,9 +3,11 @@ using System.Collections;
 
 public class ObjectInteraction : MonoBehaviour {
     public GameObject target;
+    public GameObject[] moreTargets;
     public GameObject interactText;
     public bool activated;
     public bool locked;
+    public GameObject player;
 
     public int type;
 
@@ -21,6 +23,7 @@ public class ObjectInteraction : MonoBehaviour {
     {
         if(c.transform.tag == "Player")
         {
+            player = c.transform.gameObject;
             interactText.SetActive(true);
             activated = true;
         }
@@ -54,6 +57,8 @@ public class ObjectInteraction : MonoBehaviour {
                         locked = true;
                         interactText.SetActive(false);
                         target.SetActive(true);
+                        int useThis = player.GetComponent<CharacterScript>().levelNumber;
+                        moreTargets[useThis].SetActive(true);
                         target.GetComponent<LevelSelect>().FreezePlayer();
                         break;
                     case 3:

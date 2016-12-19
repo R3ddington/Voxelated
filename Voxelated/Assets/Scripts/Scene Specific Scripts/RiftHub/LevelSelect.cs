@@ -32,7 +32,16 @@ public class LevelSelect : MonoBehaviour {
             case 1:
                 player.GetComponent<CharacterScript>().freeze = false;
                 player.GetComponent<CharacterScript>().hitFreeze = false;
-                SceneManager.LoadScene(8);
+                int useThis = player.GetComponent<CharacterScript>().levelNumber;
+                switch (useThis)
+                {
+                    case 0:
+                        SceneManager.LoadScene(8);
+                        break;
+                    case 1:
+                        SceneManager.LoadScene(9);
+                        break;
+                }
                 break;
         }
     }

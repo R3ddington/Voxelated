@@ -32,6 +32,5 @@ public class TreeZombie : MonoBehaviour {
                 }
             }
         }
-    }
                 
 }

@@ -180,6 +180,7 @@ public class TreantBoss : MonoBehaviour {
                 dead = true;
                 RootAttack(3);
                 anim.SetBool("Death", true);
+                player.GetComponent<CharacterScript>().levelNumber = 1;
                 StartCoroutine(WaitForTP());
             }
         }

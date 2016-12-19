@@ -38,11 +38,14 @@ public class CharacterScript : MonoBehaviour {
     public bool reloaded;
     bool bazookaOn;
     public Vector3 lastVel;
+    public float speedTimeBonus;
+    public int levelNumber;
   //  public Vector3 checkpointPos;
 
 
     // Use this for initialization
     void Start() {
+        speedTimeBonus = 1;
         DontDestroyOnLoad(this);
         SetUp();
     }
@@ -111,7 +114,18 @@ public class CharacterScript : MonoBehaviour {
                 {
                     transform.position = new Vector3(3553.299f, -193.1f, -2954.95f);
                 }
-
+                if (Input.GetButtonDown("Z"))
+                {
+                    TimeManager(0);
+                }
+                if (Input.GetButtonDown("X"))
+                {
+                    TimeManager(1);
+                }
+                if (Input.GetButtonDown("C"))
+                {
+                    TimeManager(2);
+                }
                 if (Input.GetButtonDown("1"))
                 {
                     if (!switching && anim.GetBool("Walk") == false && anim.GetBool("Crouch") == false)
@@ -347,7 +361,7 @@ public class CharacterScript : MonoBehaviour {
     {
         if (!freeze)
         {
-            transform.Translate(new Vector3(0, 0, Input.GetAxis("Horizontal")) * speed[0] * Time.deltaTime);
+            transform.Translate(new Vector3(0, 0, Input.GetAxis("Horizontal")) * speed[0] * speedTimeBonus * Time.deltaTime);
             if (Input.GetAxis("Horizontal") < 0)
             {
                 if (!goingLeft)
@@ -532,5 +546,30 @@ public class CharacterScript : MonoBehaviour {
             hud = GameObject.FindGameObjectWithTag("Hud");
         }
         hud.GetComponent<PlayerHUD>().HPShieldReduct(d, trueDamage, gameObject);
+    }
+    
+    public void TimeManager(int i)
+    {
+        switch (i)
+        {
+            //Slow
+            case 0:
+                Time.timeScale = 0.5f;
+                speedTimeBonus = 1.5f;
+                anim.speed = 1.5f;
+                break;
+            //Normal
+            case 1:
+                Time.timeScale = 1;
+                speedTimeBonus = 1;
+                anim.speed = 1f;
+                break;
+            //Fast
+            case 2:
+                Time.timeScale = 1.5f;
+                speedTimeBonus = 0.5f;
+                anim.speed = 0.5f;
+                break;
+        }
     }
 }
