@@ -33,6 +33,7 @@ public class LevelSelect : MonoBehaviour {
             case 1:
                 player.GetComponent<CharacterScript>().freeze = false;
                 player.GetComponent<CharacterScript>().hitFreeze = false;
+                fade.SetTrigger("FadeOut");
                 StartCoroutine(WaitForLevelLoad());
                 break;
         }
