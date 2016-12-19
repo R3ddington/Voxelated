@@ -6,6 +6,7 @@ public class LevelSelect : MonoBehaviour {
 
     public GameObject player;
     public GameObject interactTrigger;
+    public Animator fade;
 
     public void FreezePlayer ()
     {
@@ -32,16 +33,25 @@ public class LevelSelect : MonoBehaviour {
             case 1:
                 player.GetComponent<CharacterScript>().freeze = false;
                 player.GetComponent<CharacterScript>().hitFreeze = false;
-                int useThis = player.GetComponent<CharacterScript>().levelNumber;
-                switch (useThis)
-                {
-                    case 0:
-                        SceneManager.LoadScene(8);
-                        break;
-                    case 1:
-                        SceneManager.LoadScene(9);
-                        break;
-                }
+                StartCoroutine(WaitForLevelLoad());
+                break;
+        }
+    }
+    IEnumerator WaitForLevelLoad ()
+    {
+        yield return new WaitForSeconds(2);
+        LoadLevel();
+    }
+    public void LoadLevel()
+    {
+        int useThis = player.GetComponent<CharacterScript>().levelNumber;
+        switch (useThis)
+        {
+            case 0:
+                SceneManager.LoadScene(8);
+                break;
+            case 1:
+                SceneManager.LoadScene(9);
                 break;
         }
     }

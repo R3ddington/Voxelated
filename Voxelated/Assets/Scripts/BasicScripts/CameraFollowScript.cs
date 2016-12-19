@@ -11,6 +11,8 @@ public class CameraFollowScript : MonoBehaviour {
     public GameObject fakePlayer;
     public GameObject fakeHud;
     public Transform playerPos;
+    public Animator fade;
+    public GameObject fadeObject;
     
 	// Use this for initialization
 	void Start () {
@@ -48,10 +50,12 @@ public class CameraFollowScript : MonoBehaviour {
                 active = true;
             }
             GameObject hud = GameObject.FindGameObjectWithTag("Hud");
-                if(hud == null)
-                {
-                    fakeHud.SetActive(true);
-                }
+            if(hud == null)
+            {
+                fakeHud.SetActive(true);
+            }
+            fadeObject.SetActive(true);
+            fade.SetTrigger("FadeIn");
         }
 	}
     
