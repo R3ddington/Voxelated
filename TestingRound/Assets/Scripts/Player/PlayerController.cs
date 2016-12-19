@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour {
 
     public void SlowMotion() {
         print("SlowMoActivate");
-        if (Input.GetButtonDown("Shift")) {
+        if (Input.GetButtonDown("Z")) {
             if (Time.timeScale == 1.0F) {
                 Time.timeScale = 0.2F;
                 speed = speed * speedAdjust;
@@ -31,6 +31,28 @@ public class PlayerController : MonoBehaviour {
             }
             Time.fixedDeltaTime = 0.02F * Time.timeScale;
             print("MidWay");
+        }
+        else if (Input.GetButtonDown("X")) {
+            if(Time.timeScale == 1.0F) {
+                Time.timeScale = 1.8F;
+                speed = speed * speedAdjust;
+            }
+            else {
+                Time.timeScale = 1.0F;
+                speed = 20;
+            }
+            Time.fixedDeltaTime = 0.02F * Time.timeScale;
+        }
+        else if (Input.GetButtonDown("C")) {
+            if (Time.timeScale == 1.0F) {
+                Time.timeScale = 0;
+                speed = speed * speedAdjust;
+            }
+            else {
+                Time.timeScale = 1.0F;
+                speed = 20;
+            }
+            Time.fixedDeltaTime = 0.02F * Time.timeScale;
         }
     }
 
