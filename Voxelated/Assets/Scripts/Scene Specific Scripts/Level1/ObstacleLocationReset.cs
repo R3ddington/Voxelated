@@ -2,14 +2,14 @@
 using System.Collections;
 
 public class ObstacleLocationReset : MonoBehaviour {
-
-    public Transform targetLoc;
     public float damage;
     void OnTriggerEnter(Collider c)
     {
         if (c.transform.tag == "Player")
         {
-            c.transform.position = targetLoc.position;
+            GameObject tempCheck = GameObject.FindGameObjectWithTag("CheckpointMaster");
+            Vector3 checkpoint = tempCheck.GetComponent<CheckPointManager>().checkpoint.transform.position;
+            c.transform.position = checkpoint;
             c.GetComponent<CharacterScript>().TakeDamage(damage, true);
         }
     }

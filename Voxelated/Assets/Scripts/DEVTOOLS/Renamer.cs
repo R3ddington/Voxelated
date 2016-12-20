@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using System.Collections;
 using System.Collections.Generic;
 
@@ -13,10 +15,7 @@ public class Renamer : MonoBehaviour {
     public bool run;
     public int renamedObjects;
 
-	// Use this for initialization
-	void Start () {
-	    
-	}
+#if UNITY_EDITOR
     void OnValidate()
     {
         if (run)
@@ -43,4 +42,5 @@ public class Renamer : MonoBehaviour {
             counter = 0;
         }
     }
+#endif
 }
