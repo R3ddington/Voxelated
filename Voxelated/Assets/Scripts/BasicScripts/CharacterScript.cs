@@ -40,6 +40,7 @@ public class CharacterScript : MonoBehaviour {
     public Vector3 lastVel;
     public float speedTimeBonus;
     public int levelNumber;
+    public bool canDoTime;
   //  public Vector3 checkpointPos;
 
 
@@ -114,17 +115,20 @@ public class CharacterScript : MonoBehaviour {
                 {
                     transform.position = new Vector3(3553.299f, -193.1f, -2954.95f);
                 }
-                if (Input.GetButtonDown("Z"))
+                if (canDoTime)
                 {
-                    TimeManager(0);
-                }
-                if (Input.GetButtonDown("X"))
-                {
-                    TimeManager(1);
-                }
-                if (Input.GetButtonDown("C"))
-                {
-                    TimeManager(2);
+                    if (Input.GetButtonDown("Z"))
+                    {
+                        TimeManager(0);
+                    }
+                    if (Input.GetButtonDown("X"))
+                    {
+                        TimeManager(1);
+                    }
+                    if (Input.GetButtonDown("C"))
+                    {
+                        TimeManager(2);
+                    }
                 }
                 if (Input.GetButtonDown("1"))
                 {
