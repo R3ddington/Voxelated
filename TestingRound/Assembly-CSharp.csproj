@@ -46,8 +46,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Hellbat\HellBat.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Player\TestBot.cs" />
+     <Compile Include="Assets\Scripts\Skeleton\SkeletonAnimplusChange.cs" />
      <Compile Include="Assets\Scripts\SolarPanel\PanelRotation.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
