@@ -44055,12 +44055,28 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013689799018, guid: e7684f0b1d2cd154f87d1e89f6cac679,
+    - target: {fileID: 4101778522148336, guid: e7684f0b1d2cd154f87d1e89f6cac679, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101778522148336, guid: e7684f0b1d2cd154f87d1e89f6cac679, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.0000000046566124
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101778522148336, guid: e7684f0b1d2cd154f87d1e89f6cac679, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.000000039697618
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101778522148336, guid: e7684f0b1d2cd154f87d1e89f6cac679, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010867393094, guid: e7684f0b1d2cd154f87d1e89f6cac679,
         type: 2}
       propertyPath: owner
       value: 
       objectReference: {fileID: 1906820262}
-    - target: {fileID: 114000010867393094, guid: e7684f0b1d2cd154f87d1e89f6cac679,
+    - target: {fileID: 114000013689799018, guid: e7684f0b1d2cd154f87d1e89f6cac679,
         type: 2}
       propertyPath: owner
       value: 
