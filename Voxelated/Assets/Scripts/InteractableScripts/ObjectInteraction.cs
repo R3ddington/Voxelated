@@ -8,7 +8,7 @@ public class ObjectInteraction : MonoBehaviour {
     public bool activated;
     public bool locked;
     public GameObject player;
-
+    
     public int type;
 
     void Update ()

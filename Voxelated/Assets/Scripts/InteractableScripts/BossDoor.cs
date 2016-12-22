@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class BossDoor : MonoBehaviour {
 
@@ -8,6 +9,8 @@ public class BossDoor : MonoBehaviour {
 
     public int type;
     public GameObject boss;
+    public GameObject showTextObject;
+    public Text showText;
 
     public void Start ()
     {
@@ -18,8 +21,6 @@ public class BossDoor : MonoBehaviour {
     {
         if (hasKey)
         {
-            //GO OPEN
-            //ACTIVATE BOSS BATTLE
             anim.SetTrigger("Open");
             switch (type)
             {
@@ -30,7 +31,8 @@ public class BossDoor : MonoBehaviour {
         }
         else
         {
-            //SHOW ITS LOCKED TEXT
+            showTextObject.SetActive(true);
+            showText.text = "The door is locked!";
         }
     }
 }
