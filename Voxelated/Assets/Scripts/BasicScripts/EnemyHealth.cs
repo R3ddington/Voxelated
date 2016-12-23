@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour {
     public int maxHealth;
     public GameObject hpBar;
     public GameObject deathParticle;
+    public bool destroyMore;
 
     public void Hit(int i)
     {
@@ -16,7 +17,15 @@ public class EnemyHealth : MonoBehaviour {
         {
             //Play death animation
             Instantiate(deathParticle, transform.transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            if (!destroyMore)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                GameObject parentObject = transform.parent.gameObject;
+                Destroy(parentObject);
+            }
         }
     }
 }
