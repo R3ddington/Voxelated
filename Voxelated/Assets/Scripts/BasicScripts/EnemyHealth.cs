@@ -17,6 +17,8 @@ public class EnemyHealth : MonoBehaviour {
         {
             //Play death animation
             Instantiate(deathParticle, transform.transform.position, Quaternion.identity);
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<CharacterScript>().AddQubits(5);
             if (!destroyMore)
             {
                 Destroy(gameObject);

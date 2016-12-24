@@ -20,7 +20,10 @@ public class Lava_Elemental : MonoBehaviour {
     void Start ()
     {
         NextWayPoint();
-        anim = GetComponent<Animator>();
+        if(anim == null)
+        {
+            anim = GetComponent<Animator>();
+        }
     }
 
 	// Update is called once per frame
@@ -43,7 +46,7 @@ public class Lava_Elemental : MonoBehaviour {
 
     void IdleFloating()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target, speed);
+        Move();
         if (transform.position == target) //WERKT SOMS NIET
         {
             NextWayPoint();
@@ -52,6 +55,10 @@ public class Lava_Elemental : MonoBehaviour {
         {
             NextWayPoint();
         }
+    }
+    void Move()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, target, speed);
     }
     void NextWayPoint()
     {
@@ -71,15 +78,19 @@ public class Lava_Elemental : MonoBehaviour {
     void TargetPlayer()
     {
         target = player.transform.position;
-        if (!cooling)
+        float distance = Vector3.Distance(target, transform.position);
+        if (distance < attackRange)
         {
-            float distance = Vector3.Distance(target, transform.position);
-            if(distance < attackRange)
+            if (!cooling)
             {
                 cooling = true;
                 anim.SetTrigger("Attack");
                 StartCoroutine(AttackCoolDown());
             }
+        }
+        else
+        {
+            Move();
         }
     }
     IEnumerator AttackCoolDown()
