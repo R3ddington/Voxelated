@@ -11,4 +11,11 @@ public class ElementalAttack : MonoBehaviour {
             c.transform.GetComponent<CharacterScript>().TakeDamage(damage, false);
         }
     }
+    void OnTriggerEnter(Collider c)
+    {
+        if (c.transform.tag == "Player")
+        {
+            c.transform.GetComponent<CharacterScript>().TakeDamage(damage, false);
+        }
+    }
 }

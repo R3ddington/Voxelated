@@ -26,6 +26,11 @@ public class TreantBoss : MonoBehaviour {
     public int movingInt;
     public Animator fade;
 
+    public GameObject minion;
+    public Vector3[] minionLoc;
+    public int minionCooldown;
+    public bool canSpawnMinion;
+
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
@@ -93,6 +98,10 @@ public class TreantBoss : MonoBehaviour {
                 print("Activated targeting mode");
                 targetMode = true;
                 StartCoroutine(RootTimer(i, 2f));
+                if (canSpawnMinion)
+                {
+                    SummonMinion();
+                }
                 break;
             case 1:
                 //Wait a second to give player time to dodge
@@ -128,6 +137,23 @@ public class TreantBoss : MonoBehaviour {
         {
             RootAttack(i);
         }
+    }
+
+    public void SummonMinion ()
+    {
+        for(int i = 0; i < 2; i++)
+        {
+            GameObject newMinion = Instantiate(minion, minionLoc[i], minion.transform.rotation) as GameObject;
+            newMinion.GetComponent<TreeZombie>().SetPlayer(player);
+        }
+        canSpawnMinion = false;
+        StartCoroutine(CoolMinions());
+    }
+
+    IEnumerator CoolMinions()
+    {
+        yield return new WaitForSeconds(minionCooldown);
+        canSpawnMinion = true;
     }
 
     public void Targeting()
