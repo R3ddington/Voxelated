@@ -23,6 +23,10 @@ public class ShufflePuzzle : MonoBehaviour {
     public int clickCount;
     public Text clickCounter;
 
+    public GameObject boss;
+    public Vector3 bossLoc;
+    public GameObject skipButton;
+
     void Start()
     {
         puzzleCam.enabled = false;
@@ -196,6 +200,10 @@ public class ShufflePuzzle : MonoBehaviour {
         CheckForRightSpot();
         clickCount++;
         clickCounter.text = clickCount.ToString();
+        if(clickCount == 50)
+        {
+            skipButton.SetActive(true);
+        }
     }
 
     public void CheckForRightSpot()
@@ -457,6 +465,7 @@ public class ShufflePuzzle : MonoBehaviour {
                 }
             }
         }
+        CheckIfDone();
     }
 
     public void SendLightOn(GameObject g)
@@ -467,6 +476,21 @@ public class ShufflePuzzle : MonoBehaviour {
     public void SendLightOff(GameObject g)
     {
         g.GetComponent<PuzzleEmission>().LightOff();
+    }
+
+    public void CheckIfDone ()
+    {
+        if (correctPos[0] && correctPos[1] && correctPos[2] && correctPos[3] && correctPos[4] && correctPos[5] && correctPos[6] && correctPos[7])
+        {
+            Done();
+        }
+    }
+
+    public void Done ()
+    {
+        SetOff();
+        player.transform.position = bossLoc;
+        boss.SetActive(true);
     }
 
     IEnumerator CustomUpdateDelay()
