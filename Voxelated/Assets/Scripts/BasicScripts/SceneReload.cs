@@ -7,6 +7,7 @@ public class SceneReload : MonoBehaviour {
     public int qubits;
     public GameObject tempCheck;
     public Vector3 checkpoint;
+    public string special;
     bool prepared;
 
     void Start ()
@@ -24,6 +25,7 @@ public class SceneReload : MonoBehaviour {
         tempCheck = GameObject.FindGameObjectWithTag("CheckpointMaster");
         checkpoint = tempCheck.GetComponent<CheckPointManager>().checkpoint.transform.position;
         qubits = tempCheck.GetComponent<CheckPointManager>().qubits;
+        special = tempCheck.GetComponent<CheckPointManager>().special;
         prepared = true;
         player.GetComponent<CharacterScript>().reloaded = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -43,6 +45,20 @@ public class SceneReload : MonoBehaviour {
         player.GetComponent<CharacterScript>().qubits = qubits;
         player.GetComponent<CharacterScript>().SetUp();
         player.transform.position = checkpoint;
+        if(special != null)
+        {
+            switch (special)
+            {
+                case "hasKey":
+                    GameObject bD = GameObject.FindGameObjectWithTag("Level1Door");
+                    bD.GetComponent<BossDoor>().hasKey = true;
+                    break;
+                case "lavaBoss":
+                    GameObject lResp = GameObject.FindGameObjectWithTag("LavaRespawn");
+                    lResp.GetComponent<BossRespawn>().Respawn();
+                    break;
+            }
+        }
        // player.GetComponent<CharacterScript>().checkpointPos = checkpoint;
         player.GetComponent<CharacterScript>().freeze = false;
         Time.timeScale = 1f;

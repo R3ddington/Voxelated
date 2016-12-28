@@ -29,6 +29,8 @@ TagManager:
   - Puzzle
   - Floor
   - Board
+  - LavaRespawn
+  - Level1Door
   layers:
   - Default
   - TransparentFX

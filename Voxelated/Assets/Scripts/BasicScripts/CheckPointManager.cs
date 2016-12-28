@@ -5,11 +5,13 @@ public class CheckPointManager : MonoBehaviour {
 
     public GameObject checkpoint;
     public int qubits;
+    public string special;
 	
-    public void SetPoint(GameObject g, int i)
+    public void SetPoint(GameObject g, int i, string s)
     {
         checkpoint = g;
         qubits = i;
+        special = s;
     }
     public void GoToPoint(GameObject g)
     {

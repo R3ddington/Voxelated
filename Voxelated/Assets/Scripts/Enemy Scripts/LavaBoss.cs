@@ -40,6 +40,19 @@ public class LavaBoss : MonoBehaviour {
     public void Think()
     {
         float dist = Vector3.Distance(player.transform.position, transform.position);
+        if (!cooling)
+        {
+            if (dist < attackRange * 2)
+            {
+                if(dist > attackRange)
+                {
+                    anim.SetBool("Walk", false);
+                    anim.SetTrigger("Slam");
+                    cooling = true;
+                    StartCoroutine(Cooldown());
+                }
+            }
+        }
         if (dist > attackRange)
         {
             Move();
