@@ -54,6 +54,9 @@ public class LevelSelect : MonoBehaviour {
             case 1:
                 SceneManager.LoadScene(9);
                 break;
+            case 2:
+                SceneManager.LoadScene(10);
+                break;
         }
     }
 }

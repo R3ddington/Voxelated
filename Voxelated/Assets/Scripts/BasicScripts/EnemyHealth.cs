@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour {
     public int health;
@@ -8,6 +9,8 @@ public class EnemyHealth : MonoBehaviour {
     public GameObject hpBar;
     public GameObject deathParticle;
     public bool destroyMore;
+    public string specialCode;
+    public Animator fade;
 
     public void Hit(int i)
     {
@@ -19,6 +22,17 @@ public class EnemyHealth : MonoBehaviour {
             Instantiate(deathParticle, transform.transform.position, Quaternion.identity);
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             player.GetComponent<CharacterScript>().AddQubits(5);
+            if(specialCode != null)
+            {
+                switch (specialCode)
+                {
+                    case "lavaBoss":
+                        player.GetComponent<CharacterScript>().levelNumber = 2;
+                        fade.SetTrigger("FadeOut");
+                        StartCoroutine(WaitForTP());
+                        break;
+                }
+            }
             if (!destroyMore)
             {
                 Destroy(gameObject);
@@ -29,5 +43,10 @@ public class EnemyHealth : MonoBehaviour {
                 Destroy(parentObject);
             }
         }
+    }
+    IEnumerator WaitForTP()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(7);
     }
 }
