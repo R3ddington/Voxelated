@@ -14,6 +14,11 @@ public class LavaBoss : MonoBehaviour {
     public GameObject hpBar;
     public GameObject hpBarParent;
 
+    public GameObject minion;
+    public Vector3[] minionLoc;
+    public int minionCooldown;
+    public bool canSpawnMinion;
+
     void Start ()
     {
         hpBarParent.SetActive(true);
@@ -39,6 +44,10 @@ public class LavaBoss : MonoBehaviour {
 
     public void Think()
     {
+        if (canSpawnMinion)
+        {
+            SummonMinion();
+        }
         float dist = Vector3.Distance(player.transform.position, transform.position);
         if (!cooling)
         {
@@ -99,4 +108,22 @@ public class LavaBoss : MonoBehaviour {
         yield return new WaitForSeconds(cooldown);
         cooling = false;
     }
+
+    public void SummonMinion()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            GameObject newMinion = Instantiate(minion, minionLoc[i], minion.transform.rotation) as GameObject;
+            newMinion.GetComponent<Lava_Elemental>().GetPlayer(player);
+        }
+        canSpawnMinion = false;
+        StartCoroutine(CoolMinions());
+    }
+
+    IEnumerator CoolMinions()
+    {
+        yield return new WaitForSeconds(minionCooldown);
+        canSpawnMinion = true;
+    }
+
 }

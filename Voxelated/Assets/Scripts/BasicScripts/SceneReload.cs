@@ -46,13 +46,16 @@ public class SceneReload : MonoBehaviour {
             return;
         }
         hudMaster = GameObject.FindGameObjectWithTag("HudMaster");
-        gameOver = hudMaster.GetComponent<HudMaster>().gameOver;
-        gameOver.SetActive(false);
-        playerHud = hudMaster.GetComponent<HudMaster>().playerHud;
-        playerHud.SetActive(true);
-        hudStats = hudMaster.GetComponent<HudMaster>().hudScript;
-        hudStats.GetComponent<PlayerHUD>().AddHP(100);
-        hudStats.GetComponent<PlayerHUD>().AddShield(100);
+        if(hudMaster != null)
+        {
+            gameOver = hudMaster.GetComponent<HudMaster>().gameOver;
+            gameOver.SetActive(false);
+            playerHud = hudMaster.GetComponent<HudMaster>().playerHud;
+            playerHud.SetActive(true);
+            hudStats = hudMaster.GetComponent<HudMaster>().hudScript;
+            hudStats.GetComponent<PlayerHUD>().AddHP(100);
+            hudStats.GetComponent<PlayerHUD>().AddShield(100);
+        }
         /*
         gameOver = GameObject.FindGameObjectWithTag("GameOver");
         gameOver.SetActive(false);
