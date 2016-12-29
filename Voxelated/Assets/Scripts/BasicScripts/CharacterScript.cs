@@ -41,6 +41,7 @@ public class CharacterScript : MonoBehaviour {
     public float speedTimeBonus;
     public int levelNumber;
     public bool canDoTime;
+    public GameObject pauseMenu;
   //  public Vector3 checkpointPos;
 
 
@@ -111,9 +112,13 @@ public class CharacterScript : MonoBehaviour {
         {
             if (!hitFreeze)
             {
-                if (Input.GetButtonDown("I"))
+                if (Input.GetButtonDown("Cancel"))
                 {
-                    transform.position = new Vector3(3553.299f, -193.1f, -2954.95f);
+                    if(pauseMenu != null)
+                    {
+                        pauseMenu.SetActive(true);
+                        Time.timeScale = 0f;
+                    }
                 }
                 if (canDoTime)
                 {
