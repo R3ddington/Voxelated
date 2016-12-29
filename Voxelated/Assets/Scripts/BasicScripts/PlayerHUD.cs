@@ -61,11 +61,11 @@ public class PlayerHUD : MonoBehaviour {
         qubitsCounter.text = i.ToString();
     }
 
-    public void AddShield (float i, GameObject p)
+    public void AddShield (float i)
     {
         float regen = i / 100;
         shieldBar.fillAmount += regen;
-        p.GetComponent<CharacterScript>().shield = shieldBar.fillAmount * 100;
+      //  p.GetComponent<CharacterScript>().shield = shieldBar.fillAmount * 100;
     }
 
     public void AddHP(int i)

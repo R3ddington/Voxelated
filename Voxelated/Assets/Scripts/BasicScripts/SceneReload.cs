@@ -8,6 +8,10 @@ public class SceneReload : MonoBehaviour {
     public GameObject tempCheck;
     public Vector3 checkpoint;
     public string special;
+    public GameObject hudMaster;
+    public GameObject gameOver;
+    public GameObject playerHud;
+    public GameObject hudStats;
     bool prepared;
 
     void Start ()
@@ -41,6 +45,21 @@ public class SceneReload : MonoBehaviour {
             StartCoroutine(WaitForRetry());
             return;
         }
+        hudMaster = GameObject.FindGameObjectWithTag("HudMaster");
+        gameOver = hudMaster.GetComponent<HudMaster>().gameOver;
+        gameOver.SetActive(false);
+        playerHud = hudMaster.GetComponent<HudMaster>().playerHud;
+        playerHud.SetActive(true);
+        hudStats = hudMaster.GetComponent<HudMaster>().hudScript;
+        hudStats.GetComponent<PlayerHUD>().AddHP(100);
+        hudStats.GetComponent<PlayerHUD>().AddShield(100);
+        /*
+        gameOver = GameObject.FindGameObjectWithTag("GameOver");
+        gameOver.SetActive(false);
+        playerHud = GameObject.FindGameObjectWithTag("PlayerHud");
+        playerHud.SetActive(true);
+        hudStats = GameObject.FindGameObjectWithTag("Hud");
+        */
         print("Found player, pushing reload");
         player.GetComponent<CharacterScript>().qubits = qubits;
         player.GetComponent<CharacterScript>().SetUp();

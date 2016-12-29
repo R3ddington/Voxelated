@@ -19,7 +19,7 @@ public class ShieldPickUp : MonoBehaviour {
                     {
                         hud = GameObject.FindGameObjectWithTag("Hud");
                     }
-                    hud.GetComponent<PlayerHUD>().AddShield(shield, c.gameObject);
+                    hud.GetComponent<PlayerHUD>().AddShield(shield /*c.gameObject*/);
                     break;
             }
             Destroy(gameObject);

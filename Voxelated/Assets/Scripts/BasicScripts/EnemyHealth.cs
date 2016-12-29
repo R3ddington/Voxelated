@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour {
     public bool destroyMore;
     public string specialCode;
     public Animator fade;
+    public bool dontDestroy;
 
     public void Hit(int i)
     {
@@ -33,6 +34,10 @@ public class EnemyHealth : MonoBehaviour {
                         break;
                 }
             }
+            if (dontDestroy)
+            {
+                return;
+            }
             if (!destroyMore)
             {
                 Destroy(gameObject);
@@ -46,7 +51,9 @@ public class EnemyHealth : MonoBehaviour {
     }
     IEnumerator WaitForTP()
     {
+        print("Loading scene");
         yield return new WaitForSeconds(3);
+        print("Passed yield");
         SceneManager.LoadScene(7);
     }
 }

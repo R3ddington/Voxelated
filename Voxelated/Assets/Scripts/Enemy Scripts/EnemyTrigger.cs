@@ -18,7 +18,7 @@ public class EnemyTrigger : MonoBehaviour {
                         break;
                 }
             }
-          //  Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }

@@ -31,6 +31,9 @@ TagManager:
   - Board
   - LavaRespawn
   - Level1Door
+  - GameOver
+  - PlayerHud
+  - HudMaster
   layers:
   - Default
   - TransparentFX
