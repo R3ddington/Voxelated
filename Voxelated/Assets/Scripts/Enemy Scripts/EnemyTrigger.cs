@@ -16,6 +16,9 @@ public class EnemyTrigger : MonoBehaviour {
                     case 0:
                         enemy.GetComponent<Lava_Elemental>().GetPlayer(c.transform.gameObject);
                         break;
+                    case 1:
+                        enemy.GetComponent<LavaLizard>().GetPlayer(c.transform.gameObject);
+                        break;
                 }
             }
             Destroy(gameObject);
