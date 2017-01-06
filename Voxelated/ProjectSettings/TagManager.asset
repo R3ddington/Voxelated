@@ -34,6 +34,8 @@ TagManager:
   - GameOver
   - PlayerHud
   - HudMaster
+  - PlayerShot
+  - EnemyShot
   layers:
   - Default
   - TransparentFX
