@@ -12,6 +12,8 @@ public class EnemyHealth : MonoBehaviour {
     public string specialCode;
     public Animator fade;
     public bool dontDestroy;
+    public GameObject extraObject;
+    public Animator extraAnim;
 
     public void Hit(int i)
     {
@@ -31,6 +33,18 @@ public class EnemyHealth : MonoBehaviour {
                         player.GetComponent<CharacterScript>().levelNumber = 2;
                         fade.SetTrigger("FadeOut");
                         StartCoroutine(WaitForTP());
+                        break;
+                    case "arcadeBoss":
+                        //Do arcade boss death cutscene
+                        //Remove minigame canvas
+                        //set level to 3
+                        //wait for tp
+                        transform.SetParent(player.transform);
+                        transform.position = new Vector3(5000, 5000, 0);
+                        player.GetComponent<CharacterScript>().levelNumber = 3;
+                        extraObject.SetActive(false);
+                        fade.SetTrigger("FadeIn");
+                        StartCoroutine(WaitForExtraAnim());
                         break;
                 }
             }
@@ -54,6 +68,18 @@ public class EnemyHealth : MonoBehaviour {
         print("Loading scene");
         yield return new WaitForSeconds(3);
         print("Passed yield");
+        SceneManager.LoadScene(7);
+    }
+    IEnumerator WaitForExtraAnim()
+    {
+        yield return new WaitForSeconds(2);
+        extraAnim.SetBool("Dead", true);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<CharacterScript>().FreezeOff();
+        transform.parent = null;
+        yield return new WaitForSeconds(1);
+        fade.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(7);
     }
 }

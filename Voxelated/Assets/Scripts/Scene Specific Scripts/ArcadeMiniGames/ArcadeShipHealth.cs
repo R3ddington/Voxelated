@@ -6,6 +6,7 @@ public class ArcadeShipHealth : MonoBehaviour {
 
     public int health;
     public bool isPlayer;
+    public GameObject player;
 
     public void TakeDamage (int i)
     {
@@ -14,6 +15,7 @@ public class ArcadeShipHealth : MonoBehaviour {
         {
             if (!isPlayer)
             {
+                player.GetComponent<PlayerTankController>().AddKill();
                 Destroy(gameObject);
             }
             else

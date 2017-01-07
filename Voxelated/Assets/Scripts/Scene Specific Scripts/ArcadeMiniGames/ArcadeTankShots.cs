@@ -21,6 +21,10 @@ public class ArcadeTankShots : MonoBehaviour {
         {
             c.transform.GetComponent<ArcadeShipHealth>().TakeDamage(damage);
         }
+        if(c.transform.tag == "ArcadeBoss")
+        {
+            c.transform.GetComponent<EnemyHealth>().Hit(damage);
+        }
         if(c.transform.tag != "PlayerShot")
         {
             Destroy(gameObject);

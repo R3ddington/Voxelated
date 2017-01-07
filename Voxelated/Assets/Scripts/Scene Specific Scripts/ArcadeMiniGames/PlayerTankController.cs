@@ -7,6 +7,9 @@ public class PlayerTankController : MonoBehaviour {
     public GameObject shot;
     public Transform shotPos;
     public GameObject gameParent;
+    public int kills;
+    public GameObject boss;
+    public GameObject bossHealth;
 	void Update () {
         Move();
         CheckInput();
@@ -28,5 +31,14 @@ public class PlayerTankController : MonoBehaviour {
     {
         GameObject newShot = Instantiate(shot, shotPos.position, shot.transform.rotation) as GameObject;
         newShot.transform.SetParent(gameParent.transform);
+    }
+    public void AddKill()
+    {
+        kills++;
+        if(kills == 71)
+        {
+            boss.SetActive(true);
+            bossHealth.SetActive(true);
+        }
     }
 }

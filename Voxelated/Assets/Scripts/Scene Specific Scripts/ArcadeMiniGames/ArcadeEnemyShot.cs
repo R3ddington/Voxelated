@@ -18,9 +18,10 @@ public class ArcadeEnemyShot : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D c)
     {
-        if (c.transform.tag == "Player")
+        if (c.transform.tag == "PlayerTank")
         {
             c.transform.GetComponent<ArcadeShipHealth>().TakeDamage(damage);
+            Destroy(gameObject);
         }
         if (c.transform.tag != "Enemy" && c.transform.tag != "EnemyShot")
         {

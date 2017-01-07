@@ -36,6 +36,8 @@ TagManager:
   - HudMaster
   - PlayerShot
   - EnemyShot
+  - PlayerTank
+  - ArcadeBoss
   layers:
   - Default
   - TransparentFX
