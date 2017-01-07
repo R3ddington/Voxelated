@@ -52,6 +52,9 @@ public class LevelSelect : MonoBehaviour {
                 SceneManager.LoadScene(8);
                 break;
             case 1:
+                player.GetComponent<CharacterScript>().selectedGun = 3;
+                player.GetComponent<CharacterScript>().backItems[1].SetActive(false);
+                player.GetComponent<CharacterScript>().backItems[3].SetActive(true);
                 SceneManager.LoadScene(9);
                 break;
             case 2:
