@@ -9,6 +9,8 @@ public class ArcadeEnemy : MonoBehaviour {
     public bool cooling;
     public GameObject shot;
     public GameObject gameParent;
+    public bool isBoss;
+
 
     void Start ()
     {
@@ -41,6 +43,9 @@ public class ArcadeEnemy : MonoBehaviour {
     IEnumerator Cooler()
     {
         cooldown = Random.Range(300, 601);
+        if (isBoss) {
+            cooldown = cooldown / 2;
+        }
         cooldown = cooldown / 100;
         yield return new WaitForSeconds(cooldown);
         cooling = false;

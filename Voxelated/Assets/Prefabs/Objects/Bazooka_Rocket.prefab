@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7fca69ba1adea40992f4c7093b5dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 30
   expParticles: {fileID: 1613771699831202, guid: e19625ba1e8f6b5488df830855958e63,
     type: 2}
   speed: 70
