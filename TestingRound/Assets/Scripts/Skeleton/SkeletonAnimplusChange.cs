@@ -11,6 +11,8 @@ public class SkeletonAnimplusChange : MonoBehaviour {
     public Animator skeletonAnim;
     public float skeletonHP;
     public GameObject skeletonHalf;
+    public GameObject transformParticle;
+    public GameObject particlePos;
 
 	// Use this for initialization
 	void Start () {
@@ -39,8 +41,9 @@ public class SkeletonAnimplusChange : MonoBehaviour {
 
 
     public void SkeletonHalfation() {
-        if(skeletonHP <= 0) {
-            skeletonAnim.SetBool("Death", true);
+        if(/*skeletonHP <= 0*/Input.GetButtonDown("Jump")) {
+            //skeletonAnim.SetBool("Death", true);
+            //Instantiate(transformParticle, particlePos.transform.position, Quaternion.identity);
             StartCoroutine(destroyWait());
              
 
@@ -48,7 +51,11 @@ public class SkeletonAnimplusChange : MonoBehaviour {
     }
 
     IEnumerator destroyWait() {
-        yield return new WaitForSeconds(3);
+        //Instantiate(transformParticle, particlePos.transform.position, Quaternion.identity);
+        skeletonAnim.SetBool("Death", true);
+        yield return new WaitForSeconds(2);
+        skeletonAnim.SetBool("Death", true);
+        Instantiate(transformParticle, particlePos.transform.position, Quaternion.identity);
         Instantiate(skeletonHalf, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
