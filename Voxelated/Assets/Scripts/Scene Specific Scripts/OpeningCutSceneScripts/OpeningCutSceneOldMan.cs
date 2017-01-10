@@ -45,10 +45,15 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     public Material[] maleMaterial;
     public Material[] femaleMaterial;
 
+    public AudioSource aSource;
+    public AudioClip[] clip;
+
 
     // Use this for initialization
     void Start () {
         StartCoroutine(StartWaitTimer(3, "WaitForText"));
+        aSource = gameObject.GetComponent<AudioSource>();
+        aSource.clip = clip[0];
     }
 	
 	// Update is called once per frame
@@ -95,6 +100,7 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     }
 
    public void ChangeGender (int i) {
+        PlayClickSound();
         switch (i) {
             case 0:
                 female.SetActive(false);
@@ -128,6 +134,7 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     }
 
     public void FinishPlayer () {
+        PlayClickSound();
         if (isFemale) {
             femaleS.GetComponent<MaleCustomization>().SendID();
         }
@@ -139,6 +146,7 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     }
 
     public void FinishFriend () {
+        PlayClickSound();
         if (isFemale) {
             maleS.GetComponent<MaleCustomization>().SendID();
         }
@@ -151,6 +159,7 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     }
 
     public void PlayerName () {
+        PlayClickSound();
         playerName = pN.text.ToString();
         if(!(playerName == "" || playerName == " ")) {
             namePages[0].SetActive(false);
@@ -164,6 +173,7 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     }
 
     public void FriendName () {
+        PlayClickSound();
         friendName = fN.text.ToString();
         if (!(playerName == "" || playerName == " ")) {
             namePages[1].SetActive(false);
@@ -173,6 +183,7 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     }
 
     public void ConfirmNames (int i) {
+        PlayClickSound();
         confirmPage.SetActive(false);
         if (fNamed) {
             i += 2;
@@ -303,5 +314,9 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     {
         yield return new WaitForSeconds(4);
         SceneManager.LoadScene(6);
+    }
+    public void PlayClickSound()
+    {
+        aSource.Play();
     }
 }

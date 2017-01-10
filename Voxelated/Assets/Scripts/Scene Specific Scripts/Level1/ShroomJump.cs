@@ -8,6 +8,18 @@ public class ShroomJump : MonoBehaviour
     bool onShroom;
     bool cooling;
 
+    public AudioSource aSource;
+    public AudioClip[] clip;
+
+    void Start()
+    {
+        aSource = gameObject.GetComponent<AudioSource>();
+        if (aSource != null)
+        {
+            aSource.clip = clip[0];
+        }
+    }
+
     void OnTriggerEnter(Collider c)
     {
         if(c.transform.tag == "Player")
@@ -19,6 +31,7 @@ public class ShroomJump : MonoBehaviour
                 boost += 1;
             }
             onShroom = true;
+            aSource.Play();
         }   
     }
     void OnTriggerExit(Collider c)

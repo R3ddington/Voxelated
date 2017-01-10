@@ -15,10 +15,26 @@ public class EnemyHealth : MonoBehaviour {
     public GameObject extraObject;
     public Animator extraAnim;
 
+    public AudioSource aSource;
+    public AudioClip[] clip;
+
+    public void Start ()
+    {
+        aSource = gameObject.GetComponent<AudioSource>();
+        if(aSource != null)
+        {
+            aSource.clip = clip[0];
+        }   
+    }
+
     public void Hit(int i)
     {
         health -= i;
         hpBar.transform.GetComponent<LifeBar>().Damage(maxHealth, i);
+        if(aSource != null)
+        {
+            aSource.Play();
+        }
         if (health <= 0)
         {
             //Play death animation

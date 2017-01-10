@@ -31652,6 +31652,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012664241744, guid: 7589e3db7af5479469c2afcd1f0d067d,
+        type: 2}
+      propertyPath: baseDamage
+      value: 35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7589e3db7af5479469c2afcd1f0d067d, type: 2}
   m_IsPrefabParent: 0
@@ -36031,7 +36036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e65f058f9e48f45b90cf298aa5b4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 45
+  baseDamage: 35
   dealDamage: 0
   maxDamage: 50
   combo: 0
