@@ -30,7 +30,7 @@ public class CharacterScript : MonoBehaviour {
     Rigidbody rb;
     public int jumpSpeed;
     public bool jumping;
-    bool onLog;
+    public bool onLog;
     public Vector3 vel;
     public GameObject hud;
     public int qubits;

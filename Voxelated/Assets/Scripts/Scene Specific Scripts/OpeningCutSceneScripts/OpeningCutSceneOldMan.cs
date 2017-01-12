@@ -48,9 +48,20 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
     public AudioSource aSource;
     public AudioClip[] clip;
 
+    public GameObject forceLoader;
+    public bool isReloading;
+
+
 
     // Use this for initialization
     void Start () {
+        forceLoader = GameObject.FindGameObjectWithTag("ForceLoad");
+        if(forceLoader != null)
+        {
+            isReloading = true;
+            LoadPrev();
+            return;
+        }
         StartCoroutine(StartWaitTimer(3, "WaitForText"));
         aSource = gameObject.GetComponent<AudioSource>();
         aSource.clip = clip[0];
@@ -60,6 +71,37 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
 	void Update () {
         ButtonInput();
 	}
+
+    public void LoadPrev ()
+    {
+        forceLoader.GetComponent<SaveSystem>().LoadData(transform.gameObject);
+    }
+
+
+    public void GetLoad(string pN, bool pFemale, string fN, string pM, string fM)
+    {
+        playerName = pN;
+        isFemale = pFemale;
+        friendName = fN;
+        playerMaterial = pM;
+        friendMaterial = fM;
+        int playerMaterialInt;
+        int.TryParse(pM, out playerMaterialInt);
+        int friendMaterialInt;
+        int.TryParse(fM, out friendMaterialInt);
+        if (isFemale)
+        {
+            pMaterial = femaleMaterial[playerMaterialInt];
+            fMaterial = maleMaterial[friendMaterialInt];
+        }
+        else
+        {
+            pMaterial = maleMaterial[playerMaterialInt];
+            fMaterial = femaleMaterial[friendMaterialInt];
+        }
+        // SceneManager.LoadScene(3);
+        PrepareInfo();
+    }
 
     void ButtonInput () {
         if (Input.GetButtonDown("Jump")) {
@@ -306,14 +348,21 @@ public class OpeningCutSceneOldMan : MonoBehaviour {
         if(i == 10)
         {
             characterLights.SetActive(false);
-         //   LightsOff();
+            //   LightsOff();
             StartCoroutine(GoToCutScene());
         }
     }
     IEnumerator GoToCutScene()
     {
         yield return new WaitForSeconds(4);
-        SceneManager.LoadScene(6);
+        if (isReloading)
+        {
+            SceneManager.LoadScene(3);
+        }
+        else
+        {
+            SceneManager.LoadScene(6);
+        }   
     }
     public void PlayClickSound()
     {

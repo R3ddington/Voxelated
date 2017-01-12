@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TutorialScript : MonoBehaviour {
     /*
@@ -22,9 +23,19 @@ public class TutorialScript : MonoBehaviour {
     public Animator fade;
     public GameObject[] info;
     GameObject audioHandler;
+
+    public GameObject forceLoader;
+    public bool isReloading;
+
     // Use this for initialization
     void Start () {
         pInfo = GameObject.FindGameObjectWithTag("PlayerInfo");
+        forceLoader = GameObject.FindGameObjectWithTag("ForceLoad");
+        if (forceLoader != null)
+        {
+            isReloading = true;
+            print("Found force loader");
+        }
         audioHandler = GameObject.FindGameObjectWithTag("AudioMaster");
         if (pInfo != null)
         {
@@ -66,6 +77,12 @@ public class TutorialScript : MonoBehaviour {
         }
         rend = pM.transform.GetComponent<Renderer>();
         rend.material = pMaterial;
+        if (isReloading)
+        {
+            print("Loading rifthub");
+       //    SceneManager.LoadScene(7);
+   //        return;
+        }
         ActivateCamera();
     }
 

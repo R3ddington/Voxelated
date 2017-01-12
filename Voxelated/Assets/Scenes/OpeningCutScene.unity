@@ -8921,6 +8921,7 @@ MonoBehaviour:
   aSource: {fileID: 1994101957}
   clip:
   - {fileID: 8300000, guid: 66d005fda7bcdf44695295e1ecedde05, type: 3}
+  forceLoader: {fileID: 0}
 --- !u!4 &1994101955
 Transform:
   m_ObjectHideFlags: 0
@@ -9017,7 +9018,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:

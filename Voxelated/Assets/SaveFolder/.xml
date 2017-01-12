@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<SaveData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <playerName />
+  <playerIsFemale>false</playerIsFemale>
+  <friendName />
+  <playerMaterialID />
+  <friendMaterialID />
+  <level>0</level>
+  <qubits>0</qubits>
+</SaveData>

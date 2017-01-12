@@ -38,6 +38,7 @@ TagManager:
   - EnemyShot
   - PlayerTank
   - ArcadeBoss
+  - ForceLoad
   layers:
   - Default
   - TransparentFX

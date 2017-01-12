@@ -82,6 +82,9 @@ public class PlayerInfo : MonoBehaviour {
             case 3:
                 target.GetComponent<NewOpeningCutscene>().GetInfo(playerName, friendName, playerIsFemale);
                 break;
+            case 4:
+                target.GetComponent<SaveSystem>().SetData(playerName, playerIsFemale, friendName, playerMaterialID, friendMaterialID);
+                break;
         }
     }
 }

@@ -83,6 +83,7 @@ public class SceneReload : MonoBehaviour {
         }
        // player.GetComponent<CharacterScript>().checkpointPos = checkpoint;
         player.GetComponent<CharacterScript>().freeze = false;
+        player.GetComponent<CharacterScript>().onLog = false;
         Time.timeScale = 1f;
         Destroy(gameObject);
     }

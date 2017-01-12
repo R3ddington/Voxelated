@@ -16,11 +16,13 @@ public class Lava_Elemental : MonoBehaviour {
     public float attackCooldown;
     public float attackRange;
     public Animator anim;
+    public AudioSource aSource;
 
     void Start ()
     {
         NextWayPoint();
-        if(anim == null)
+        aSource = gameObject.GetComponent<AudioSource>();
+        if (anim == null)
         {
             anim = GetComponent<Animator>();
         }
@@ -85,6 +87,10 @@ public class Lava_Elemental : MonoBehaviour {
             {
                 cooling = true;
                 anim.SetTrigger("Attack");
+                if(aSource != null)
+                {
+                    aSource.Play();
+                }
                 StartCoroutine(AttackCoolDown());
             }
         }

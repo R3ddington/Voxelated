@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MeteorTrigger : MonoBehaviour {
     public GameObject mSpawner;
+    public GameObject meteorites;
     public int type;
  //   public GameObject mech;
   //  public Vector3 mechPos;
@@ -15,10 +16,12 @@ public class MeteorTrigger : MonoBehaviour {
             {
                 case 0:
                     mSpawner.GetComponent<AimedMeteorite>().SetOn(c.gameObject);
+                    meteorites.GetComponent<MeteoriteDamage>().canPlay = true;
              //       mech.transform.position = 
                     break;
                 case 1:
                     mSpawner.GetComponent<AimedMeteorite>().SetOff();
+                    meteorites.GetComponent<MeteoriteDamage>().canPlay = false;
                     break;
             }
             Destroy(gameObject);

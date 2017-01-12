@@ -8,6 +8,7 @@ public class MainMenuButtons : MonoBehaviour {
     public GameObject[] creditText;
     public GameObject[] optionPages; //0 = main page, 1 = audio, 2 = grafics
     public GameObject audioHandler;
+    public GameObject loadGameObject;
     /*
 	// Use this for initialization
 	void Start () {
@@ -99,6 +100,12 @@ public class MainMenuButtons : MonoBehaviour {
                 StartCoop(map);
                 break;
         }
+    }
+
+    public void LoadGame ()
+    {
+        Instantiate(loadGameObject, transform.position, transform.rotation);
+        SceneManager.LoadScene(1);
     }
 
     void StartNewGame () {
