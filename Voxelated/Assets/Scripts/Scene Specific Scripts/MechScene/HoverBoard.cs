@@ -37,6 +37,8 @@ public class HoverBoard : MonoBehaviour {
         playerRB.detectCollisions = true;
         player.GetComponent<CharacterScript>().freeze = false;
         DontDestroyOnLoad(player);
+        Collider col = GetComponent<BoxCollider>();
+        col.enabled = false;
     }
     void Update()
     {
