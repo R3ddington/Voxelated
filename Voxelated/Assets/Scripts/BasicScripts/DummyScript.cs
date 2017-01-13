@@ -6,6 +6,7 @@ public class DummyScript : MonoBehaviour {
     public int health;
     public int maxHealth;
     public GameObject hpBar;
+    public AudioSource aSource;
 
     public void Hit (int i)
     {
@@ -19,6 +20,7 @@ public class DummyScript : MonoBehaviour {
         else
         {
             anim.SetTrigger("Hit");
+            aSource.Play();
         }
     }
 }
