@@ -114,7 +114,7 @@ public class HoverBoard : MonoBehaviour {
         {
             if (grounded)
             {
-                Jump();
+         //       Jump();
             }
         }
     }

@@ -11,20 +11,10 @@ public class MaleCustomization : MonoBehaviour {
     public GameObject cutScene;
     Renderer rend;
 
-    /*
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-    */
+    public AudioSource aSource;
 
     //Change the hair color
-   public void ChangeHair (int i) {
+    public void ChangeHair (int i) {
         if (!on) {
             return;
         }
@@ -47,6 +37,7 @@ public class MaleCustomization : MonoBehaviour {
                 break;
         }
         PrepareMaterial();
+        PlayClickSound();
     }
 
     //Change the skin color
@@ -73,6 +64,7 @@ public class MaleCustomization : MonoBehaviour {
                 break;
         }
         PrepareMaterial();
+        PlayClickSound();
     }
     //Set the selected Material
     void PrepareMaterial () {
@@ -204,5 +196,10 @@ public class MaleCustomization : MonoBehaviour {
 
     public void SendID () {  
         cutScene.GetComponent<OpeningCutSceneOldMan>().RetrieveID(materialID.ToString(), materialID, materials[materialID]);
+    }
+
+    public void PlayClickSound()
+    {
+        aSource.Play();
     }
 }

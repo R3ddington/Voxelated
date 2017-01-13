@@ -11,6 +11,7 @@ public class BossDoor : MonoBehaviour {
     public GameObject boss;
     public GameObject showTextObject;
     public Text showText;
+    public AudioSource aSource;
 
     public void Start ()
     {
@@ -22,6 +23,7 @@ public class BossDoor : MonoBehaviour {
         if (hasKey)
         {
             anim.SetTrigger("Open");
+            aSource.Play();
             switch (type)
             {
                 case 0:
