@@ -21,10 +21,15 @@ public class EnemyHealth : MonoBehaviour {
     public void Start ()
     {
         aSource = gameObject.GetComponent<AudioSource>();
-        if(aSource != null)
+        /*
+        if (aSource != null)
         {
-            aSource.clip = clip[0];
+            if(clip.GetLength  0)
+            {
+                aSource.clip = clip[0];
+            }
         }   
+        */
     }
 
     public void Hit(int i)
