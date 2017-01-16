@@ -27,6 +27,10 @@ public class ShufflePuzzle : MonoBehaviour {
     public Vector3 bossLoc;
     public GameObject skipButton;
 
+    public Animator anim;
+    public GameObject fade;
+    public bool done;
+
     void Start()
     {
         puzzleCam.enabled = false;
@@ -482,14 +486,26 @@ public class ShufflePuzzle : MonoBehaviour {
     {
         if (correctPos[0] && correctPos[1] && correctPos[2] && correctPos[3] && correctPos[4] && correctPos[5] && correctPos[6] && correctPos[7])
         {
-            Done();
+            if (!done)
+            {
+                StartCoroutine(WaitForBoss());
+            } 
+        }
+    }
+
+    public void SkipButton()
+    {
+        if (!done)
+        {
+            StartCoroutine(WaitForBoss());
         }
     }
 
     public void Done ()
-    {
+    { 
         SetOff();
         player.transform.position = bossLoc;
+        anim.SetTrigger("FadeIn");
         boss.SetActive(true);
     }
 
@@ -497,5 +513,14 @@ public class ShufflePuzzle : MonoBehaviour {
     {
         yield return new WaitForSeconds(0.01f);
         CustomUpdate();
+    }
+    IEnumerator WaitForBoss()
+    {
+        done = true;
+        fade.SetActive(true);
+        yield return new WaitForSeconds(1);
+        anim.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(2);
+        Done();
     }
 }
