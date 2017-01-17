@@ -865,6 +865,7 @@ Transform:
   - {fileID: 1842355447}
   - {fileID: 1656507280}
   - {fileID: 1393223362}
+  - {fileID: 341336809}
   - {fileID: 1670988031}
   - {fileID: 301844880}
   - {fileID: 13247232}
@@ -902,7 +903,6 @@ Transform:
   - {fileID: 577603486}
   - {fileID: 92703325}
   - {fileID: 451217394}
-  - {fileID: 341336809}
   - {fileID: 1972469698}
   - {fileID: 1305834067}
   - {fileID: 1217671586}
@@ -5427,7 +5427,7 @@ Transform:
   - {fileID: 1574631412}
   - {fileID: 1749989260}
   m_Father: {fileID: 22949286}
-  m_RootOrder: 206
+  m_RootOrder: 169
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &345519635
 Prefab:
@@ -31939,6 +31939,47 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1943690332}
+--- !u!1 &1944712712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1944712714}
+  - component: {fileID: 1944712713}
+  m_Layer: 0
+  m_Name: PresentationMode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1944712713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1944712712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d71a4cc0e4f09847ac8840157f1f3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPresentation: 1
+--- !u!4 &1944712714
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1944712712}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1264.9148, y: -138.3701, z: -149.42467}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1954670124 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010025869410, guid: 1e9e2177c59f878448d289e94248f557,
