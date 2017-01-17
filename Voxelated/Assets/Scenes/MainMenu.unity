@@ -764,6 +764,7 @@ Transform:
   - {fileID: 421640060}
   - {fileID: 2091215730}
   - {fileID: 760110693}
+  - {fileID: 341336809}
   - {fileID: 804040922}
   - {fileID: 2004916260}
   - {fileID: 1970853287}
@@ -865,7 +866,6 @@ Transform:
   - {fileID: 1842355447}
   - {fileID: 1656507280}
   - {fileID: 1393223362}
-  - {fileID: 341336809}
   - {fileID: 1670988031}
   - {fileID: 301844880}
   - {fileID: 13247232}
@@ -5427,7 +5427,7 @@ Transform:
   - {fileID: 1574631412}
   - {fileID: 1749989260}
   m_Father: {fileID: 22949286}
-  m_RootOrder: 169
+  m_RootOrder: 68
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &345519635
 Prefab:
@@ -31967,6 +31967,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPresentation: 1
+  loc:
+  - {x: 2800.601, y: -128.2914, z: -2954.95}
+  - {x: 4413.87, y: -134.8231, z: -2954.95}
+  - {x: 477.6609, y: -6.800005, z: 1.099944}
+  - {x: 3354.7, y: -87.24, z: 1.099944}
+  - {x: 8892.3, y: -60.2, z: 1.099944}
+  player: {fileID: 0}
 --- !u!4 &1944712714
 Transform:
   m_ObjectHideFlags: 0
