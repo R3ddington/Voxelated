@@ -328,7 +328,14 @@ public class CharacterScript : MonoBehaviour {
             audioHandler.GetComponent<AudioMaster>().PlaySound(1);
         }
         rb.velocity = new Vector3(0, jumpSpeed, 0);
-        anim.SetBool("Jump", true);
+        if (!onLog)
+        {
+            anim.SetBool("Jump", true);
+        }
+        else
+        {
+            anim.SetBool("Jump", false);
+        }
         jumping = true;
     }
 
