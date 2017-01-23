@@ -147,6 +147,9 @@ public class CharacterScript : MonoBehaviour {
                             case 1:
                                 cMode = 0;
                                 TakeItem(3);
+                                if (audioHandler != null) {
+                                    audioHandler.GetComponent<AudioMaster>().PlayDelay(4, 1.5f);
+                                }
                                 switching = true;
                                 freeze = true;
                                 StartCoroutine(WaitTillSwitch(0, 1));
@@ -163,6 +166,9 @@ public class CharacterScript : MonoBehaviour {
                             case 0:
                                 cMode = 1;
                                 TakeItem(1);
+                                if (audioHandler != null) {
+                                    audioHandler.GetComponent<AudioMaster>().PlayDelay(3, 2f);
+                                }
                                 switching = true;
                                 freeze = true;
                                 StartCoroutine(WaitTillSwitch(2, 1));

@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.16788352, g: 0.2107357, b: 0.28994036, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -714,6 +714,7 @@ Transform:
   - {fileID: 1713071554}
   - {fileID: 293437957}
   - {fileID: 811065104}
+  - {fileID: 341336809}
   - {fileID: 373420222}
   - {fileID: 778074}
   - {fileID: 1278180905}
@@ -764,7 +765,6 @@ Transform:
   - {fileID: 421640060}
   - {fileID: 2091215730}
   - {fileID: 760110693}
-  - {fileID: 341336809}
   - {fileID: 804040922}
   - {fileID: 2004916260}
   - {fileID: 1970853287}
@@ -5427,7 +5427,7 @@ Transform:
   - {fileID: 1574631412}
   - {fileID: 1749989260}
   m_Father: {fileID: 22949286}
-  m_RootOrder: 68
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &345519635
 Prefab:
@@ -21696,6 +21696,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 66d005fda7bcdf44695295e1ecedde05, type: 3}
   - {fileID: 8300000, guid: d428c934bece3aa4ab63fd2596bd332d, type: 3}
   - {fileID: 8300000, guid: e33340c3d674b3d4eb1e2fe45f55871b, type: 3}
+  - {fileID: 8300000, guid: f6ee3b355abd7ca42a1d218803ae2680, type: 3}
+  - {fileID: 8300000, guid: f6ee3b355abd7ca42a1d218803ae2680, type: 3}
+  - {fileID: 8300000, guid: f6ee3b355abd7ca42a1d218803ae2680, type: 3}
+  - {fileID: 8300000, guid: f6ee3b355abd7ca42a1d218803ae2680, type: 3}
 --- !u!4 &1300689224 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010025869410, guid: 1e9e2177c59f878448d289e94248f557,
