@@ -37,6 +37,7 @@ public class Lava_Elemental : MonoBehaviour {
         else
         {
             TargetPlayer();
+            aSource.PlayDelayed(0.2f);
         }
 	}
 

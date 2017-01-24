@@ -21697,9 +21697,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d428c934bece3aa4ab63fd2596bd332d, type: 3}
   - {fileID: 8300000, guid: e33340c3d674b3d4eb1e2fe45f55871b, type: 3}
   - {fileID: 8300000, guid: f6ee3b355abd7ca42a1d218803ae2680, type: 3}
-  - {fileID: 8300000, guid: f6ee3b355abd7ca42a1d218803ae2680, type: 3}
-  - {fileID: 8300000, guid: f6ee3b355abd7ca42a1d218803ae2680, type: 3}
-  - {fileID: 8300000, guid: f6ee3b355abd7ca42a1d218803ae2680, type: 3}
+  - {fileID: 8300000, guid: b3a9d0ac79368a54ebf6adc3707c7d04, type: 3}
+  - {fileID: 8300000, guid: 9751e910dabb0b649a4a20d4708435de, type: 3}
+  - {fileID: 0}
 --- !u!4 &1300689224 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010025869410, guid: 1e9e2177c59f878448d289e94248f557,

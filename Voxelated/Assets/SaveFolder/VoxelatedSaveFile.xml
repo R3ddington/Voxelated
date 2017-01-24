@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <SaveData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <playerName>fafafafaF</playerName>
+  <playerName>a</playerName>
   <playerIsFemale>false</playerIsFemale>
-  <friendName>BAA</friendName>
+  <friendName />
   <playerMaterialID>0</playerMaterialID>
   <friendMaterialID>0</friendMaterialID>
   <level>0</level>
