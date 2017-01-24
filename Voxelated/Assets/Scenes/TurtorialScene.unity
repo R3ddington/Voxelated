@@ -9386,7 +9386,7 @@ ParticleSystem:
   m_GameObject: {fileID: 371202881}
   serializedVersion: 5
   lengthInSec: 5
-  speed: 1
+  simulationSpeed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -22170,7 +22170,7 @@ ParticleSystem:
   m_GameObject: {fileID: 804200131}
   serializedVersion: 5
   lengthInSec: 5
-  speed: 1
+  simulationSpeed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -33371,7 +33371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e65f058f9e48f45b90cf298aa5b4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 20
+  baseDamage: 200
   dealDamage: 0
   maxDamage: 50
   combo: 0
@@ -36251,7 +36251,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1251573112}
   serializedVersion: 5
   lengthInSec: 5
-  speed: 1
+  simulationSpeed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1

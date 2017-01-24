@@ -285,9 +285,11 @@ public class CharacterScript : MonoBehaviour {
                 if (Input.GetButtonUp("LShift"))
                 {
                     speed[0] = speed[1];
+                    /*
                     if (audioHandler != null) {
                         audioHandler.GetComponent<AudioMaster>().PlayDelay(9, 0.2f);
                     }
+                    */
                     anim.SetBool("Run", false);
                 }
             }
