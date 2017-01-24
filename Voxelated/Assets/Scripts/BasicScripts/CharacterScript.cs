@@ -204,6 +204,9 @@ public class CharacterScript : MonoBehaviour {
                                 if (bazookaOn)
                                 {
                                     handItems[3].GetComponent<BazookaScript>().Fire();
+                                    if (audioHandler != null) {
+                                        audioHandler.GetComponent<AudioMaster>().PlayDelay(10, 0.1f);
+                                    }
                                 }
                                 break;
                         }
@@ -243,6 +246,9 @@ public class CharacterScript : MonoBehaviour {
                 if (rb.velocity == new Vector3(0, 0, 0))
                 {
                     anim.SetBool("Crouch", true);
+                    if (audioHandler != null) {
+                        audioHandler.GetComponent<AudioMaster>().PlayDelay(7, 0.1f);
+                    }
                     Crouch();
                 }
             }
@@ -258,6 +264,9 @@ public class CharacterScript : MonoBehaviour {
                 if (rb.velocity == new Vector3(0, 0, 0))
                 {
                     anim.SetBool("Crouch", false);
+                    if (audioHandler != null) {
+                        audioHandler.GetComponent<AudioMaster>().PlayDelay(8, 0.5f);
+                    }
                     Crouch();
                 }
             }
@@ -276,6 +285,9 @@ public class CharacterScript : MonoBehaviour {
                 if (Input.GetButtonUp("LShift"))
                 {
                     speed[0] = speed[1];
+                    if (audioHandler != null) {
+                        audioHandler.GetComponent<AudioMaster>().PlayDelay(9, 0.2f);
+                    }
                     anim.SetBool("Run", false);
                 }
             }
@@ -594,6 +606,12 @@ public class CharacterScript : MonoBehaviour {
                 speedTimeBonus = 0.5f;
                 anim.speed = 0.5f;
                 break;
+        }
+    }
+
+    public void HpShieldPickupSound() {
+        if (audioHandler != null) {
+            audioHandler.GetComponent<AudioMaster>().PlaySound(6);
         }
     }
 }

@@ -8,7 +8,9 @@ public class HealthPickUp : MonoBehaviour {
     void OnTriggerEnter(Collider c)
     {
         if(c.transform.tag == "Player")
+
         {
+            c.transform.GetComponent<CharacterScript>().HpShieldPickupSound();
             switch (type)
             {
                 case 0:

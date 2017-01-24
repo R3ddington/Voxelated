@@ -9,6 +9,7 @@ public class ShieldPickUp : MonoBehaviour {
     {
         if (c.transform.tag == "Player")
         {
+            c.transform.GetComponent<CharacterScript>().HpShieldPickupSound();
             switch (type)
             {
                 case 0:
